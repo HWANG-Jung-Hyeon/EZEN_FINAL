@@ -7,6 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-메인페이지입니다.
+<a href="member/memRegist">회원 가입</a><br/>
+<a href="employees/emp_regist">직원 등록</a><br/>
 </body>
 </html>
