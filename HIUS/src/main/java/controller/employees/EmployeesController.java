@@ -7,6 +7,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class EmployeesController {
 	@RequestMapping("/employees/emp_regist")
 	public String emp_regist() {
-		return "employees/emp_regist";
+		return "/employees/emp_regist";
 	}
 }
