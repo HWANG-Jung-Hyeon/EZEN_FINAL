@@ -5,6 +5,7 @@
 			http://www.springframework.org/schema/beans 
 			http://www.springframework.org/schema/beans/spring-beans.xsd">
 			<bean class="controller.main.MainController"/>
+			<bean class="controller.employees.EmployeesController"/>
 </beans>
 
 
