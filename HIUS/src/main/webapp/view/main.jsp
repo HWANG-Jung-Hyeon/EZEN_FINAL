@@ -1,13 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
-<a href="/employees/emp_regist">Á÷¿øµî·Ï</a><br />
-<a href="member/memRegist">È¸¿øµî·Ï</a><br />
+<a href="/employees/emp_regist">ì§ì›ë“±ë¡</a><br />
+<a href="member/memRegist">íšŒì›ë“±ë¡</a><br />
 </body>
 </html>
