@@ -15,7 +15,7 @@ public class MemberController {
 	public String MemRegist() {
 	 return "member/memRegist";
 	}
-	@RequestMapping("MemberJoinAction")
+	@RequestMapping("member/MemberJoinAction")
 	public String memJoin(MemberCommand memberCommand) {
 		memberJoinService.numUpdate(memberCommand);
 		return "redirect:/member/memRegist";

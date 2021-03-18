@@ -57,7 +57,6 @@
  			 여자 : <input type="radio" value="F" name="GENDER" id  = "GENDER">
  		</td>
 	</tr>
-
 	<tr>
  		<th >닉네임</th>
  		<td ><input type = "text" name="NICKNAME" size = "30" maxlength="28" id="NICKNAME">
