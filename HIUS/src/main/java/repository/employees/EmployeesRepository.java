@@ -5,13 +5,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import model.EmpDTO;
 
+
+
 public class EmployeesRepository {
 	@Autowired
-	private SqlSession sqlSession;
-	private final String namespace= "HIUS.mappers.employeesMapper";
+	SqlSession sqlSession;
+	String namespace= "HIUS.mappers.employeesMapper";
 	String statement;
-	public void empinsert(EmpDTO dto) {
-		statement = namespace + ".empInsert";
-		sqlSession.insert(statement,dto);
+	public Integer insertEmployee(EmpDTO empDTO) {
+		statement = namespace + ".employeesInsert";
+		return sqlSession.update(statement,empDTO );
+		
 	}
 }

@@ -4,15 +4,15 @@ import java.util.Date;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
-public class EmpCommand {
+public class EmployeesCommand {
 	String EMP_ID;
 	String EMP_PW;
 	String EMP_NAME;
-	@DateTimeFormat(pattern="yyyy-MM-dd")
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	Date EMP_BIRTH;
 	String EMP_EMAIL;
 	String EMP_ADDR;
-	String Gender;
+	String GENDER;
 	String EMP_PH;
 	public String getEMP_ID() {
 		return EMP_ID;
@@ -50,11 +50,11 @@ public class EmpCommand {
 	public void setEMP_ADDR(String eMP_ADDR) {
 		EMP_ADDR = eMP_ADDR;
 	}
-	public String getGender() {
-		return Gender;
+	public String getGENDER() {
+		return GENDER;
 	}
-	public void setGender(String gender) {
-		Gender = gender;
+	public void setGENDER(String gENDER) {
+		GENDER = gENDER;
 	}
 	public String getEMP_PH() {
 		return EMP_PH;

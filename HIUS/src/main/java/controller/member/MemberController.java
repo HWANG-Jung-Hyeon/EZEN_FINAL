@@ -20,5 +20,4 @@ public class MemberController {
 		memberJoinService.numUpdate(memberCommand);
 		return "redirect:/member/memRegist";
 	}
-	
 }

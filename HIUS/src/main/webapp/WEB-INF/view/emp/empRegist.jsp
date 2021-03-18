@@ -47,8 +47,8 @@
 	<tr>
  		<th >성별</th>
  		<td  >
- 			남자 : <input type="radio" value="M" name="Gender"  id  = "Gender" checked="checked">
- 			 여자 : <input type="radio" value="F" name="Gender" id  = "Gender">
+ 			남자 : <input type="radio" value="M" name="GENDER"  id  = "Gender" checked="checked">
+ 			 여자 : <input type="radio" value="F" name="GENDER" id  = "Gender">
  		</td>
 	</tr>
 	<tr>

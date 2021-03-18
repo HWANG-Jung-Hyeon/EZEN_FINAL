@@ -10,12 +10,21 @@ public class EmpDTO {
 	Timestamp EMP_BIRTH;
 	String EMP_EMAIL;
 	String EMP_ADDR;
-	String Gender;
+	String gender;
 	String EMP_PH;
 	Timestamp HIRE_DATE;
 	String ACC_NO;
 	String EMP_JOB;
 	String DEP;
+	
+	
+
+	public String getGender() {
+		return gender;
+	}
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
 	public String getEMP_ID() {
 		return EMP_ID;
 	}
@@ -58,12 +67,7 @@ public class EmpDTO {
 	public void setEMP_ADDR(String eMP_ADDR) {
 		EMP_ADDR = eMP_ADDR;
 	}
-	public String getGENDER() {
-		return Gender;
-	}
-	public void setGENDER(String gENDER) {
-		Gender = gENDER;
-	}
+
 	public String getEMP_PH() {
 		return EMP_PH;
 	}
