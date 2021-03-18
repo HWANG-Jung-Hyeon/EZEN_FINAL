@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form action="MemJoinAction" name = "frm" id="frm" method = "post">
+<form action="MemberJoinAction" name = "frm" id="frm" method = "post">
  <table width = "600" align = "center" border = 1 >
 	<caption> 등록</caption>
     <colgroup>
@@ -32,7 +32,7 @@
 	</tr>
 	<tr>
  		<th >회원 생년월일</th>
- 		<td ><input type = "text" name="MEM_BIRTH" size = "12" maxlength="10" id="MEM_BIRTH">
+ 		<td ><input type = "date" name="MEM_BIRTH" size = "12" maxlength="10" id="MEM_BIRTH">
  		</td>
 	</tr>
 	<tr>
@@ -53,8 +53,8 @@
 	<tr>
  		<th >성별</th>
  		<td  >
- 			 남자 : <input type="radio" value="M" name="Gender"  id  = "Gender" checked="checked">
- 			 여자 : <input type="radio" value="F" name="Gender" id  = "Gender">
+ 			 남자 : <input type="radio" value="M" name="GENDER"  id  = "GENDER" checked="checked">
+ 			 여자 : <input type="radio" value="F" name="GENDER" id  = "GENDER">
  		</td>
 	</tr>
 

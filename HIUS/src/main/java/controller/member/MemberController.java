@@ -20,5 +20,9 @@ public class MemberController {
 		memberJoinService.numUpdate(memberCommand);
 		return "redirect:/member/memRegist";
 	}
+	@RequestMapping("member/memberList")
+	public String memList() {
+		return "member/memberList";
+	}
 	
 }

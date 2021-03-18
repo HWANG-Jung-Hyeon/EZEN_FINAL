@@ -8,6 +8,7 @@
 </head>
 <body>
 <a href="member/memRegist">회원 가입</a><br/>
+<a href="member/memList">회원 리스트</a>
 <a href="employees/empRegist">직원 등록</a><br/>
 </body>
 </html>
