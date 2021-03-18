@@ -21,11 +21,6 @@
 	</tr>
 	<tr>
 	<tr>
- 		<th >회원 번호</th>
- 		<td ><input type = "text" name="MEM_NO" size = "12" maxlength="10" id="MEM_NO">
- 		</td>
-	</tr>
-	<tr>
  		<th >비밀번호</th>
  		<td ><input type = "password" name="MEM_PW" size = "12" maxlength="10" id="MEM_PW">
  		</td>
