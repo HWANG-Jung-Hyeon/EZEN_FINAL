@@ -21,6 +21,14 @@ public class MemberJoinService {
 		dto.setMEM_ADDR(memberCommand.getMEM_ADDR());
 		dto.setMEM_EMAIL(memberCommand.getMEM_EMAIL());
 		dto.setGENDER(memberCommand.getGENDER());
+		System.out.println(dto.getMEM_ID());
+		System.out.println(dto.getMEM_PW());
+		System.out.println(dto.getMEM_NAME());
+		System.out.println(dto.getMEM_BIRTH());
+		System.out.println(dto.getMEM_PH());
+		System.out.println(dto.getMEM_ADDR());
+		System.out.println(dto.getMEM_EMAIL());
+		System.out.println(dto.getGENDER());
 		memberRepository.memInsert(dto);
 	}
 }

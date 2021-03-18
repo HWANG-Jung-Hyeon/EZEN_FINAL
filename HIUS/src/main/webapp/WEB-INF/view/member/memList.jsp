@@ -7,9 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-<a href="member/memRegist">회원 가입</a><br/>
-<a href="member/memList">회원 리스트</a><br/>
-<a href="employees/empRegist">직원 등록</a><br/>
-<a href="employees/empList">직원 리스트 </a><br/>
+회원리스트
 </body>
 </html>
