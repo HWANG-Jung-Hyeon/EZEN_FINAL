@@ -8,6 +8,8 @@
 			<bean class="controller.employees.EmployeesController"/>
 			<bean class="repository.employees.EmployeesRepository"/>
 			<bean class="service.employees.EmployeesJoinService"/>
+			<bean class="service.employees.EmployeesListService"/>
+			
 </beans>
 
 

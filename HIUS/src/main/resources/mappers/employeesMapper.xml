@@ -7,4 +7,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	insert into emp (EMP_ID, EMP_NO, EMP_PW, EMP_NAME, EMP_BIRTH, EMP_EMAIL, EMP_ADDR, gender, EMP_PH, HIRE_DATE, ACC_NO, EMP_JOB, DEP)
 	values (#{EMP_ID}, (select nvl(max(emp_no),0) + 1 from emp) ,#{EMP_PW},#{EMP_NAME},#{EMP_BIRTH},#{EMP_EMAIL},#{EMP_ADDR},#{gender},#{EMP_PH},sysdate,null,null,null)
 </insert>
+<select id="empSelect" resultType="model.EmpDTO">
+	select EMP_ID, EMP_PW, EMP_NO, EMP_NAME, EMP_BIRTH, EMP_EMAIL, EMP_ADDR, GENDER, EMP_PH, HIRE_DATE, ACC_NO, EMP_JOB, DEP from emp
+</select>	
 </mapper>
