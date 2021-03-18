@@ -14,7 +14,7 @@ public class EmployeesController {
 	EmployeesJoinService employeesJoinService;
 	@RequestMapping("empRegist")
 	public String empRegist() {
-		return "employees/empregist";
+		return "employees/empRegist";
 	}
 	@RequestMapping("empJoinAction")
 	public String empJoin(EmpCommand empCommand) {
