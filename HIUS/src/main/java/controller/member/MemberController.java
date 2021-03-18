@@ -20,12 +20,8 @@ public class MemberController {
 		memberJoinService.numUpdate(memberCommand);
 		return "redirect:/member/memRegist";
 	}
-<<<<<<< HEAD
-=======
 	@RequestMapping("member/memberList")
 	public String memList() {
 		return "member/memberList";
 	}
-	
->>>>>>> branch 'main' of https://github.com/pkjohn91/EzenITFinalProject.git
 }
