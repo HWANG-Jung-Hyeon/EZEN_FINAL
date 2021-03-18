@@ -1,12 +1,15 @@
 package command;
 
-import java.sql.Timestamp;
+import java.util.Date;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 public class EmpCommand {
 	String EMP_ID;
 	String EMP_PW;
 	String EMP_NAME;
-	Timestamp EMP_BIRTH;
+	@DateTimeFormat(pattern="yyyy-MM-dd")
+	Date EMP_BIRTH;
 	String EMP_EMAIL;
 	String EMP_ADDR;
 	String Gender;
@@ -29,10 +32,10 @@ public class EmpCommand {
 	public void setEMP_NAME(String eMP_NAME) {
 		EMP_NAME = eMP_NAME;
 	}
-	public Timestamp getEMP_BIRTH() {
+	public Date getEMP_BIRTH() {
 		return EMP_BIRTH;
 	}
-	public void setEMP_BIRTH(Timestamp eMP_BIRTH) {
+	public void setEMP_BIRTH(Date eMP_BIRTH) {
 		EMP_BIRTH = eMP_BIRTH;
 	}
 	public String getEMP_EMAIL() {

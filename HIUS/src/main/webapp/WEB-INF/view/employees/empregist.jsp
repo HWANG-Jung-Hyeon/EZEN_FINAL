@@ -31,7 +31,7 @@
 	</tr>
 	<tr>
  		<th >직원 생년월일</th>
- 		<td ><input type = "text" name="EMP_BIRTH" size = "12" maxlength="10" id="EMP_BIRTH">
+ 		<td ><input type = "date" name="EMP_BIRTH" size = "12" maxlength="10" id="EMP_BIRTH">
  		</td>
 	</tr>
 	<tr>
