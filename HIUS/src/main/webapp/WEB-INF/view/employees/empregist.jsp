@@ -7,8 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form action="" name = "frm" id="frm" 
-	method = "post">
+<form action="empJoinAction" name = "frm" id="frm" method = "post">
  <table width = "600" align = "center" border = 1 >
 	<caption>직원 등록</caption>
     <colgroup>
@@ -56,6 +55,13 @@
  		<th >직원 연락처</th>
  		<td ><input type = "text" name="EMP_PH" size = "30" maxlength="28" id="EMP_PH">
  		</td>
+	</tr>
+	<tr>
+		<td colspan="2" align="center">
+			<input type= "submit" value="가입완료"/>
+			<input type= "reset" value="다시 입력"/>
+			<input type= "button" value="취소"/>
+		</td>
 	</tr>
 </table>
 
