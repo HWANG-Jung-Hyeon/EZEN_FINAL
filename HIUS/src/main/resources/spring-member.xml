@@ -5,5 +5,6 @@
 			http://www.springframework.org/schema/beans 
 			http://www.springframework.org/schema/beans/spring-beans.xsd">
 		<bean class="controller.member.MemberController"/>
-	
+	    <bean class="repository.member.MemberRepository"/>
+	    <bean class="service.member.MemberJoinService"/>
 </beans>
