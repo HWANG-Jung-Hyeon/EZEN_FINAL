@@ -18,7 +18,6 @@ public class EmployeesController {
 	}
 	@RequestMapping("empJoinAction")
 	public String empJoin(EmpCommand empCommand) {
-		System.out.println("xbvzxdvdazbv");
 		employeesJoinService.numUpdate(empCommand);
 		return "redirect:/employees/empRegist";
 	}
