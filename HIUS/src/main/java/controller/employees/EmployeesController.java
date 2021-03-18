@@ -14,12 +14,13 @@ public class EmployeesController {
 	EmployeesJoinService employeesJoinService;
 	@RequestMapping("empRegist")
 	public String empRegist() {
-		return "employees/empregist";
+		return "employees/empRegist";
 	}
 	@RequestMapping("empJoinAction")
 	public String empJoin(EmpCommand empCommand) {
+		System.out.println("xbvzxdvdazbv");
 		employeesJoinService.numUpdate(empCommand);
-		return "redirect:employees/empregist";
+		return "redirect:/employees/empRegist";
 	}
 
 }

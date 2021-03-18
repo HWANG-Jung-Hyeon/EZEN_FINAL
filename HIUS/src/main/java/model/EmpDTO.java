@@ -10,7 +10,7 @@ public class EmpDTO {
 	Timestamp EMP_BIRTH;
 	String EMP_EMAIL;
 	String EMP_ADDR;
-	String GENDER;
+	String Gender;
 	String EMP_PH;
 	Timestamp HIRE_DATE;
 	String ACC_NO;
@@ -59,10 +59,10 @@ public class EmpDTO {
 		EMP_ADDR = eMP_ADDR;
 	}
 	public String getGENDER() {
-		return GENDER;
+		return Gender;
 	}
 	public void setGENDER(String gENDER) {
-		GENDER = gENDER;
+		Gender = gENDER;
 	}
 	public String getEMP_PH() {
 		return EMP_PH;
