@@ -15,4 +15,18 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	HIRE_DATE, ACC_NO, EMP_JOB, DEP from emp
 	where EMP_ID= #{EMP_ID}
 </select>
+<select id="empModify"   parameterType="string" resultType="model.EmpDTO">
+	select EMP_ID, EMP_PW, EMP_NO, EMP_NAME, EMP_BIRTH, EMP_EMAIL, EMP_ADDR, GENDER, EMP_PH, 
+	HIRE_DATE, ACC_NO, EMP_JOB, DEP from emp
+	where EMP_ID= #{EMP_ID}
+</select>
+<update id="empModifyAction" parameterType="model.EmpDTO">
+	update emp
+	set EMP_EMAIL = #{EMP_EMAIL}, EMP_ADDR = #{EMP_ADDR}, EMP_PH = #{EMP_PH}
+	where EMP_ID= #{EMP_ID} and EMP_PW= #{EMP_PW}
+</update>
+<delete id="empDelete" parameterType="String">
+	delete from emp
+	where EMP_ID= #{EMP_ID}
+</delete>
 </mapper>
