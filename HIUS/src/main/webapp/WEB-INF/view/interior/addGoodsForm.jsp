@@ -4,12 +4,13 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>HIUS :: 인테리어 시공</title>
+<title>HIUS :: 새 상품 추가하기</title>
 </head>
 <body>
-<a href="#">상담 신청</a>
-<a href="#">시공 후기</a>
-<a href="#">인테리어 시공</a> <!-- 상품 리스트 -->
-
+<form action="" method="post" name="frm" enctype="multipart/form-data">
+<table>
+	
+</table>
+</form>
 </body>
 </html>
