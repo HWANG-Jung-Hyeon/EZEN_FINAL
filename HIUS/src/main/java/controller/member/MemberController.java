@@ -13,6 +13,8 @@ import service.member.MemberListService;
 public class MemberController {
 	@Autowired
 	MemberJoinService memberJoinService;
+	@Autowired
+	MemberListService memberListService;
 	@RequestMapping("member/memRegist")
 	public String MemRegist() {
 	 return "member/memRegist";
@@ -24,7 +26,7 @@ public class MemberController {
 	}
 	@RequestMapping("member/memberList")
 	public String memList(Model model) {
-		MemberListService.memList(model);
+		memberListService.memList(model);
 		return "member/memberList";
 	}
 }

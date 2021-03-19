@@ -17,7 +17,7 @@ public class MemberRepository {
 		statement = namespace + ".memInsert";
 		sqlSession.insert(statement,dto);
 	}
-	public List<MemDTO> memSelect(Model model) {
+	public List<MemDTO> memSelect() {
 		statement = namespace + ".memSelect";
 		return sqlSession.selectList(statement);
 
