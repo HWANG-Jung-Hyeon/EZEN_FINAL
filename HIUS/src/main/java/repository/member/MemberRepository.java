@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.ui.Model;
 
 import model.MemDTO;
 
@@ -17,10 +16,18 @@ public class MemberRepository {
 		statement = namespace + ".memInsert";
 		sqlSession.insert(statement,dto);
 	}
-	public List<MemDTO> memSelect() {
+	public MemDTO memSelect(MemDTO dto) {
 		statement = namespace + ".memSelect";
-		return sqlSession.selectList(statement);
+		return sqlSession.selectOne(statement, dto);
 
+	}
+	public List<MemDTO> getMemList(MemDTO dto) {
+		statement = namespace + ".memSelect";
+		return sqlSession.selectList(statement,dto);
+	}
+	public Integer UpdateMember(MemDTO dto) {
+		statement = namespace + ".memupdate";
+		return sqlSession.update(statement, dto);
 	}
 
 }

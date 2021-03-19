@@ -3,6 +3,7 @@ package service.member;
 import java.sql.Timestamp;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import command.MemberCommand;
 import model.MemDTO;
@@ -11,6 +12,8 @@ import repository.member.MemberRepository;
 public class MemberJoinService {
 	@Autowired
 	MemberRepository memberRepository;
+	@Autowired
+	BCryptPasswordEncoder bcryptPasswordEncoder;
 	public void numUpdate(MemberCommand memberCommand) {				
 		MemDTO dto = new MemDTO();
 		dto.setMEM_ID(memberCommand.getMEM_ID());
@@ -21,14 +24,9 @@ public class MemberJoinService {
 		dto.setMEM_ADDR(memberCommand.getMEM_ADDR());
 		dto.setMEM_EMAIL(memberCommand.getMEM_EMAIL());
 		dto.setGENDER(memberCommand.getGENDER());
-		System.out.println(dto.getMEM_ID());
-		System.out.println(dto.getMEM_PW());
-		System.out.println(dto.getMEM_NAME());
-		System.out.println(dto.getMEM_BIRTH());
-		System.out.println(dto.getMEM_PH());
-		System.out.println(dto.getMEM_ADDR());
-		System.out.println(dto.getMEM_EMAIL());
-		System.out.println(dto.getGENDER());
 		memberRepository.memInsert(dto);
+		String pw = bcryptPasswordEncoder.encode(memberCommand.getMEM_PW());
+		dto.setMEM_PW(pw);
 	}
+	
 }

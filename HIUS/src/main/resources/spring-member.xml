@@ -8,4 +8,5 @@
 	    <bean class="repository.member.MemberRepository"/>
 	    <bean class="service.member.MemberJoinService"/>
 	    <bean class="service.member.MemberListService"/>
+	    <bean class="service.member.MemberDetailService"/>
 </beans>
