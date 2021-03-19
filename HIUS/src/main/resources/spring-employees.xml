@@ -9,6 +9,7 @@
 			<bean class="repository.employees.EmployeesRepository"/>
 			<bean class="service.employees.EmployeesJoinService"/>
 			<bean class="service.employees.EmployeesListService"/>
+			<bean class="service.employees.EmployeesDetailService"/>
 			
 </beans>
 
