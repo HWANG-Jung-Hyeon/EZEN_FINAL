@@ -5,4 +5,7 @@
 	insert into mem (MEM_ID, MEM_NO, MEM_PW ,MEM_NAME, MEM_BIRTH, MEM_PH, MEM_ADDR, MEM_EMAIL, GENDER, NICKNAME, MEM_REG)
 	values (#{MEM_ID}, (select nvl(max(mem_no),0) + 1 from MEM) , #{MEM_PW}, #{MEM_NAME}, #{MEM_BIRTH}, #{MEM_PH}, #{MEM_ADDR}, #{MEM_EMAIL}, #{GENDER}, null, SYSDATE)
 </insert>
+<select id ="memSelect" resultType="model.MemDTO">
+	select MEM_ID, MEM_NO, MEM_PW, MEM_NAME, MEM_BIRTH, MEM_PH, MEM_ADDR, MEM_EMAIL, GENDER, NICKNAME, MEM_REQ from mem
+</select>
 </mapper>
