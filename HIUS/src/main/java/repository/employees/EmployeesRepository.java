@@ -22,4 +22,8 @@ public class EmployeesRepository {
 		statement = namespace + ".empSelect";
 		return sqlSession.selectList(statement);
 	}
+	public EmpDTO empDetail(String EMP_ID){
+		statement = namespace + ".empDetail";
+		return sqlSession.selectOne(statement, EMP_ID);
+	}
 }
