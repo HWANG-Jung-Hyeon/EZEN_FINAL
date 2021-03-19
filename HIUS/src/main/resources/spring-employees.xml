@@ -10,6 +10,7 @@
 			<bean class="service.employees.EmployeesJoinService"/>
 			<bean class="service.employees.EmployeesListService"/>
 			<bean class="service.employees.EmployeesDetailService"/>
+			<bean class="service.employees.EmpPloyeesDeleteService"/>
 			
 </beans>
 
