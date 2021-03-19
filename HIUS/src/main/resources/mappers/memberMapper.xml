@@ -8,4 +8,16 @@
 <select id ="memSelect" resultType="model.MemDTO">
 	select MEM_ID, MEM_NO, MEM_PW, MEM_NAME, MEM_BIRTH, MEM_PH, MEM_ADDR, MEM_EMAIL, GENDER, NICKNAME, MEM_REQ from mem
 </select>
+<select id="memDetail" parameterType="String" resultType="model.MemDTO">
+	select MEM_ID, MEM_NO, MEM_PW ,MEM_NAME, MEM_BIRTH, MEM_PH, MEM_ADDR, MEM_EMAIL, GENDER, NICKNAME, MEM_REG from mem
+	where MEM_ID=#{MEM_Id}
+</select>
+<update id="memUpdate" parameterType="mem" >
+	update mem
+	<trim prefix="set" suffixOverrides=",">
+	MEM_ADDR = #{MEM_ADDR},
+	MEM_PH = #{MEM_PH}
+	</trim>
+	where MEM_ID = #{MEM_ID}
+</update>
 </mapper>
