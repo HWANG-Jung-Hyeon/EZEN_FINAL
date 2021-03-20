@@ -1,11 +1,10 @@
 package controller.member;
 
-import javax.servlet.http.HttpSession;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import command.MemberCommand;
 import service.member.MemberDetailService;
@@ -24,27 +23,34 @@ public class MemberController {
 	public String MemRegist() {
 	 return "member/memRegist";
 	}
-	@RequestMapping("member/MemberJoinAction")
-	public String memJoin(MemberCommand memberCommand) {
+	@RequestMapping("MemberJoinAction")
+	public String memberJoin(MemberCommand memberCommand) {
 		memberJoinService.numUpdate(memberCommand);
 		return "redirect:/member/memRegist";
 	}
-	@RequestMapping("member/memberList")
-	public String memList(Model model) {
-		memberListService.memList(model);
+	@RequestMapping("memberList")
+	public String memberList(Model model) {
+		memberListService.memberList(model);
 		return "member/memberList";
 	}
-	@RequestMapping("memDetail")
-	public String memDetail(HttpSession session, Model model) {
-	 memberDetailService.execute(session, model);
+	@RequestMapping("memberDetail")
+	public String memberDetail(
+			@RequestParam(value="mem_id") String memId, Model model) {
+	 System.out.println(memId);
+	 memberDetailService.memberDetail(memId, model);
 	 return "member/memberDetail";
 	}
-	@RequestMapping("memModify")
-	public String memModify(HttpSession session, Model model) {
-		memberDetailService.execute(session,model);
+	@RequestMapping("memberModify")
+	public String memberModify(
+			@RequestParam(value="mem_id") String memId, Model model) {
+		memberDetailService.memberModify(memId,model);
 		return "member/memModify";
 	}
-	
+	@RequestMapping("memberModifyAction")
+	public String MemberModifyAction(MemberCommand memberCommand, Model model) {
+		memberDetailService.memberModifyAction(memberCommand, model);
+		return " redirect:/member/memberDetail?memId="+memberCommand.getMemId();
+	}
 	
 	
 }

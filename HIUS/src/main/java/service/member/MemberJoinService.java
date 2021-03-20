@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import command.MemberCommand;
-import model.MemDTO;
+import model.MemberDTO;
 import repository.member.MemberRepository;
 
 public class MemberJoinService {
@@ -15,18 +15,18 @@ public class MemberJoinService {
 	@Autowired
 	BCryptPasswordEncoder bcryptPasswordEncoder;
 	public void numUpdate(MemberCommand memberCommand) {				
-		MemDTO dto = new MemDTO();
-		dto.setMEM_ID(memberCommand.getMEM_ID());
-		dto.setMEM_PW(memberCommand.getMEM_PW());
-		dto.setMEM_NAME(memberCommand.getMEM_NAME());
-		dto.setMEM_BIRTH(new Timestamp(memberCommand.getMEM_BIRTH().getTime()));
-		dto.setMEM_PH(memberCommand.getMEM_PH());
-		dto.setMEM_ADDR(memberCommand.getMEM_ADDR());
-		dto.setMEM_EMAIL(memberCommand.getMEM_EMAIL());
-		dto.setGENDER(memberCommand.getGENDER());
-		memberRepository.memInsert(dto);
-		String pw = bcryptPasswordEncoder.encode(memberCommand.getMEM_PW());
-		dto.setMEM_PW(pw);
+		MemberDTO dto = new MemberDTO();
+		dto.setMemId(memberCommand.getMemId());
+		dto.setMemPw(memberCommand.getMemPw());
+		dto.setMemName(memberCommand.getMemName());
+		dto.setMemBirth(new Timestamp(memberCommand.getMemBirth().getTime()));
+		dto.setMemPh(memberCommand.getMemPh());
+		dto.setMemAddr(memberCommand.getMemAddr());
+		dto.setMemEmail(memberCommand.getMemEmail());
+		dto.setGender(memberCommand.getGender());
+		memberRepository.memberInsert(dto);
+		String pw = bcryptPasswordEncoder.encode(memberCommand.getMemPw());
+		dto.setMemPw(pw);
 	}
 	
 }

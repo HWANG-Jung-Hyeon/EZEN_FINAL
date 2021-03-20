@@ -10,12 +10,14 @@
 <body>
 회원리스트<br />
 <table border="1">
-<tr><td>번호</td><td>회원번호</td><td>회원 ID</td><td>회원 이름</td></tr>
-<c:forEach items="${memList}" var="dto" varStatus="memNum">
+<tr><td>번호</td><td>회원 ID</td><td>회원 이름</td><td>회원 연락처</td></tr>
+<c:forEach items="${memberList}" var="dto" varStatus="memNum">
 <tr><td>${memNum.count }</td>
-<td><a href="memDetail?MEM_ID=${dto.MEM_ID }" >${dto.MEM_NO }</a></td>
-<td>${dto.MEM_ID }</td>
-<td>${dto.MEM_NAME }</td></tr>
+<td><a href="memDetail?MEM_ID=${dto.memId }" >${dto.memNo }</a></td>
+<td>${dto.memId }</td>
+<td>${dto.memName }</td>
+<td>${dto.memPh }</td>
+</tr>
 </c:forEach>
 </table>
 </body>

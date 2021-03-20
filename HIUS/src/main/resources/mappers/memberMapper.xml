@@ -1,23 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace ="HIUS.mappers.memberMapper">
-<insert id="memInsert" parameterType="model.MemDTO">
-	insert into mem (MEM_ID, MEM_NO, MEM_PW ,MEM_NAME, MEM_BIRTH, MEM_PH, MEM_ADDR, MEM_EMAIL, GENDER, NICKNAME, MEM_REG)
-	values (#{MEM_ID}, (select nvl(max(mem_no),0) + 1 from MEM) , #{MEM_PW}, #{MEM_NAME}, #{MEM_BIRTH}, #{MEM_PH}, #{MEM_ADDR}, #{MEM_EMAIL}, #{GENDER}, null, SYSDATE)
+<insert id="memberInsert" parameterType="model.MemberDTO">
+	insert into mem (mem_id, mem_pw, mem_name, mem_birth, mem_ph, mem_addr, mem_email, gender, mem_reg)
+	values (#{memId}, #{memPw}, #{memName}, #{memBirth}, #{memPh}, #{memAddr}, #{memEmail}, #{gender}, SYSDATE)
 </insert>
-<select id ="memSelect" resultType="model.MemDTO">
-	select MEM_ID, MEM_NO, MEM_PW, MEM_NAME, MEM_BIRTH, MEM_PH, MEM_ADDR, MEM_EMAIL, GENDER, NICKNAME, MEM_REQ from mem
+
+<select id ="memberSelect" resultType="model.MemberDTO">
+	select memId, memPw, memName, memBirth, memPh, memAddr, memEmail, gender, memReg from mem
 </select>
-<select id="memDetail" parameterType="String" resultType="model.MemDTO">
-	select MEM_ID, MEM_NO, MEM_PW ,MEM_NAME, MEM_BIRTH, MEM_PH, MEM_ADDR, MEM_EMAIL, GENDER, NICKNAME, MEM_REG from mem
-	where MEM_ID=#{MEM_Id}
+
+<select id="memberDetail" parameterType="String" resultType="model.MemberDTO">
+	select mem_id, mem_no, mem_pw, mem_name, mem_birth, mem_ph, mem_addr, mem_email, gender, mem_reg from mem
+	where mem_id=#{memId}
 </select>
-<update id="memUpdate" parameterType="mem" >
+<select id="memberModify" parameterType="String" resultType="model.MemberDTO" >
+	select mem_id, mem_pw, mem_name, mem_birth, mem_ph, mem_addr, mem_email, gender, mem_reg from mem
+	where mem_id=#{memId}
+</select>
+<update id="memberModifyAction" parameterType="model.MemberDTO">
 	update mem
-	<trim prefix="set" suffixOverrides=",">
-	MEM_ADDR = #{MEM_ADDR},
-	MEM_PH = #{MEM_PH}
-	</trim>
-	where MEM_ID = #{MEM_ID}
+	set mem_email = #{memEmail}, mem_addr= #{memAddr}, mem_ph=#{memPh}
+	where mem_id =${memId} and Mem_pw = ${memPw}
 </update>
+
 </mapper>

@@ -1,19 +1,18 @@
-package command;
+package model;
 
-import java.util.Date;
+import java.sql.Timestamp;
 
-import org.springframework.format.annotation.DateTimeFormat;
-
-public class MemberCommand {
+public class MemberDTO {
 	String memId;
 	String memPw;
 	String memName;
-	@DateTimeFormat(pattern="yyyy-MM-dd")
-	Date memBirth;
+	Timestamp memBirth;
 	String memPh;
 	String memAddr;
 	String memEmail;
 	String gender;
+	Timestamp memReg;
+	
 	public String getMemId() {
 		return memId;
 	}
@@ -32,10 +31,10 @@ public class MemberCommand {
 	public void setMemName(String memName) {
 		this.memName = memName;
 	}
-	public Date getMemBirth() {
+	public Timestamp getMemBirth() {
 		return memBirth;
 	}
-	public void setMemBirth(Date memBirth) {
+	public void setMemBirth(Timestamp memBirth) {
 		this.memBirth = memBirth;
 	}
 	public String getMemPh() {
@@ -61,6 +60,12 @@ public class MemberCommand {
 	}
 	public void setGender(String gender) {
 		this.gender = gender;
+	}
+	public Timestamp getMemReg() {
+		return memReg;
+	}
+	public void setMemReg(Timestamp memReg) {
+		this.memReg = memReg;
 	}
 	
 	

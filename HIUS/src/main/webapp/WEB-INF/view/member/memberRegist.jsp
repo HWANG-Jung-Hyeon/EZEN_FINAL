@@ -16,50 +16,45 @@
     </colgroup>
 	<tr>
  		<th >회원 ID</th>
- 		<td ><input type = "text" name="MEM_ID" size = "12" maxlength="10" id="MEM_ID">
+ 		<td ><input type = "text" name="memId" size = "12" maxlength="10" id="memId">
  		</td>
 	</tr>
 	<tr>
 	<tr>
  		<th >비밀번호</th>
- 		<td ><input type = "password" name="MEM_PW" size = "12" maxlength="10" id="MEM_PW">
+ 		<td ><input type = "password" name="memPw" size = "12" maxlength="10" id="memPw">
  		</td>
 	</tr>
 	<tr>
  		<th >회원 이름</th>
- 		<td ><input type = "text" name="MEM_NAME" size = "12" maxlength="10" id="MEM_NAME">
+ 		<td ><input type = "text" name="memName" size = "12" maxlength="10" id="memName">
  		</td>
 	</tr>
 	<tr>
  		<th >회원 생년월일</th>
- 		<td ><input type = "date" name="MEM_BIRTH" size = "12" maxlength="10" id="MEM_BIRTH">
+ 		<td ><input type = "date" name="memBirth" size = "12" maxlength="10" id="memBirth">
  		</td>
 	</tr>
 	<tr>
  		<th >회원 연락처</th>
- 		<td ><input type = "text" name="MEM_PH" size = "30" maxlength="28" id="MEM_PH">
+ 		<td ><input type = "text" name="memPh" size = "30" maxlength="28" id="memPh">
  		</td>
 	</tr>
 	<tr>
  		<th >회원 주소</th>
- 		<td ><input type = "text" name="MEM_ADDR" size = "12" maxlength="10" id="MEM_ADDR">
+ 		<td ><input type = "text" name="memAddr" size = "12" maxlength="10" id="memAddr">
  		</td>
 	</tr>
 	<tr>
  		<th >회원 이메일</th>
- 		<td ><input type = "text" name="MEM_EMAIL" size = "12" maxlength="10" id="MEM_EMAIL">
+ 		<td ><input type = "text" name="memEmail" size = "12" maxlength="10" id="memEmail">
  		</td>
 	</tr>
 	<tr>
  		<th >성별</th>
  		<td  >
- 			 남자 : <input type="radio" value="M" name="GENDER"  id  = "GENDER" checked="checked">
- 			 여자 : <input type="radio" value="F" name="GENDER" id  = "GENDER">
- 		</td>
-	</tr>
-	<tr>
- 		<th >닉네임</th>
- 		<td ><input type = "text" name="NICKNAME" size = "30" maxlength="28" id="NICKNAME">
+ 			 남자 : <input type="radio" value="M" name="gender"  id  = "gender" checked="checked">
+ 			 여자 : <input type="radio" value="F" name="gender" id  = "gender">
  		</td>
 	</tr>
 	<tr>
