@@ -23,8 +23,10 @@
 
 	<!-- 의존객체 자동 주입 -->
 	<context:annotation-config />
-
-
+	<bean id="bcryptPasswordEncoder"
+		class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder">
+		<constructor-arg value="10"/>
+	</bean>	
 	<!-- file upload을하기 위한  -->
 	<bean id="multipartResolver" 
 		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">

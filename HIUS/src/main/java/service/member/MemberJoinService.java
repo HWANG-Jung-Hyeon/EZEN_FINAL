@@ -22,8 +22,7 @@ public class MemberJoinService {
 		dto.setMemAddr(memberCommand.getMemAddr());
 		dto.setMemEmail(memberCommand.getMemEmail());
 		dto.setGender(memberCommand.getGender());
-		dto.setMemPw(memberCommand.getMemPw());
-		memberRepository.memberInsert(dto);
+		memberRepository.insertMember(dto);
 		
 	}
 	

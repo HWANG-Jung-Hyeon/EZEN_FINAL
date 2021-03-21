@@ -12,7 +12,6 @@ public class MemberListService {
 	@Autowired
 	MemberRepository memberRepository;
 	public void memberList(Model model) {
-		MemberDTO dto = new MemberDTO();
 		List<MemberDTO> list = memberRepository.memberSelect();
 		model.addAttribute("memberList",list);
 	}

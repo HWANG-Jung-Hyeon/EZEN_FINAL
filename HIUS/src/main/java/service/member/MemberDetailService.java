@@ -14,13 +14,13 @@ import repository.member.MemberRepository;
 public class MemberDetailService {
 	@Autowired
 	MemberRepository memberRepository;
-	public void memberDetail( String mem_id, Model model) {
-		System.out.println(mem_id);
-		MemberDTO dto = memberRepository.memberDetail(mem_id);
+	public void memberDetail( String memId, Model model) {
+		System.out.println(memId);
+		MemberDTO dto = memberRepository.memberDetail(memId);
 		model.addAttribute("memberDetail", dto);
 	}
-	public void memberModify(String Memid, Model model) {
-		MemberDTO dto = new MemberDTO();
+	public void memberModify(String memId, Model model) {
+		MemberDTO dto = memberRepository.memberModify(memId);
 		model.addAttribute("memberModify",dto);
 	}
 	public void memberModifyAction(MemberCommand memberCommand, Model model) {
@@ -34,7 +34,5 @@ public class MemberDetailService {
 		dto.setMemPh(memberCommand.getMemPh());
 		memberRepository.memberModifyAction(dto);
 	}
-	
-		
 
 }

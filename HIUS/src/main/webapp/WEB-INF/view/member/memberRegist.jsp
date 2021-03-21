@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form action="MemberJoinAction" name = "frm" id="frm" method = "post">
+<form action="memberJoinAction" name = "frm" id="frm" method = "post">
  <table width = "600" align = "center" border = 1 >
 	<caption> 등록</caption>
     <colgroup>
@@ -37,17 +37,17 @@
 	</tr>
 	<tr>
  		<th >회원 연락처</th>
- 		<td ><input type = "text" name="memPh" size = "30" maxlength="28" id="memPh">
+ 		<td ><input type = "text" name="memPh" size = "15" maxlength="13" id="memPh">
  		</td>
 	</tr>
 	<tr>
  		<th >회원 주소</th>
- 		<td ><input type = "text" name="memAddr" size = "12" maxlength="10" id="memAddr">
+ 		<td ><input type = "text" name="memAddr" size = "30" maxlength="30" id="memAddr">
  		</td>
 	</tr>
 	<tr>
  		<th >회원 이메일</th>
- 		<td ><input type = "text" name="memEmail" size = "12" maxlength="10" id="memEmail">
+ 		<td ><input type = "text" name="memEmail" size = "30" maxlength="30" id="memEmail">
  		</td>
 	</tr>
 	<tr>

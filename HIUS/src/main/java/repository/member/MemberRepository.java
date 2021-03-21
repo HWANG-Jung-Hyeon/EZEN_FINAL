@@ -9,32 +9,42 @@ import model.MemberDTO;
 
 public class MemberRepository {
 	@Autowired
-	private SqlSession sqlSession;
-	private final String namespace ="HIUS.mappers.memberMapper";
+	SqlSession sqlSession;
+	String namespace ="HIUS.mappers.memberMapper";
 	String statement;
-	public void memberInsert(MemberDTO dto) {
+	public Integer insertMember(MemberDTO dto) {
 		statement = namespace + ".memberInsert";
-		sqlSession.insert(statement,dto);
+		return sqlSession.update(statement,dto);
 	}
 	public List<MemberDTO> memberSelect() {
 		statement = namespace + ".memberSelect";
-		return sqlSession.selectOne(statement);
+		return sqlSession.selectList(statement);
 	}
-	public MemberDTO memberDetail(String MemId) {
+	public MemberDTO memberDetail(String memId) {
 		statement = namespace + ".memberDetail";
-		return sqlSession.selectOne("statement", MemId);
+		return sqlSession.selectOne("statement", memId);
 	}
 	
-	public MemberDTO MemberModify(String MemId) {
+	public MemberDTO memberModify(String memId) {
 		statement = namespace + ".memupdate";
-		return sqlSession.selectOne(statement, MemId);
+		return sqlSession.selectOne(statement, memId);
 	}
 	public void memberModifyAction(MemberDTO dto) {
 		statement = namespace + ".memberModifyAction";
 		sqlSession.update(statement, dto);
 	}
-	public void MemberDelete(String memId) {
+	public Integer MemberDelete(MemberDTO dto) {
 		statement= namespace + ".memberDelete";
-		sqlSession.delete(statement, memId);
+		return sqlSession.delete(statement, dto);
 	}
+	public Integer pwUpdate(MemberDTO dto) {
+		statement= namespace + ".updateMemberPw";
+		return sqlSession.update(statement, dto);
+	}
+	public MemberDTO memberSelect(MemberDTO dto) {
+		statement = namespace + ".selectMember";
+		return sqlSession.selectOne(statement, dto);
+	}
+	
+	
 }

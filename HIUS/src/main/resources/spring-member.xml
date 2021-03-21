@@ -5,9 +5,13 @@
 			http://www.springframework.org/schema/beans 
 			http://www.springframework.org/schema/beans/spring-beans.xsd">
 		<bean class="controller.member.MemberController"/>
+		<bean class="controller.member.LoginController"/>
 	    <bean class="repository.member.MemberRepository"/>
 	    <bean class="service.member.MemberJoinService"/>
 	    <bean class="service.member.MemberListService"/>
 	    <bean class="service.member.MemberDetailService"/>
 	    <bean class="service.member.MemberDeleteService"/>
+	    <bean class="service.Auth.AuthService"/>
+	    <bean class="controller.member.MemberInfoController"/>
+	    <bean class="service.member.MemberPwModifyService"/>
 </beans>

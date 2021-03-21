@@ -5,9 +5,8 @@
 	insert into mem (mem_id, mem_pw, mem_name, mem_birth, mem_ph, mem_addr, mem_email, gender, mem_reg)
 	values (#{memId}, #{memPw}, #{memName}, #{memBirth}, #{memPh}, #{memAddr}, #{memEmail}, #{gender}, SYSDATE)
 </insert>
-
 <select id ="memberSelect" resultType="model.MemberDTO">
-	select memId, memPw, memName, memBirth, memPh, memAddr, memEmail, gender, memReg from mem
+	select mem_id, mem_pw, mem_name, mem_birth, mem_ph, mem_addr, mem_email, gender, mem_reg from mem
 </select>
 
 <select id="memberDetail" parameterType="String" resultType="model.MemberDTO">
@@ -27,4 +26,9 @@
 	delete from mem
 	where mem_id=#{memId}
 </delete>
+<update id="updateMemberPw" parameterType="model.MemberDTO">
+	update member
+	set mem_pw =#{memId}
+</update>
+
 </mapper>
