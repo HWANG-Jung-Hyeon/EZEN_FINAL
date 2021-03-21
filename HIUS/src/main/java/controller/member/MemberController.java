@@ -22,14 +22,14 @@ public class MemberController {
 	MemberDetailService memberDetailService;
 	@Autowired
 	MemberDeleteService memberDeleteService;
-	@RequestMapping("member/memRegist")
-	public String MemRegist() {
-	 return "member/memRegist";
+	@RequestMapping("member/memberRegist")
+	public String MemberRegist() {
+	 return "member/memberRegist";
 	}
 	@RequestMapping("MemberJoinAction")
 	public String memberJoin(MemberCommand memberCommand) {
 		memberJoinService.numUpdate(memberCommand);
-		return "redirect:/member/memRegist";
+		return "redirect:/member/memberRegist";
 	}
 	@RequestMapping("memberList")
 	public String memberList(Model model) {
