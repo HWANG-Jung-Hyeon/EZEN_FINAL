@@ -5,6 +5,6 @@
 			http://www.springframework.org/schema/beans 
 			http://www.springframework.org/schema/beans/spring-beans.xsd">
 		<bean class="controller.party.PartyController"/>
-		<bean class="repository.party.PartyRepository"/>
-		<bean class="service.party.PartyWriteService"/>
+		<bean id="PartyRepository" class="repository.party.PartyRepository"/>
+		<bean id="PartyWriteService" class="service.party.PartyWriteService"/>
 </beans>			

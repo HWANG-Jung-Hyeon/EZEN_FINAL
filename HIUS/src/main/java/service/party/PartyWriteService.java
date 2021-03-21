@@ -32,6 +32,7 @@ public class PartyWriteService {
 		dto.setPrOp(partyCommand.getPrOp());
 		dto.setPrPh(partyCommand.getPrPh());
 		
+		
 		String path="WEB-INF/view/partyRoom/upload";
 		String filePath = session.getServletContext().getRealPath(path);
 		String prImg = "";

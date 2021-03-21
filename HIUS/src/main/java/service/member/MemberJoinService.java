@@ -12,7 +12,7 @@ import repository.member.MemberRepository;
 public class MemberJoinService {
 	@Autowired
 	MemberRepository memberRepository;
-	public void numUpdate(MemberCommand memberCommand) {				
+	public void execute(MemberCommand memberCommand) {				
 		MemberDTO dto = new MemberDTO();
 		dto.setMemId(memberCommand.getMemId());
 		dto.setMemPw(memberCommand.getMemPw());

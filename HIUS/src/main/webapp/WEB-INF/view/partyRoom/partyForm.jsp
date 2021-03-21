@@ -35,12 +35,10 @@
 			<tr>
 				<td>파티룸 옵션</td>
 				<td>
-				<form:radiobutton path="prOp" id="prOp" value="A" checked="checked"/> 
-				<form:radiobutton path="prOp" id="prOp" value="B" checked="checked"/>
-				<form:radiobutton path="prOp" id="prOp" value="C" checked="checked"/>
-				<form:radiobutton path="prOp" id="prOp" value="D" checked="checked"/>
-				<form:radiobutton path="prOp" id="prOp" value="E" checked="checked"/>
-				<form:radiobutton path="prOp" id="prOp" value="F" checked="checked"/>
+				<form:radiobutton path="prOp" id="prOp" value="자쿠지" checked="checked"/> 
+				<form:radiobutton path="prOp" id="prOp" value="수영장" />
+				<form:radiobutton path="prOp" id="prOp" value="바베큐" />
+				<form:radiobutton path="prOp" id="prOp" value="복층" />
 				</td>
 			<tr />
 			<tr>

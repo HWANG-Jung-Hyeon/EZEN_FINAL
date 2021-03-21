@@ -1,23 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="partyMapper">
-<sql id="baseColumn">
-	 	PR_NO, PR_IMG, PR_PL, PR_CONTENT, PR_PRICE, PR_MAX, PR_MINTIME, PR_OP, PR_PH 
-</sql>
-<resultMap type="partyRoom" id="baseResultMap">
-	<id column = "PR_NO" jdbcType="VARCHAR" property="prNo"/>
-	<result column = "PR_IMG" jdbcType="VARCHAR" property="prImg"/>
-	<result column = "PR_PL" jdbcType="VARCHAR" property="prPl"/>
-	<result column = "PR_CONTENT" jdbcType="VARCHAR" property="prContent"/>
-	<result column = "PR_PRICE" jdbcType="NUMBER" property="prPrice"/>
-	<result column = "PR_MAX" jdbcType="VARCHAR" property="prMax"/>
-	<result column = "PR_MINTIME" jdbcType="TIMESTAMP" property="prMintime"/>
-	<result column = "PR_OP" jdbcType="VARCHAR" property="prOp"/>
-	<result column = "PR_PH" jdbcType="VARCHAR" property="PrPh"/>
-</resultMap>
-<insert id="partyInsert" parameterType="partyRoom">
-	insert into partyRoom( <include refid="baseColumn"/>)
-	values((select nvl(max(pr_no),0) + 1 from partyRoom),#{prImg},#{prPl},#{prContent},#{prPrice},#{prMax},#{prMintime},#{prOp},#{prPh})
+<mapper namespace ="HIUS.mappers.partyMapper">	
+<insert id="partyInsert" parameterType="pr">
+	insert into pr( pr_no, pr_img, pr_pl, pr_content, pr_price, pr_max, pr_mintime, pr_op, pr_ph )
+	values((select nvl(max(pr_no),0) + 1 from pr),#{prImg},#{prPl},#{prContent},#{prPrice},#{prMax},#{prMintime},#{prOp},#{prPh})
 </insert>
 </mapper>	

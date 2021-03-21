@@ -7,12 +7,12 @@ import org.springframework.validation.Validator;
 import command.MemberPwCommand;
 
 public class MemberPasswordValidator implements Validator{
-
+	@Override
 	public boolean supports(Class<?> clazz) {
 		// TODO Auto-generated method stub
 		return false;
 	}
-
+	@Override
 	public void validate(Object target, Errors errors) {
 		// TODO Auto-generated method stub
 		MemberPwCommand memberPwCommand = (MemberPwCommand)target;

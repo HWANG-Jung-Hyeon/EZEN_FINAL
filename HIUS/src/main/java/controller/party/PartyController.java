@@ -12,11 +12,11 @@ import command.PartyCommand;
 import service.party.PartyWriteService;
 
 @Controller
-@RequestMapping("partyRoom")
+@RequestMapping("pr")
 public class PartyController {
 	@Autowired
 	PartyWriteService partyWriteService;
-	
+	@RequestMapping("partyForm")
 	public String partyForm(PartyCommand partyCommand) {
 		return "partyRoom/partyForm";
 	}
@@ -27,6 +27,6 @@ public class PartyController {
 			return "partyRoom/partyForm";
 		}
 		partyWriteService.partyWrite(partyCommand, request);
-		return "redirect:/partyRoom/partyList";
+		return "redirect:/pr/partyList";
 	}
 }

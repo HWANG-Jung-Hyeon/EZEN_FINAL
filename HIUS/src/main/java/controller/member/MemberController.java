@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import command.MemberCommand;
@@ -14,7 +15,7 @@ import service.member.MemberJoinService;
 import service.member.MemberListService;
 
 @Controller
-@RequestMapping("member")
+@RequestMapping("mem")
 public class MemberController {
 	@Autowired
 	MemberJoinService memberJoinService;
@@ -24,14 +25,16 @@ public class MemberController {
 	MemberDetailService memberDetailService;
 	@Autowired
 	MemberDeleteService memberDeleteService;
+	
 	@RequestMapping("memberRegist")
-	public String memberRegist() {
-	 return "member/memberRegist";
+	public String memberRegist(Model model) {
+		model.addAttribute("memberCommand", new MemberCommand());
+		return "member/memberRegist";
 	}
-	@RequestMapping("memberJoinAction")
+	@RequestMapping(value="memberJoinAction")
 	public String memberJoinAction(MemberCommand memberCommand) {
-		memberJoinService.numUpdate(memberCommand);
-		return "redirect:/member/memberRegist";
+		memberJoinService.execute(memberCommand);
+		return "member/memberWelcome";
 	}
 	@RequestMapping("memberList")
 	public String memberList(Model model) {
@@ -54,13 +57,13 @@ public class MemberController {
 	@RequestMapping("memberModifyAction")
 	public String MemberModifyAction(MemberCommand memberCommand, Model model) {
 		memberDetailService.memberModifyAction(memberCommand, model);
-		return " redirect:/member/memberDetail?memId="+memberCommand.getMemId();
+		return " redirect:/mem/memberDetail?memId="+memberCommand.getMemId();
 	}
 	@RequestMapping("memberDelete")
 	public String memberDelete(
 			@RequestParam(value="memId") MemberDTO dto) {
 		memberDeleteService.memberDelete(dto);
-		return "redirect:/member/memberList";
+		return "redirect:/mem/memberList";
 	}
 	
 	
