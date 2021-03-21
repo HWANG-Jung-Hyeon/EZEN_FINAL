@@ -33,4 +33,8 @@ public class MemberRepository {
 		statement = namespace + ".memberModifyAction";
 		sqlSession.update(statement, dto);
 	}
+	public void MemberDelete(String memId) {
+		statement= namespace + ".memberDelete";
+		sqlSession.delete(statement, memId);
+	}
 }

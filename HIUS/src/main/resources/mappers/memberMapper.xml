@@ -23,5 +23,8 @@
 	set mem_email = #{memEmail}, mem_addr= #{memAddr}, mem_ph=#{memPh}
 	where mem_id =${memId} and Mem_pw = ${memPw}
 </update>
-
+<delete id="memberDelete" parameterType="String">
+	delete from mem
+	where mem_id=#{memId}
+</delete>
 </mapper>

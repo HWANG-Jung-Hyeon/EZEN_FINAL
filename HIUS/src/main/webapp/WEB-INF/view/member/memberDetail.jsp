@@ -32,9 +32,9 @@
 </td>
 </tr>
 <tr><td colspan="2" align="center">
-<a href="memberModify">내 정보 수정</a></td></tr>
-<a href="memberPwForm">비밀번호 변경</a></td></tr>
-<a href="memberDel">탈퇴</a></td></tr>
+<a href="memberModify?memId">내 정보 수정</a></td></tr>
+<a href="memberPwForm?memId">비밀번호 변경</a></td></tr>
+<a href="memberDelete?memId">탈퇴</a></td></tr>
 <a href='<c:url value="/" />'>홈으로</a>
 </td></tr>
 </table>

@@ -7,59 +7,54 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form:form action="memModifyPro" method="post" modelAttribute="memberCommand" onsubmit="submitForm()">
-<form:hidden path="MEM_ID"/>
-<form:hidden path="MEM_NAME"/>
-<form:hidden path="MEM_BIRTH"/>
-<form:hidden path="MEM_PH"/>
-<form:hidden path="MEM_EMAIL"/>
-<form:hidden path="GENDER"/>
-<form:hidden path="NICKNAME"/>
+<form action="memberModifyPro" method="post" onsubmit="submitForm()">
+<input type="hidden" name="memId" value="${memberModify.memId }"/>
+<input type="hidden" name="memBirth" value="${memberModify.memBirth }"/>
 <table width = "600" align = "center" border = 1 >
 	<tr>
  		<th >회원 ID</th>
- 		<td>${memCommand.MEM_ID }
+ 		<td>${memCommand.MEMId }
  		</td>
 	</tr>
 	<tr>
 	<tr>
  		<th >비밀번호</th>
- 		<td><input type = "password" name="MEM_PW" size = "12" maxlength="10" value="${memberCommand.MEM_PW }">
+ 		<td><input type = "password" name="memPw" size = "12" maxlength="10" value="${memberCommand.MemPw }">
  		</td>
 	</tr>
 	<tr>
  		<th >회원 이름</th>
- 		<td>${memberCommand.MEM_NAME }
+ 		<td>${memberCommand.memName }
  		</td>
 	</tr>
 	<tr>
  		<th >회원 생년월일</th>
  		<td >
- 		<fmt:formatDate value="${memberCommand.MEM_BIRTH }" type="date" pattern="yyyy-MM-dd"/>
+ 		<fmt:formatDate value="${memberCommand.memBirth }" type="date" pattern="yyyy-MM-dd"/>
  		</td>
 	</tr>
 	<tr>
  		<th >회원 연락처</th>
- 		<td><input path = "text" name="MEM_PH" size = "30" maxlength="28" value="${memberCommand.MEM_PH }">
+ 		<td><input path = "text" name="MemPh" size = "30" maxlength="28" value="${memberCommand.MemPh }">
  		</td>
 	</tr>
 	<tr>
  		<th >회원 주소</th>
- 		<td><input type = "text" name="MEM_ADDR" size = "12" maxlength="10" value="${memberCommand.MEM_ADDR }">
+ 		<td><input type = "text" name="MemAddr" size = "12" maxlength="10" value="${memberCommand.MemAddr }">
  		</td>
 	</tr>
 	<tr>
  		<th >회원 이메일</th>
- 		<td><input type = "text" name="MEM_EMAIL" size = "12" maxlength="10" value="${memberCommand.MEM_EMAIL }">
+ 		<td><input type = "text" name="MemEmail" size = "12" maxlength="10" value="${memberCommand.MemEmail }">
  		</td>
 	</tr>
 	<tr>
  		<th >성별</th>
  		<td>
- 		<c:when test="${memberCommand.GENDER == 'M' }">
+ 		<c:when test="${memberCommand.gender == 'M' }">
 			남자
  		</c:when>
- 		<c:when test="${memberCommand.GENDER == 'F' }">
+ 		<c:when test="${memberCommand.gender == 'F' }">
 			여자
  		</c:when>
  		</td>
@@ -72,6 +67,6 @@
 		</td>
 	</tr>
 </table>
-</form:form>
+</form>
 </body>
 </html>

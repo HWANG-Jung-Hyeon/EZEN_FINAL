@@ -12,8 +12,6 @@ import repository.member.MemberRepository;
 public class MemberJoinService {
 	@Autowired
 	MemberRepository memberRepository;
-	@Autowired
-	BCryptPasswordEncoder bcryptPasswordEncoder;
 	public void numUpdate(MemberCommand memberCommand) {				
 		MemberDTO dto = new MemberDTO();
 		dto.setMemId(memberCommand.getMemId());
@@ -24,9 +22,9 @@ public class MemberJoinService {
 		dto.setMemAddr(memberCommand.getMemAddr());
 		dto.setMemEmail(memberCommand.getMemEmail());
 		dto.setGender(memberCommand.getGender());
+		dto.setMemPw(memberCommand.getMemPw());
 		memberRepository.memberInsert(dto);
-		String pw = bcryptPasswordEncoder.encode(memberCommand.getMemPw());
-		dto.setMemPw(pw);
+		
 	}
 	
 }

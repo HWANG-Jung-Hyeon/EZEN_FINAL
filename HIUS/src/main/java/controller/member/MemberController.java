@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import command.MemberCommand;
+import service.member.MemberDeleteService;
 import service.member.MemberDetailService;
 import service.member.MemberJoinService;
 import service.member.MemberListService;
@@ -19,6 +20,8 @@ public class MemberController {
 	MemberListService memberListService;
 	@Autowired
 	MemberDetailService memberDetailService;
+	@Autowired
+	MemberDeleteService memberDeleteService;
 	@RequestMapping("member/memRegist")
 	public String MemRegist() {
 	 return "member/memRegist";
@@ -50,6 +53,12 @@ public class MemberController {
 	public String MemberModifyAction(MemberCommand memberCommand, Model model) {
 		memberDetailService.memberModifyAction(memberCommand, model);
 		return " redirect:/member/memberDetail?memId="+memberCommand.getMemId();
+	}
+	@RequestMapping("memberDelete")
+	public String memberDelete(
+			@RequestParam(value="memId") String memId) {
+		memberDeleteService.memberDelete(memId);
+		return "redirect:/member/memberList";
 	}
 	
 	
