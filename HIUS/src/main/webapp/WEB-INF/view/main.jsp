@@ -9,6 +9,9 @@
 </head>
 <body>
 <c:if test="${empty authInfo }">
+쇼핑몰|
+<a href="partyRoom/partyList">파티룸</a>|
+인테리어<br/>
 <form:form action="login" name="frm" method="post" id="frm" 
 	modelAttribute="loginCommand">
 <table border = "1">
@@ -31,6 +34,7 @@
 </c:if>
 <c:if test="${!empty authInfo }">
 <a href="<c:url value='/login/logout'/>">로그 아웃</a>
+<a href="party/partyForm">파티룸 등록</a>
 <a href="member/memberDetail">내 정보</a>
 <a href="member/memberList">회원 리스트</a><br/>
 <a href="employees/empRegist">직원 등록</a><br/>
