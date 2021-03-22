@@ -32,7 +32,9 @@
   			classpath:spring-jdbc.xml
 			classpath:spring-member.xml 
 			classpath:spring-employees.xml	
-			classpath:spring-interior.xml		
+			classpath:spring-interior.xml
+			classpath:spring-party.xml
+			classpath:spring-lent.xml		
   		</param-value>
   	</init-param>
   </servlet>

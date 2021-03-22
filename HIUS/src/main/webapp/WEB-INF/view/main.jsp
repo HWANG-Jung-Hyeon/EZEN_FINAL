@@ -36,6 +36,8 @@
 <a href="<c:url value='/login/logout'/>">로그 아웃</a>
 <a href="member/memberDetail">내 정보</a>
 <a href="member/memberList">회원 리스트</a><br/>
+<a href="pr/partyList">파티룸 리스트(관리자)</a>
+<a href="parman/partyList">파티룸 리스트(사용자)</a>
 <a href="employees/empRegist">직원 등록</a><br/>
 <a href="employees/empList">직원 리스트 </a><br/>
 </c:if>
