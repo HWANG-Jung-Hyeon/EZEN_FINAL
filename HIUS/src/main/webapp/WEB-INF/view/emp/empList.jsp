@@ -14,9 +14,9 @@
 <c:forEach items="${empList}" var="dto" varStatus="empNum">
 <tr>
 <td>${empNum.count }</td>
-<td><a href="empDetail?EMP_ID=${dto.EMP_ID }" >${dto.EMP_NO }</a></td>
-<td>${dto.EMP_ID }</td>
-<td>${dto.EMP_NAME }</td>
+<td><a href="empDetail?emp_id=${dto.empId }" >${dto.empNo }</a></td>
+<td>${dto.empId }</td>
+<td>${dto.empName }</td>
 </tr>
 </c:forEach>
 </table>

@@ -13,25 +13,25 @@ import repository.employees.EmployeesRepository;
 public class EmployeesDetailService {
 	@Autowired
 	EmployeesRepository employeesRepository;
-	public void empDetail( String EMP_ID, Model model) {
-		System.out.println(EMP_ID);
-		EmpDTO dto = employeesRepository.empDetail(EMP_ID);
+	public void empDetail( String empId, Model model) {
+		System.out.println(empId);
+		EmpDTO dto = employeesRepository.empDetail(empId);
 		model.addAttribute("empDetail", dto);
 	}
-	public void empModify(String EMP_ID, Model model) {
-		EmpDTO dto = employeesRepository.empModify(EMP_ID);
+	public void empModify(String empId, Model model) {
+		EmpDTO dto = employeesRepository.empModify(empId);
 		model.addAttribute("empModify", dto);
 	}
 	public void empModifyAction(EmployeesCommand employeesCommand, Model model) {
 		EmpDTO dto = new EmpDTO();
-		dto.setEMP_ID(employeesCommand.getEMP_ID());
-		dto.setEMP_PW(employeesCommand.getEMP_PW());
-		dto.setEMP_NAME(employeesCommand.getEMP_NAME());
-		dto.setEMP_BIRTH(new Timestamp(employeesCommand.getEMP_BIRTH().getTime()));
-		dto.setEMP_EMAIL(employeesCommand.getEMP_EMAIL());
-		dto.setEMP_ADDR(employeesCommand.getEMP_ADDR());
-		dto.setGender(employeesCommand.getGENDER());
-		dto.setEMP_PH(employeesCommand.getEMP_PH());
+		dto.setEmpId(employeesCommand.getEmpId());
+		dto.setEmpPw(employeesCommand.getEmpPw());
+		dto.setEmpName(employeesCommand.getEmpName());
+		dto.setEmpBirth(new Timestamp(employeesCommand.getEmpBirth().getTime()));
+		dto.setEmpEmail(employeesCommand.getEmpEmail());
+		dto.setEmpAddr(employeesCommand.getEmpAddr());
+		dto.setGender(employeesCommand.getGender());
+		dto.setEmpPh(employeesCommand.getEmpPh());
 		employeesRepository.empModifyAction(dto);
 	}
 }

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="HIUS.mappers.shopgoodsMapper">
+<insert id="shopgoodsInsert" parameterType="model.ShopgoodsDTO" >
+	insert into shop_goods(shop_goods_no, shop_goods_class, shop_goods_name, shop_goods_set, shop_goods_detail, shop_goods_img, shop_goods_qty, shop_goods_price)
+	values ((select nvl(max(shop_goods_no),0) + 1 from shop_goods), #{shopgoodsClass}, #{shopgoodsName}, #{shopgoodsSet}, #{shopgoodsDetail}, #{shopgoodsImage}, #{shopgoodsQty}, #{shopgoodsPrice} )
+</insert>
+<select id="shopgoodsSelect" resultType="model.ShopgoodsDTO">
+	select shop_goods_no shopgoodsNo, shop_goods_class shopgoodsClass, shop_goods_name shopgoodsName, shop_goods_set shopgoodsSet, shop_goods_detail shopgoodsDetail, shop_goods_img shopgoodsImage, shop_goods_qty shopgoodsQty, shop_goods_price shopgoodsPrice from shop_goods
+</select>
+</mapper>

@@ -4,29 +4,27 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="HIUS.mappers.employeesMapper">
 <insert id="employeesInsert" parameterType="model.EmpDTO" >
-	insert into emp (EMP_ID, EMP_NO, EMP_PW, EMP_NAME, EMP_BIRTH, EMP_EMAIL, EMP_ADDR, gender, EMP_PH, HIRE_DATE, ACC_NO, EMP_JOB, DEP)
-	values (#{EMP_ID}, (select nvl(max(emp_no),0) + 1 from emp) ,#{EMP_PW},#{EMP_NAME},#{EMP_BIRTH},#{EMP_EMAIL},#{EMP_ADDR},#{gender},#{EMP_PH},sysdate,null,null,null)
+	insert into emp (emp_id, emp_no, emp_pw, emp_name, emp_birth, emp_email, emp_addr, gender, emp_ph, hire_date, acc_no, emp_job, dep)
+	values (#{empId}, (select nvl(max(emp_No),0) + 1 from emp) ,#{empPw},#{empName},#{empBirth},#{empEmail},#{empAddr},#{gender},#{empPh},sysdate,11111,null,null)
 </insert>
 <select id="empSelect" resultType="model.EmpDTO">
-	select EMP_ID, EMP_PW, EMP_NO, EMP_NAME, EMP_BIRTH, EMP_EMAIL, EMP_ADDR, GENDER, EMP_PH, HIRE_DATE, ACC_NO, EMP_JOB, DEP from emp
+	select emp_id, emp_pw, emp_no, emp_name, emp_birth, emp_email, emp_addr, gender, emp_ph, hire_date, acc_no, emp_job, dep from emp
 </select>
 <select id="empDetail"   parameterType="string" resultType="model.EmpDTO">
-	select EMP_ID, EMP_PW, EMP_NO, EMP_NAME, EMP_BIRTH, EMP_EMAIL, EMP_ADDR, GENDER, EMP_PH, 
-	HIRE_DATE, ACC_NO, EMP_JOB, DEP from emp
+	select emp_id, emp_pw, emp_no, emp_name, emp_birth, emp_email, emp_addr, gender, emp_ph, hire_date, acc_no, emp_job, dep from emp
 	where EMP_ID= #{EMP_ID}
 </select>
 <select id="empModify"   parameterType="string" resultType="model.EmpDTO">
-	select EMP_ID, EMP_PW, EMP_NO, EMP_NAME, EMP_BIRTH, EMP_EMAIL, EMP_ADDR, GENDER, EMP_PH, 
-	HIRE_DATE, ACC_NO, EMP_JOB, DEP from emp
+	select emp_id, emp_pw, emp_no, emp_name, emp_birth, emp_email, emp_addr, gender, emp_ph, hire_date, acc_no, emp_job, dep from emp
 	where EMP_ID= #{EMP_ID}
 </select>
 <update id="empModifyAction" parameterType="model.EmpDTO">
 	update emp
-	set EMP_EMAIL = #{EMP_EMAIL}, EMP_ADDR = #{EMP_ADDR}, EMP_PH = #{EMP_PH}
-	where EMP_ID= #{EMP_ID} and EMP_PW= #{EMP_PW}
+	set emp_email = #{empEmail}, emp_addr = #{empAddr}, emp_ph = #{empPh}
+	where emp_id= #{empId} and emp_pw= #{empPw}
 </update>
 <delete id="empDelete" parameterType="String">
 	delete from emp
-	where EMP_ID= #{EMP_ID}
+	where emp_id= #{empId}
 </delete>
 </mapper>

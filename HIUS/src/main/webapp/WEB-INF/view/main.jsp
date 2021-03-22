@@ -40,6 +40,8 @@
 <a href="parman/partyList">파티룸 리스트(사용자)</a>
 <a href="employees/empRegist">직원 등록</a><br/>
 <a href="employees/empList">직원 리스트 </a><br/>
+<a href="shopgoods/shopgoodsRegist">상품 등록 </a><br/>
+<a href="shopgoods/shopgoodsList">상품 리스트 </a><br/>
 </c:if>
 </body>
 </html>
