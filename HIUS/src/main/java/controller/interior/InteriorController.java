@@ -9,30 +9,45 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import Validator.GoodsCommandValidate;
 import command.GoodsCommand;
-import service.goods.GoodsAddService;
+import service.interior.IntAddService;
 
 @Controller
 @RequestMapping("interior")
 public class InteriorController {
 	@Autowired
-	GoodsAddService goodsAddService;
+	IntAddService intAddService;
 	
 	@RequestMapping("main")
 	public String main() {
 		return "interior/interiorMain";
 	}
-	@RequestMapping("addGoods")
-	public String addGoods() {
-		return "interior/addGoodsForm";
+	@RequestMapping("addInterior")
+	public String addGoodsForm() {
+		return "interior/addInteriorForm";
 	}
 	@RequestMapping("intGoodsAddAction")
 	public String intGoodsAddAction(GoodsCommand goodsCommand, Errors errors, HttpServletRequest request) {
 		new GoodsCommandValidate().validate(goodsCommand, errors);
 		if(errors.hasErrors()) {
-			return "interior/addGoodsForm";
+			return "interior/addInteriorForm";
 		}
-		goodsAddService.goodsAdd(goodsCommand, request);
-		return "redirect:/interior/goodsList";
+		intAddService.InteriorAdd(goodsCommand, request);
+		return "redirect:/interior/interiorList";
+	}
+	
+	@RequestMapping("interiorList")
+	public String interiorList() {
+		return "interior/interiorList";
+	}
+	
+	@RequestMapping("consultForm")
+	public String consultForm() {
+		return "interior/consultForm";
+	}
+	
+	@RequestMapping("reviewList")
+	public String reviewList() {
+		return "interior/reviewList";
 	}
 	
 }

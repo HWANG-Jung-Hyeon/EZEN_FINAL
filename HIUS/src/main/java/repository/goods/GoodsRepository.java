@@ -10,10 +10,11 @@ import model.GoodsDTO;
 public class GoodsRepository {
 	@Autowired
 	private SqlSession sqlSession;
-	private final String namespace = "goodsMapper";
+	private final String namespace = "HIUS.mappers.goodsMapper";
+	String statement;
 	
 	public void goodsInsert(GoodsDTO dto) {
-		String statement = namespace + ".goodsInsert";
+		statement = namespace + ".goodsInsert";
 		sqlSession.update(statement, dto);
 	}
 

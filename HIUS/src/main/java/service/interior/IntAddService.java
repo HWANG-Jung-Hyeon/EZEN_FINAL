@@ -1,4 +1,4 @@
-package service.goods;
+package service.interior;
 
 import java.io.File;
 import java.io.IOException;
@@ -16,10 +16,10 @@ import model.GoodsDTO;
 import repository.goods.GoodsRepository;
 
 @Service
-public class GoodsAddService {
+public class IntAddService {
 	@Autowired
 	GoodsRepository goodsRepository;
-	public void goodsAdd(GoodsCommand goodsCommand, HttpServletRequest request) {
+	public void InteriorAdd(GoodsCommand goodsCommand, HttpServletRequest request) {
 		HttpSession session = request.getSession();
 		GoodsDTO dto = new GoodsDTO();
 		dto.setGoodsNo(goodsCommand.getGoodsNo());
@@ -30,7 +30,7 @@ public class GoodsAddService {
 		dto.setGoodsPrice(null);
 		dto.setGoodsQty(null);
 		
-		String path = "WEB-INF/view/interior/goodsImgUpload";
+		String path = "WEB-INF/view/interior/upload";
 		String filePath = session.getServletContext().getRealPath(path);
 		String goodsImage = "";
 		if(goodsCommand.getGoodsImg() != null) {

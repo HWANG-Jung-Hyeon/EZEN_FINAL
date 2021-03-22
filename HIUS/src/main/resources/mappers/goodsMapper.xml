@@ -6,7 +6,12 @@
 	GOODS_NO, GOODS_CLASS, GOODS_NAME, GOODS_SET, GOODS_DETAIL, GOODS_IMG, GOODS_QTY, GOODS_PRICE
 </sql>
 
-<resultMap type="goods" id="resultBase">
+<insert id="goodsInsert" parameterType="model.GoodsDTO">
+	insert into goods(<include refid="baseColumn"/>)
+	values(#{goodsNo},#{goodsClass},#{goodsName},#{goodsSet},#{goodsDetail},#{goodsImg},#{goodsQty},#{goodsPrice})
+</insert>
+
+<resultMap type="model.GoodsDTO" id="resultBase">
 	<constructor>
 		<idArg column="GOODS_NO" javaType="string"/>
 		<arg column="GOODS_CLASS" javaType="string"/>
@@ -18,11 +23,5 @@
 		<arg column="GOODS_PRICE" javaType="integer"/>
 	</constructor>
 </resultMap>
-
-<insert id="goodsInsert" parameterType="gd">
-	insert into goods(<include refid="baseColumn"/>)
-	values(#{goodsNo},#{goodsClass},#{goodsName},#{goodsSet},#{goodsDetail},#{goodsImg},#{goodsQty},#{goodsPrice})
-</insert>
-
 
 </mapper>
