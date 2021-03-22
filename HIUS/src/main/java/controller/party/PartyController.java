@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import Validator.PartyCommandValidator;
 import command.PartyCommand;
+import service.party.ImgDelService;
+import service.party.PartyDeleteService;
 import service.party.PartyDetailService;
 import service.party.PartyListService;
 import service.party.PartyUpdateService;
@@ -28,6 +30,11 @@ public class PartyController {
 	PartyDetailService partyDetailService;
 	@Autowired
 	PartyUpdateService partyUpdateService;
+	@Autowired
+	ImgDelService imgDelService;
+	@Autowired
+	PartyDeleteService partyDeleteService;
+	
 	@RequestMapping("partyForm")
 	public String partyForm(PartyCommand partyCommand) {
 		return "partyRoom/partyForm";
@@ -64,6 +71,16 @@ public class PartyController {
 	public String partyModifyPro(PartyCommand partyCommand, HttpSession session) {
 		partyUpdateService.execute(partyCommand, session);
 		return "redirect:partyDetail?prPl="+partyCommand.getPrPl();
+	}
+	@RequestMapping("imgDel")
+	public String imgDel(@RequestParam(value="imgfile")String imgfile, Model model, HttpSession session) {
+		imgDelService.imgDel(imgfile, session, model);
+			return "partyRoom/imgDel";
+		}
+	@RequestMapping("partyDelete")
+	public String partyDelete(@RequestParam(value = "prPl")String prPl, HttpSession session) {
+		partyDeleteService.execute(prPl, session);
+		return "redirect:/pr/partyList";
 	}
 			
 }

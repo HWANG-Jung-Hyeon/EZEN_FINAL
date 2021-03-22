@@ -31,5 +31,8 @@ public class PartyRepository {
 		String statement = namespace + ".partyUpdate";
 		sqlSession.update(statement, dto);
 	}
-	
+	public void partyDelete(String prPl) {
+		String statement = namespace + ".partyDelete";
+		sqlSession.update(statement,prPl);
+	}
 }

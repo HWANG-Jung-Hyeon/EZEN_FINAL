@@ -31,4 +31,8 @@ set pr_content = #{prContent},
 	pr_img = #{prImg}
 where pr_pl = #{prPl}	
 </update>
+<delete id="partyDelete" parameterType="string">
+	delete from pr
+	where pr_pl = #{prPl}
+</delete>
 </mapper>	

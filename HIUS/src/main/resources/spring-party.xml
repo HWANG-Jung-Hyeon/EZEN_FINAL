@@ -10,4 +10,6 @@
 		<bean id="partyListService" class="service.party.partyListService"/>
 		<bean id="partyDetailService" class="service.party.partyDetailService"/>
 		<bean id="partyUpdateService" class="service.party.partyUpdateService"/>
+		<bean id="partyDeleteService" class="service.party.partyDeleteService"/>
+		<bean id="imgDelService" class="service.party.imgDelService"/>
 </beans>			
