@@ -13,6 +13,8 @@ public class PartyDTO {
 	String prOp;
 	String prPh;
 	
+	StartEndPageDTO startEndPageDTO;
+	
 	public PartyDTO () {}
 	public PartyDTO(String prNo, String prPl, String prImg, String prContent, String prPrice,
 	String prMax, Timestamp prMintime, String prOp, String prPh) {
@@ -29,6 +31,14 @@ public class PartyDTO {
 	
 	
 }
+	
+	
+	public StartEndPageDTO getStartEndPageDTO() {
+		return startEndPageDTO;
+	}
+	public void setStartEndPageDTO(StartEndPageDTO startEndPageDTO) {
+		this.startEndPageDTO = startEndPageDTO;
+	}
 	public String getPrNo() {
 		return prNo;
 	}

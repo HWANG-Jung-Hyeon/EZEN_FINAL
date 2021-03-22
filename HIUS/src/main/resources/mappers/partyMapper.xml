@@ -6,4 +6,29 @@
 	insert into pr( pr_no, pr_img, pr_pl, pr_content, pr_price, pr_max, pr_mintime, pr_op, pr_ph )
 	values((select nvl(max(pr_no),0) + 1 from pr),#{prImg},#{prPl},#{prContent},#{prPrice},#{prMax},#{prMintime},#{prOp},#{prPh})
 </insert>
+<select id="getPartyList" parameterType="pr">
+	select * 
+from (select rownum rn,  pr_no, pr_img, pr_pl, pr_content, pr_price, pr_max, pr_mintime, pr_op, pr_ph 
+      from (select  pr_no, pr_img, pr_pl, pr_content, pr_price, pr_max, pr_mintime, pr_op, pr_ph 
+      		from pr 
+      		<where>
+      			<if test="prNo != null">
+      				pr_no = #{prNo }
+      			</if>
+      		</where>
+      		order by  pr_no desc)
+     )
+where rn between #{startEndPageDTO.startPage} 
+	and #{startEndPageDTO.endPage}      		
+</select>
+<select id="getPartyCount" resultType="int">
+	select count(*) from pr
+</select>
+<update id="partyUpdate" parameterType="pr">
+update party
+set pr_content = #{prContent},
+	pr_price = #{prPrice},
+	pr_img = #{prImg}
+where pr_pl = #{prPl}	
+</update>
 </mapper>	

@@ -7,4 +7,7 @@
 		<bean class="controller.party.PartyController"/>
 		<bean id="PartyRepository" class="repository.party.PartyRepository"/>
 		<bean id="PartyWriteService" class="service.party.PartyWriteService"/>
+		<bean id="partyListService" class="service.party.partyListService"/>
+		<bean id="partyDetailService" class="service.party.partyDetailService"/>
+		<bean id="partyUpdateService" class="service.party.partyUpdateService"/>
 </beans>			
