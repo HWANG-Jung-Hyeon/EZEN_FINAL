@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="goodsMapper">
+<sql id="baseColumn">
+	GOODS_NO, GOODS_CLASS, GOODS_NAME, GOODS_SET, GOODS_DETAIL, GOODS_IMG, GOODS_QTY, GOODS_PRICE
+</sql>
+
+<insert id="goodsInsert" parameterType="model.GoodsDTO">
+	insert into goods(<include refid="baseColumn"/>)
+	values(#{goodsNo},#{goodsClass},#{goodsName},#{goodsSet},#{goodsDetail},#{goodsImg},#{goodsQty},#{goodsPrice})
+</insert>
+
+<resultMap type="model.GoodsDTO" id="resultBase">
+	<constructor>
+		<idArg column="GOODS_NO" javaType="string"/>
+		<arg column="GOODS_CLASS" javaType="string"/>
+		<arg column="GOODS_NAME" javaType="string"/>
+		<arg column="GOODS_SET" javaType="string"/>
+		<arg column="GOODS_DETAIL" javaType="string"/>
+		<arg column="GOODS_IMG" javaType="string"/>
+		<arg column="GOODS_QTY" javaType="integer"/>
+		<arg column="GOODS_PRICE" javaType="integer"/>
+	</constructor>
+</resultMap>
+
+</mapper>

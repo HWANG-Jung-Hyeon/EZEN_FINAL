@@ -4,13 +4,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>HIUS :: 새 상품 추가하기</title>
+<title>Insert title here</title>
 </head>
 <body>
-<form action="" method="post" name="frm" enctype="multipart/form-data">
-<table>
-	
-</table>
-</form>
+<a href="../addInterior">새 상품 등록</a>
 </body>
 </html>

@@ -7,9 +7,9 @@
 <title>HIUS :: 인테리어 시공</title>
 </head>
 <body>
-<a href="#">상담 신청</a>
-<a href="#">시공 후기</a>
-<a href="#">인테리어 시공</a> <!-- 상품 리스트 -->
+<a href="../consultForm">상담 신청</a>
+<a href="../reviewList">시공 후기</a>
+<a href="../interiorList">인테리어 시공</a> <!-- 상품 리스트 -->
 
 </body>
 </html>
