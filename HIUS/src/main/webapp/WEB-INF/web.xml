@@ -34,6 +34,7 @@
 			classpath:spring-employees.xml	
 			classpath:spring-interior.xml
 			classpath:spring-party.xml		
+			classpath:spring-lent.xml
   		</param-value>
   	</init-param>
   </servlet>
