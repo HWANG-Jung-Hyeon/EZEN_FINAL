@@ -7,8 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import model.EmpDTO;
 
-
-
 public class EmployeesRepository {
 	@Autowired
 	SqlSession sqlSession;
@@ -22,20 +20,20 @@ public class EmployeesRepository {
 		statement = namespace + ".empSelect";
 		return sqlSession.selectList(statement);
 	}
-	public EmpDTO empDetail(String empId){
+	public EmpDTO empDetail(String EMP_ID){
 		statement = namespace + ".empDetail";
-		return sqlSession.selectOne(statement, empId);
+		return sqlSession.selectOne(statement, EMP_ID);
 	}
-	public EmpDTO empModify(String empId){
+	public EmpDTO empModify(String EMP_ID){
 		statement = namespace + ".empModify";
-		return sqlSession.selectOne(statement, empId);
+		return sqlSession.selectOne(statement, EMP_ID);
 	}
 	public void empModifyAction(EmpDTO empDTO){
 		statement = namespace + ".empModifyAction";
 		sqlSession.update(statement, empDTO);
 	}
-	public void empDelete(String empId) {
+	public void empDelete(String EMP_ID) {
 		statement = namespace + ".empDelete";
-		sqlSession.delete(statement, empId);
+		sqlSession.delete(statement, EMP_ID);
 	}
 }

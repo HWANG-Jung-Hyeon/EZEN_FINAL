@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="HIUS.mappers.lentMapper">
+<insert id="rentInsert" parameterType="model.RentDTO">
+	insert into rent_goods (RENT_GOODS_NO, RENT_GOODS_CLASS, RENT_GOODS_NAME, RENT_GOODS_DETAIL, RENT_GOODS_IMG, RENT_GOODS_QTY, RENT_GOODS_PRICE)
+	values (#{rentGoodsNo}, 11111, #{rentGoodsName}, #{rentGoodsDetail}, #{rentGoodsImg}, #{rentGoodsQty}, #{rentGoodsPrice})
+</insert>
+	<select  id="lentAllselect" resultType="model.RentDTO">
+	select RENT_GOODS_NO rentGoodsNo , RENT_GOODS_CLASS rentGoodsClass , RENT_GOODS_NAME rentGoodsName , RENT_GOODS_DETAIL rentGoodsDetail ,
+	 RENT_GOODS_IMG rentGoodsImg , RENT_GOODS_QTY rentGoodsQty , RENT_GOODS_PRICE rentGoodsPrice
+	from rent_goods
+	</select>
+</mapper>
