@@ -7,9 +7,9 @@
 		<bean class="controller.party.PartyController"/>
 		<bean id="PartyRepository" class="repository.party.PartyRepository"/>
 		<bean id="PartyWriteService" class="service.party.PartyWriteService"/>
-		<bean id="partyListService" class="service.party.partyListService"/>
-		<bean id="partyDetailService" class="service.party.partyDetailService"/>
-		<bean id="partyUpdateService" class="service.party.partyUpdateService"/>
-		<bean id="partyDeleteService" class="service.party.partyDeleteService"/>
-		<bean id="imgDelService" class="service.party.imgDelService"/>
+		<bean id="PartyListService" class="service.party.PartyListService"/>
+		<bean id="PartyDetailService" class="service.party.PartyDetailService"/>
+		<bean id="PartyUpdateService" class="service.party.PartyUpdateService"/>
+		<bean id="PartyDeleteService" class="service.party.PartyDeleteService"/>
+		<bean id="ImgDelService" class="service.party.ImgDelService"/>
 </beans>			
