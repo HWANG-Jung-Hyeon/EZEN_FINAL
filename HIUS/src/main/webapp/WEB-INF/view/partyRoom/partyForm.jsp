@@ -38,7 +38,6 @@
 				<form:radiobutton path="prOp" id="prOp" value="자쿠지" checked="checked"/> 
 				<form:radiobutton path="prOp" id="prOp" value="수영장" />
 				<form:radiobutton path="prOp" id="prOp" value="바베큐" />
-				<form:radiobutton path="prOp" id="prOp" value="복층" />
 				</td>
 			<tr />
 			<tr>
