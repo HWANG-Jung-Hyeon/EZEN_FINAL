@@ -10,10 +10,10 @@
 <body>
 파티룸 리스트 <br/>
 파티룸 개수 : ${count }<br/>
-파티룸 번호<br/>
-파티룸 이미지<br/>
-파티룸 위치<br/>
-파티룸 가격<br/>
+파티룸 번호 : <br/>
+파티룸 이미지 :<br/>
+파티룸 위치:<br/>
+파티룸 가격 :<br/>
 <c:forEach items="${list } var="dto" varStatus="cnt">
 <a href="partyDetail?prNo=${dto.prNo }">${dto.prNo }</a>
 	<c:forTokens items="${dto.prImg }" delims="'" var="i" begin="0" end="0">
