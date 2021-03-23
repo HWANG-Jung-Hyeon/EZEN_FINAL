@@ -12,4 +12,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	 RENT_GOODS_IMG rentGoodsImg , RENT_GOODS_QTY rentGoodsQty , RENT_GOODS_PRICE rentGoodsPrice
 	from rent_goods
 	</select>
+	<select id="getSelectDetail" parameterType="int" resultType="model.RentDTO">
+		select rent_Goods_No rentGoodsNo , rent_Goods_Class rentGoodsClass , rent_Goods_Name rentGoodsName,
+		 rent_Goods_Detail rentGoodsDetail , rent_Goods_Img rentGoodsImg , rent_Goods_Qty rentGoodsQty , rent_Goods_Price rentGoodsPrice
+		from rent_goods
+		where rent_Goods_No= #{no}
+	</select>
 </mapper>

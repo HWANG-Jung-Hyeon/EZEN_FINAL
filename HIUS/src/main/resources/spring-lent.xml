@@ -8,4 +8,5 @@
 	<bean class="service.lent.LentRegistService" />
 	<bean class="repository.lent.LentRepository" />
 	<bean class="service.lent.LentService" />
+	<bean class="service.lent.LentDetailService" />
 </beans>

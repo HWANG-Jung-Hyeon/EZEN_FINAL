@@ -24,4 +24,8 @@ public class LentRepository {
 		String statement = namespace+".lentCount";
 		return sqlSession.selectOne(statement);
 	}
+	public RentDTO getSelectDetail(Integer no) {
+		String statement = namespace +".getSelectDetail";
+		return sqlSession.selectOne(statement, no);
+	}
 }

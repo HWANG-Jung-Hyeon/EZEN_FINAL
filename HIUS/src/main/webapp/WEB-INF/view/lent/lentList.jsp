@@ -10,8 +10,8 @@
 글 개수 : ${count }
 <table border="1">
 <c:forEach items="${lists }" var="dto">
-	<tr><td>렌트상품번호 : ${dto.rentGoodsNo}</td><td>상품명: ${dto.rentGoodsName}</td><td>상품가격: ${dto.rentGoodsPrice}</td></tr>
-	<tr><td>대여가능상품수량 : ${dto.rentGoodsQty}</td><td>상품이미지: ${dto.rentGoodsImg}</td></tr>
+	<tr><td>렌트상품번호 : ${dto.rentGoodsNo}</td><td><a href="lentDetail?no=${dto.rentGoodsNo}">상품명: ${dto.rentGoodsName}</a></td><td>상품가격: ${dto.rentGoodsPrice}</td></tr>
+	<tr><td>대여가능상품수량 : ${dto.rentGoodsQty}</td><td colspan="2">상품이미지: ${dto.rentGoodsImg}</td></tr>
 	</c:forEach>
 </table>
 
