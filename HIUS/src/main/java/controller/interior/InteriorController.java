@@ -4,18 +4,23 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import Validator.GoodsCommandValidate;
 import command.GoodsCommand;
 import service.interior.IntAddService;
+import service.interior.IntListService;
 
 @Controller
 @RequestMapping("interior")
 public class InteriorController {
 	@Autowired
 	IntAddService intAddService;
+	@Autowired
+	IntListService intListService;
 	
 	@RequestMapping("main")
 	public String main() {
@@ -36,7 +41,8 @@ public class InteriorController {
 	}
 	
 	@RequestMapping("interiorList")
-	public String interiorList() {
+	public String interiorList(@RequestParam(value = "page", defaultValue = "1") Integer page, Model model) {
+		intListService.getIntList(model, page);
 		return "interior/interiorList";
 	}
 	

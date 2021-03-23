@@ -23,5 +23,26 @@
 		<arg column="GOODS_PRICE" javaType="integer"/>
 	</constructor>
 </resultMap>
-
+<select id="getIntList" parameterType="model.GoodsDTO" resultMap="resultBase">
+	select *
+	from (select rownum rn, <include refid="baseColumn"/>
+			from (select <include refid="baseColumn"/>
+					from goods
+					<where>
+						<if test="goodsNo != null">
+							goods_No = #{goodsNo}
+						</if>
+						goods_qty is null
+					</where>
+					order by goods_no desc)
+				)
+<if test="startEndPageDTO != null">
+where rn between #{startEndPageDTO.startPage} 
+	and #{startEndPageDTO.endPage}
+</if>
+</select>
+<select id="getIntCount" parameterType="int">
+	select count(*) from goods
+	where goods_qty is null
+</select>
 </mapper>

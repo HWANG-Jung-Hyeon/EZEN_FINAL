@@ -8,9 +8,14 @@
 <title>HIUS :: 인테리어 새 상품 추가하기</title>
 </head>
 <body>
-	<form:form action="intGoodsAddAction" method="post" name="frm" enctype="multipart/form-data" modelAttribute="GoodsCommand">
-	<form:hidden path="goodsNo" value="" />
+	<form:form action="intGoodsAddAction" method="post" name="frm"
+		enctype="multipart/form-data" modelAttribute="GoodsCommand">
 		<table>
+			<tr>
+				<th>상품번호</th>
+				<td><form:input path="goodsNo" size="20" maxlength="30" />
+					<form:errors path="goodsNo"/></td>
+			</tr>
 			<tr>
 				<th>분류</th>
 				<td colspan="2"><form:select path="goodsClass">
@@ -29,23 +34,22 @@
 							<option value="마루/장판">마루/장판</option>
 							<option value="조명">조명</option>
 						</optgroup>
-				</form:select>
-				<form:errors path="goodsClass" /></td>
+					</form:select> <form:errors path="goodsClass" /></td>
 			</tr>
 			<tr>
 				<th>상품명</th>
-				<td colspan="2"><form:input path="goodsName" size="20" maxlength="50" />
-					<form:errors path="goodsName" /></td>
+				<td colspan="2"><form:input path="goodsName" size="20"
+						maxlength="50" /> <form:errors path="goodsName" /></td>
 			</tr>
 			<tr>
 				<th>상품구성</th>
-				<td colspan="2"><form:input path="goodsSet" size="20" />
-					<form:errors path="goodsSet" /></td>
+				<td colspan="2"><form:input path="goodsSet" size="20" /> <form:errors
+						path="goodsSet" /></td>
 			</tr>
 			<tr>
 				<th>상세정보</th>
-				<td colspan="2"><form:textarea path="goodsDetail" rows="13" cols="56"/>
-					<form:errors path="goodsDetail" /></td>
+				<td colspan="2"><form:textarea path="goodsDetail" rows="13"
+						cols="56" /> <form:errors path="goodsDetail" /></td>
 			</tr>
 			<tr>
 				<th>이미지파일</th>
@@ -53,8 +57,8 @@
 				<td>*첫 번째 이미지는 상품 목록의 미리보기용으로 제공됩니다.</td>
 			</tr>
 			<tr>
-			<td colspan="3"><input type="submit" value="상품등록" />
-								<input type="reset" value="다시입력" />
+				<td colspan="3"><input type="submit" value="상품등록" /> <input
+					type="reset" value="다시입력" />
 			</tr>
 		</table>
 	</form:form>

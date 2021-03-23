@@ -28,7 +28,7 @@
 	<tr><td colspan="3">
 		아이디 찾기 / 
 		비밀번호 찾기 / 
-		<a href="member/memberRegist">회원가입</a></td></tr>
+		<a href="mem/memberRegist">회원가입</a></td></tr>
 </table>
 </form:form>
 </c:if>
