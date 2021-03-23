@@ -8,4 +8,5 @@
 		<bean class="repository.shopgoods.ShopgoodsRepository"/>
 		<bean class="service.shopgoods.ShopgoodsJoinService"/>
 		<bean class="service.shopgoods.ShopgoodsListService"/>
+		<bean class="service.shopgoods.ShopgoodsDetailService"/>
 </beans>

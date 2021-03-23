@@ -1,7 +1,5 @@
 package model;
 
-import org.springframework.web.multipart.MultipartFile;
-
 public class ShopgoodsDTO {
 	String shopgoodsNo;
 	String shopgoodsClass;

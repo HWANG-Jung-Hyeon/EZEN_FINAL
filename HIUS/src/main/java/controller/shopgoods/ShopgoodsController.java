@@ -7,8 +7,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import command.ShopgoodsCommand;
+import service.shopgoods.ShopgoodsDetailService;
 import service.shopgoods.ShopgoodsJoinService;
 import service.shopgoods.ShopgoodsListService;
 
@@ -19,6 +21,8 @@ public class ShopgoodsController {
 	ShopgoodsJoinService shopgoodsJoinService;
 	@Autowired
 	ShopgoodsListService shopgoodsListService;
+	@Autowired
+	ShopgoodsDetailService shopgoodsDetailService;
 	@RequestMapping(value="shopgoodsRegist" , method = RequestMethod.GET)
 	public String shopgoodsRegist() {
 		return "shopgoods/shopgoodsRegist";
@@ -34,5 +38,10 @@ public class ShopgoodsController {
 		shopgoodsListService.shopgoodsList(model);
 		return "shopgoods/shopgoodsList";
 	}
+	@RequestMapping("shopgoodsDetail")
+	public String shopgoodsDetail(
+			@RequestParam(value="shopgoods_no") String shopgoodsNo, Model model) {
+		shopgoodsDetailService.shopgoodsDetail(shopgoodsNo,model);
+		return "shopgoods/shopgoodsDetail";
+	}
 }
-

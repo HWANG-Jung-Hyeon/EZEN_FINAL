@@ -10,4 +10,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <select id="shopgoodsSelect" resultType="model.ShopgoodsDTO">
 	select shop_goods_no shopgoodsNo, shop_goods_class shopgoodsClass, shop_goods_name shopgoodsName, shop_goods_set shopgoodsSet, shop_goods_detail shopgoodsDetail, shop_goods_img shopgoodsImage, shop_goods_qty shopgoodsQty, shop_goods_price shopgoodsPrice from shop_goods
 </select>
+<select id="shopgoodsDetail" parameterType="string" resultType="model.ShopgoodsDTO">
+	select shop_goods_no shopgoodsNo, shop_goods_class shopgoodsClass, shop_goods_name shopgoodsName, shop_goods_set shopgoodsSet, shop_goods_detail shopgoodsDetail, shop_goods_img shopgoodsImage, shop_goods_qty shopgoodsQty, shop_goods_price shopgoodsPrice from shop_goods
+	where shop_goods_no = #{shop_goods_no}
+</select>
 </mapper>

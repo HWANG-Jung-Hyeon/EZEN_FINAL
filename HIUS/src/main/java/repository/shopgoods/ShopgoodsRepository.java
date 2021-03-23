@@ -20,4 +20,9 @@ public class ShopgoodsRepository {
 		statement = namespace + ".shopgoodsSelect";
 		return sqlSession.selectList(statement);
 	}
+	public ShopgoodsDTO shopgoodsDetail(String shopgoods_No) {
+		statement = namespace + ".shopgoodsDetail";
+		return sqlSession.selectOne(statement, shopgoods_No);
+	}
+	
 }
