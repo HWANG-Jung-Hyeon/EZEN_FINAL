@@ -7,4 +7,5 @@
 	<bean class="controller.lent.LentController" />
 	<bean class="service.lent.LentRegistService" />
 	<bean class="repository.lent.LentRepository" />
+	<bean class="service.lent.LentService" />
 </beans>

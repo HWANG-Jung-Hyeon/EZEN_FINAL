@@ -15,9 +15,9 @@ public class LentService {
 	LentRepository lentRepository;
 	public void execute(Model model) {
 		List<RentDTO> list = lentRepository.listAllSelect();
-		Integer count = lentRepository.lentCount();
+
 
 		model.addAttribute("lists", list);
-		model.addAttribute("count", count);
+
 	}
 }
