@@ -3,6 +3,7 @@ package service.interior;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
 import controller.PageAction;
@@ -10,6 +11,7 @@ import model.GoodsDTO;
 import model.StartEndPageDTO;
 import repository.goods.GoodsRepository;
 
+@Service
 public class IntListService {
 	@Autowired
 	GoodsRepository goodsRepository;
