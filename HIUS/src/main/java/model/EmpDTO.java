@@ -3,100 +3,101 @@ package model;
 import java.sql.Timestamp;
 
 public class EmpDTO {
-	String EMP_ID;
-	String EMP_NO;
-	String EMP_PW;
-	String EMP_NAME;
-	Timestamp EMP_BIRTH;
-	String EMP_EMAIL;
-	String EMP_ADDR;
+	String empId;
+	String empNo;
+	String empPw;
+	String empName;
+	Timestamp empBirth;
+	String empEmail;
+	String empAddr;
 	String gender;
-	String EMP_PH;
-	Timestamp HIRE_DATE;
-	String ACC_NO;
-	String EMP_JOB;
-	String DEP;
+	String empPh;
+	Timestamp hireDate;
+	String accNo;
+	String empJob;
+	String dep;
 	
-	
-
+	public String getEmpId() {
+		return empId;
+	}
+	public void setEmpId(String empId) {
+		this.empId = empId;
+	}
+	public String getEmpNo() {
+		return empNo;
+	}
+	public void setEmpNo(String empNo) {
+		this.empNo = empNo;
+	}
+	public String getEmpPw() {
+		return empPw;
+	}
+	public void setEmpPw(String empPw) {
+		this.empPw = empPw;
+	}
+	public String getEmpName() {
+		return empName;
+	}
+	public void setEmpName(String empName) {
+		this.empName = empName;
+	}
+	public Timestamp getEmpBirth() {
+		return empBirth;
+	}
+	public void setEmpBirth(Timestamp empBirth) {
+		this.empBirth = empBirth;
+	}
+	public String getEmpEmail() {
+		return empEmail;
+	}
+	public void setEmpEmail(String empEmail) {
+		this.empEmail = empEmail;
+	}
+	public String getEmpAddr() {
+		return empAddr;
+	}
+	public void setEmpAddr(String empAddr) {
+		this.empAddr = empAddr;
+	}
 	public String getGender() {
 		return gender;
 	}
 	public void setGender(String gender) {
 		this.gender = gender;
 	}
-	public String getEMP_ID() {
-		return EMP_ID;
+	public String getEmpPh() {
+		return empPh;
 	}
-	public void setEMP_ID(String eMP_ID) {
-		EMP_ID = eMP_ID;
+	public void setEmpPh(String empPh) {
+		this.empPh = empPh;
 	}
-	public String getEMP_NO() {
-		return EMP_NO;
+	public Timestamp getHireDate() {
+		return hireDate;
 	}
-	public void setEMP_NO(String eMP_NO) {
-		EMP_NO = eMP_NO;
+	public void setHireDate(Timestamp hireDate) {
+		this.hireDate = hireDate;
 	}
-	public String getEMP_PW() {
-		return EMP_PW;
+	public String getAccNo() {
+		return accNo;
 	}
-	public void setEMP_PW(String eMP_PW) {
-		EMP_PW = eMP_PW;
+	public void setAccNo(String accNo) {
+		this.accNo = accNo;
 	}
-	public String getEMP_NAME() {
-		return EMP_NAME;
+	public String getEmpJob() {
+		return empJob;
 	}
-	public void setEMP_NAME(String eMP_NAME) {
-		EMP_NAME = eMP_NAME;
+	public void setEmpJob(String empJob) {
+		this.empJob = empJob;
 	}
-	public Timestamp getEMP_BIRTH() {
-		return EMP_BIRTH;
+	public String getDep() {
+		return dep;
 	}
-	public void setEMP_BIRTH(Timestamp eMP_BIRTH) {
-		EMP_BIRTH = eMP_BIRTH;
+	public void setDep(String dep) {
+		this.dep = dep;
 	}
-	public String getEMP_EMAIL() {
-		return EMP_EMAIL;
-	}
-	public void setEMP_EMAIL(String eMP_EMAIL) {
-		EMP_EMAIL = eMP_EMAIL;
-	}
-	public String getEMP_ADDR() {
-		return EMP_ADDR;
-	}
-	public void setEMP_ADDR(String eMP_ADDR) {
-		EMP_ADDR = eMP_ADDR;
-	}
+	
+	
 
-	public String getEMP_PH() {
-		return EMP_PH;
-	}
-	public void setEMP_PH(String eMP_PH) {
-		EMP_PH = eMP_PH;
-	}
-	public Timestamp getHIRE_DATE() {
-		return HIRE_DATE;
-	}
-	public void setHIRE_DATE(Timestamp hIRE_DATE) {
-		HIRE_DATE = hIRE_DATE;
-	}
-	public String getACC_NO() {
-		return ACC_NO;
-	}
-	public void setACC_NO(String aCC_NO) {
-		ACC_NO = aCC_NO;
-	}
-	public String getEMP_JOB() {
-		return EMP_JOB;
-	}
-	public void setEMP_JOB(String eMP_JOB) {
-		EMP_JOB = eMP_JOB;
-	}
-	public String getDEP() {
-		return DEP;
-	}
-	public void setDEP(String dEP) {
-		DEP = dEP;
-	}
+	
 	
 }

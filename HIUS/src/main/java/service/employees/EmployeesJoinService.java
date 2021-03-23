@@ -13,20 +13,20 @@ public class EmployeesJoinService {
 	EmployeesRepository employeesRepository;
 	public void numUpdate(EmployeesCommand employeesCommand) {
 		EmpDTO dto = new EmpDTO();
-		dto.setEMP_ID(employeesCommand.getEMP_ID());
-		dto.setEMP_PW(employeesCommand.getEMP_PW());
-		dto.setEMP_NAME(employeesCommand.getEMP_NAME());
-		dto.setEMP_BIRTH(new Timestamp(employeesCommand.getEMP_BIRTH().getTime()));
-		dto.setEMP_EMAIL(employeesCommand.getEMP_EMAIL());
-		dto.setEMP_ADDR(employeesCommand.getEMP_ADDR());
-		dto.setGender(employeesCommand.getGENDER());
-		dto.setEMP_PH(employeesCommand.getEMP_PH());
-		System.out.println(dto.getEMP_ID());
-		System.out.println(dto.getEMP_PW());
-		System.out.println(dto.getEMP_NAME());
-		System.out.println(dto.getEMP_BIRTH());
-		System.out.println(dto.getEMP_ADDR());
-		System.out.println(dto.getEMP_PH());
+		dto.setEmpId(employeesCommand.getEmpId());
+		dto.setEmpPw(employeesCommand.getEmpPw());
+		dto.setEmpName(employeesCommand.getEmpName());
+		dto.setEmpBirth(new Timestamp(employeesCommand.getEmpBirth().getTime()));
+		dto.setEmpEmail(employeesCommand.getEmpEmail());
+		dto.setEmpAddr(employeesCommand.getEmpAddr());
+		dto.setGender(employeesCommand.getGender());
+		dto.setEmpPh(employeesCommand.getEmpPh());
+		System.out.println(dto.getEmpId());
+		System.out.println(dto.getEmpPw());
+		System.out.println(dto.getEmpName());
+		System.out.println(dto.getEmpBirth());
+		System.out.println(dto.getEmpAddr());
+		System.out.println(dto.getEmpPh());
 		System.out.println(dto.getGender());
 		employeesRepository.insertEmployee(dto);
 	}

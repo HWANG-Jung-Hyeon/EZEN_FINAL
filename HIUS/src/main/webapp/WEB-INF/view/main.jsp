@@ -38,6 +38,8 @@
 <a href="member/memberList">회원 리스트</a><br/>
 <a href="employees/empRegist">직원 등록</a><br/>
 <a href="employees/empList">직원 리스트 </a><br/>
+<a href="shopgoods/shopgoodsRegist">상품 등록 </a><br/>
+<a href="shopgoods/shopgoodsList">상품 리스트 </a><br/>
 </c:if>
 </body>
 </html>

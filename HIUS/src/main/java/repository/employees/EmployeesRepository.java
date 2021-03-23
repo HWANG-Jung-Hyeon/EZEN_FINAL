@@ -22,20 +22,20 @@ public class EmployeesRepository {
 		statement = namespace + ".empSelect";
 		return sqlSession.selectList(statement);
 	}
-	public EmpDTO empDetail(String EMP_ID){
+	public EmpDTO empDetail(String empId){
 		statement = namespace + ".empDetail";
-		return sqlSession.selectOne(statement, EMP_ID);
+		return sqlSession.selectOne(statement, empId);
 	}
-	public EmpDTO empModify(String EMP_ID){
+	public EmpDTO empModify(String empId){
 		statement = namespace + ".empModify";
-		return sqlSession.selectOne(statement, EMP_ID);
+		return sqlSession.selectOne(statement, empId);
 	}
 	public void empModifyAction(EmpDTO empDTO){
 		statement = namespace + ".empModifyAction";
 		sqlSession.update(statement, empDTO);
 	}
-	public void empDelete(String EMP_ID) {
+	public void empDelete(String empId) {
 		statement = namespace + ".empDelete";
-		sqlSession.delete(statement, EMP_ID);
+		sqlSession.delete(statement, empId);
 	}
 }

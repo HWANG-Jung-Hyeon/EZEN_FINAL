@@ -38,26 +38,26 @@ public class EmployeesController {
 	}
 	@RequestMapping("empDetail")
 	public String empDetail(
-			@RequestParam(value="EMP_ID") String EMP_ID,Model model) {
-		System.out.println(EMP_ID);
-		employeesDetailService.empDetail(EMP_ID,model);
+			@RequestParam(value="emp_id") String empId,Model model) {
+		System.out.println(empId);
+		employeesDetailService.empDetail(empId,model);
 		return "emp/empDetail";
 	}
 	@RequestMapping("empModify")
 	public String empModify(
-			@RequestParam(value="EMP_ID") String EMP_ID,Model model) {
-		employeesDetailService.empModify(EMP_ID,model);
+			@RequestParam(value="emp_id") String empId,Model model) {
+		employeesDetailService.empModify(empId,model);
 		return "emp/empModify";
 	}
 	@RequestMapping("empModifyAction")
 	public String empModifyAction(EmployeesCommand employeesCommand, Model model) {
 		employeesDetailService.empModifyAction(employeesCommand, model);
-		return "redirect:/employees/empDetail?EMP_ID="+employeesCommand.getEMP_ID();
+		return "redirect:/employees/empDetail?EMP_ID="+employeesCommand.getEmpId();
 	}
 	@RequestMapping("empDelete")
 	public String empDelete(
-			@RequestParam(value="EMP_ID") String EMP_ID) {
-		empPloyeesDeleteService.empDelete(EMP_ID);
+			@RequestParam(value="emp_id") String empId) {
+		empPloyeesDeleteService.empDelete(empId);
 		return "redirect:/employees/empList";
 	}
 }

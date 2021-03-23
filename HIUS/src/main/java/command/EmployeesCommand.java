@@ -5,62 +5,64 @@ import java.util.Date;
 import org.springframework.format.annotation.DateTimeFormat;
 
 public class EmployeesCommand {
-	String EMP_ID;
-	String EMP_PW;
-	String EMP_NAME;
+	String empId;
+	String empPw;
+	String empName;
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
-	Date EMP_BIRTH;
-	String EMP_EMAIL;
-	String EMP_ADDR;
-	String GENDER;
-	String EMP_PH;
-	public String getEMP_ID() {
-		return EMP_ID;
+	Date empBirth;
+	String empEmail;
+	String empAddr;
+	String gender;
+	String empPh;
+	
+	public String getEmpId() {
+		return empId;
 	}
-	public void setEMP_ID(String eMP_ID) {
-		EMP_ID = eMP_ID;
+	public void setEmpId(String empId) {
+		this.empId = empId;
 	}
-	public String getEMP_PW() {
-		return EMP_PW;
+	public String getEmpPw() {
+		return empPw;
 	}
-	public void setEMP_PW(String eMP_PW) {
-		EMP_PW = eMP_PW;
+	public void setEmpPw(String empPw) {
+		this.empPw = empPw;
 	}
-	public String getEMP_NAME() {
-		return EMP_NAME;
+	public String getEmpName() {
+		return empName;
 	}
-	public void setEMP_NAME(String eMP_NAME) {
-		EMP_NAME = eMP_NAME;
+	public void setEmpName(String empName) {
+		this.empName = empName;
 	}
-	public Date getEMP_BIRTH() {
-		return EMP_BIRTH;
+	public Date getEmpBirth() {
+		return empBirth;
 	}
-	public void setEMP_BIRTH(Date eMP_BIRTH) {
-		EMP_BIRTH = eMP_BIRTH;
+	public void setEmpBirth(Date empBirth) {
+		this.empBirth = empBirth;
 	}
-	public String getEMP_EMAIL() {
-		return EMP_EMAIL;
+	public String getEmpEmail() {
+		return empEmail;
 	}
-	public void setEMP_EMAIL(String eMP_EMAIL) {
-		EMP_EMAIL = eMP_EMAIL;
+	public void setEmpEmail(String empEmail) {
+		this.empEmail = empEmail;
 	}
-	public String getEMP_ADDR() {
-		return EMP_ADDR;
+	public String getEmpAddr() {
+		return empAddr;
 	}
-	public void setEMP_ADDR(String eMP_ADDR) {
-		EMP_ADDR = eMP_ADDR;
+	public void setEmpAddr(String empAddr) {
+		this.empAddr = empAddr;
 	}
-	public String getGENDER() {
-		return GENDER;
+	public String getGender() {
+		return gender;
 	}
-	public void setGENDER(String gENDER) {
-		GENDER = gENDER;
+	public void setGender(String gender) {
+		this.gender = gender;
 	}
-	public String getEMP_PH() {
-		return EMP_PH;
+	public String getEmpPh() {
+		return empPh;
 	}
-	public void setEMP_PH(String eMP_PH) {
-		EMP_PH = eMP_PH;
+	public void setEmpPh(String empPh) {
+		this.empPh = empPh;
 	}
+	
 	
 }

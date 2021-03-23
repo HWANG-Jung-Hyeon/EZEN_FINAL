@@ -5,3 +5,4 @@ eclipse.preferences.version=1
 encoding//src/main/resources/message/error.properties=UTF-8
 encoding//src/main/webapp/WEB-INF/view/emp/empRegist.jsp=UTF-8
 encoding//src/main/webapp/WEB-INF/view/employees/empRegist.jsp=UTF-8
+encoding//src/main/webapp/WEB-INF/view/shopgoods/shopgoodsRegist.jsp=UTF-8

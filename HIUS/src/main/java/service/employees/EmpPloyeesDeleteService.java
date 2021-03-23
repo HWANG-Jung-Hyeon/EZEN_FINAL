@@ -7,7 +7,8 @@ import repository.employees.EmployeesRepository;
 public class EmpPloyeesDeleteService {
 	@Autowired
 	EmployeesRepository employeesRepository;
-	public void empDelete(String EMP_ID) {
-		employeesRepository.empDelete(EMP_ID);
+	public void empDelete(String empId) {
+		employeesRepository.empDelete(empId);
 	}
+	
 }
