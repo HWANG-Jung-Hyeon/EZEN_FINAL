@@ -16,5 +16,6 @@
 
 <a href="lentList">렌트상품 목록</a>
 <a href="lentRevise?no=${lent.rentGoodsNo }">렌트상품 수정하기</a>
+<a href="lentDelete?no=${lent.rentGoodsNo }">삭제하기</a>
 </body>
 </html>

@@ -18,4 +18,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		from rent_goods
 		where rent_Goods_No= #{no}
 	</select>
+	<update id="lentRevise" parameterType="model.RentDTO">
+		update rent_goods
+		set rent_Goods_Name = #{rentGoodsName},
+		 rent_Goods_Detail = #{rentGoodsDetail} , rent_Goods_Qty = #{rentGoodsQty} , rent_Goods_Price = #{rentGoodsPrice}
+		where rent_Goods_No = #{rentGoodsNo}
+	</update>
+	<delete id="lentDelete" parameterType="string">
+		delete from rent_goods
+		where rent_Goods_No = #{no}	
+	</delete>
 </mapper>

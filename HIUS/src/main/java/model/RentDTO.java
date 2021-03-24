@@ -8,6 +8,23 @@ public class RentDTO {
 	String rentGoodsImg;
 	String rentGoodsQty;
 	String rentGoodsPrice;
+	
+	StartEndPageDTO startEndPageDTO;
+	
+	public RentDTO () {}
+	public RentDTO(String rentGoodsNo, String rentGoodsClass, String rentGoodsName, String rentGoodsDetail,
+			String rentGoodsImg, String rentGoodsQty, String rentGoodsPrice) {
+		this.rentGoodsNo = rentGoodsNo;
+		this.rentGoodsClass = rentGoodsClass;
+		this.rentGoodsName = rentGoodsName;
+		this.rentGoodsDetail = rentGoodsDetail;
+		this.rentGoodsImg = rentGoodsImg;
+		this.rentGoodsQty = rentGoodsQty;
+		this.rentGoodsPrice = rentGoodsPrice;
+	}
+
+
+
 	public String getRentGoodsNo() {
 		return rentGoodsNo;
 	}

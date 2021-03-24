@@ -9,8 +9,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import command.LentCommand;
+import service.lent.LentDeleteService;
 import service.lent.LentDetailService;
 import service.lent.LentRegistService;
+import service.lent.LentReviceOKService;
 import service.lent.LentService;
 
 @RequestMapping(value="lent")
@@ -21,7 +23,11 @@ public class LentController {
 	LentService lentService;
 	@Autowired 
 	LentDetailService lentDetailService;
-
+	@Autowired
+	LentReviceOKService lentReviseOKService;
+	@Autowired
+	LentDeleteService lentDeleteService;
+	
 	@RequestMapping( value = "lentList", method = RequestMethod.GET )
 	public String lentList(Model model) {
 		lentService.execute(model);
@@ -41,9 +47,19 @@ public class LentController {
 		lentDetailService.lentDetail(no , model);
 		return "lent/lentDetail";
 	}
-	@RequestMapping(value = "/lent/lentRevise", method = RequestMethod.GET)
-	public String lentRevise(@Request(value = "no") Integer no, Model model) {
-		lentReviseService.execute(no, model);
+	@RequestMapping(value = "lentRevise", method = RequestMethod.GET)
+	public String lentRevise(@RequestParam(value = "no") Integer no, Model model) {
+		lentDetailService.lentDetail(no , model);
 		return "lent/lentRevise";
+	}
+	@RequestMapping(value = "lentReviseOK", method = RequestMethod.POST)
+	public String lentReviseOK(LentCommand lentCommand , Model model) {
+		lentReviseOKService.lentReviseOK(lentCommand, model);
+		return "redirect:/lent/lentDetail?no=" + lentCommand.getRentGoodsNo();
+	}
+	@RequestMapping("lentDelete")
+	public String lentDelete(@RequestParam(value = "no")String no,HttpSession session) {
+		lentDeleteService.execute(no, session);
+		return "redirect:/lent/lentList";
 	}
 }

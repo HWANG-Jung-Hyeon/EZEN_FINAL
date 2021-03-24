@@ -9,4 +9,7 @@
 	<bean class="repository.lent.LentRepository" />
 	<bean class="service.lent.LentService" />
 	<bean class="service.lent.LentDetailService" />
+	<bean class="service.lent.LentReviseService" />
+	<bean class="service.lent.LentReviceOKService" />
+	<bean class="service.lent.LentDeleteService" />	
 </beans>

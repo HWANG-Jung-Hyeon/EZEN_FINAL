@@ -28,4 +28,12 @@ public class LentRepository {
 		String statement = namespace +".getSelectDetail";
 		return sqlSession.selectOne(statement, no);
 	}
+	public void lentRevise(RentDTO dto) {
+		String statement = namespace +".lentRevise";
+		sqlSession.selectOne(statement, dto);
+	}
+	public void lentDelete(String no) {
+		String statement = namespace + ".lentDelete";
+		sqlSession.update(statement, no);
+	}
 }
