@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import Validator.GoodsCommandValidate;
 import command.GoodsCommand;
+import service.interior.GoodsDetailService;
 import service.interior.IntAddService;
 import service.interior.IntListService;
 
@@ -21,6 +22,8 @@ public class InteriorController {
 	IntAddService intAddService;
 	@Autowired
 	IntListService intListService;
+	@Autowired
+	GoodsDetailService goodsDetailService;
 	
 	@RequestMapping("main")
 	public String main() {
@@ -28,32 +31,37 @@ public class InteriorController {
 	}
 	@RequestMapping("addInterior")
 	public String addGoodsForm() {
-		return "interior/addInteriorForm";
+		return "interior/goods/addInteriorForm";
 	}
 	@RequestMapping("intGoodsAddAction")
 	public String intGoodsAddAction(GoodsCommand goodsCommand, Errors errors, HttpServletRequest request) {
 		new GoodsCommandValidate().validate(goodsCommand, errors);
 		if(errors.hasErrors()) {
-			return "interior/addInteriorForm";
+			return "interior/goods/addInteriorForm";
 		}
 		intAddService.InteriorAdd(goodsCommand, request);
-		return "redirect:/interior/interiorList";
+		return "redirect:/interior/goods/interiorList";
 	}
 	
 	@RequestMapping("interiorList")
 	public String interiorList(@RequestParam(value = "page", defaultValue = "1") Integer page, Model model) {
 		intListService.getIntList(model, page);
-		return "interior/interiorList";
+		return "interior/goods/interiorList";
 	}
 	
 	@RequestMapping("consultForm")
 	public String consultForm() {
-		return "interior/consultForm";
+		return "interior/consult/consultForm";
 	}
 	
 	@RequestMapping("reviewList")
 	public String reviewList() {
-		return "interior/reviewList";
+		return "interior/review/reviewList";
 	}
 	
+	@RequestMapping("writeReview")
+	public String writeReview(@RequestParam(value="goodsNo")String goodsNo, Model model) {
+		goodsDetailService.goodsDetail(goodsNo, model);
+		return "interior/review/reviewForm";
+	}
 }

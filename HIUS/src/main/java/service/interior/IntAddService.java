@@ -30,7 +30,7 @@ public class IntAddService {
 		dto.setGoodsPrice(null);
 		dto.setGoodsQty(null);
 		
-		String path = "WEB-INF/view/interior/upload";
+		String path = "WEB-INF/view/interior/goods/upload";
 		String filePath = session.getServletContext().getRealPath(path);
 		String goodsImage = "";
 		if(goodsCommand.getGoodsImg() != null) {

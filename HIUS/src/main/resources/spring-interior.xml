@@ -8,4 +8,5 @@
 	<bean id="intAddService" class="service.interior.IntAddService" />
 	<bean id="goodsRepository" class="repository.goods.GoodsRepository" />
 	<bean id="intListService" class="service.interior.IntListService" />
+	<bean id="goodsDetailService" class="service.interior.GoodsDetailService" />
 </beans>

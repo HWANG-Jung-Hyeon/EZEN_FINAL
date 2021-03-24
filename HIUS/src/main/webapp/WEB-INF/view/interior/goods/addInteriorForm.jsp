@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ include file="../include/include.jsp"%>
+<%@ include file="../../include/include.jsp"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -53,11 +53,11 @@
 			</tr>
 			<tr>
 				<th>이미지파일</th>
-				<td><input type="file" name="goodsImg" multiple="multiple" /></td>
+				<td><input type="file" name="goodsImg" multiple="multiple" accept="image/*" /></td>
 				<td>*첫 번째 이미지는 상품 목록의 미리보기용으로 제공됩니다.</td>
 			</tr>
 			<tr>
-				<td colspan="3"><input type="submit" value="상품등록" /> <input
+				<td colspan="3"><input type="submit" value="상품등록" />&nbsp;<input
 					type="reset" value="다시입력" />
 			</tr>
 		</table>
