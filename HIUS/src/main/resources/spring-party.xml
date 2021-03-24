@@ -5,6 +5,7 @@
 			http://www.springframework.org/schema/beans 
 			http://www.springframework.org/schema/beans/spring-beans.xsd">
 		<bean class="controller.party.PartyController"/>
+		<bean class="controller.party.ParmanController"/>
 		<bean id="PartyRepository" class="repository.party.PartyRepository"/>
 		<bean id="PartyWriteService" class="service.party.PartyWriteService"/>
 		<bean id="PartyListService" class="service.party.PartyListService"/>
@@ -12,4 +13,5 @@
 		<bean id="PartyUpdateService" class="service.party.PartyUpdateService"/>
 		<bean id="PartyDeleteService" class="service.party.PartyDeleteService"/>
 		<bean id="ImgDelService" class="service.party.ImgDelService"/>
+		
 </beans>			

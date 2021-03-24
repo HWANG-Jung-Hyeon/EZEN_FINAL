@@ -20,7 +20,9 @@ public class MemberPasswordValidator implements Validator{
 		ValidationUtils.rejectIfEmpty(errors, "newPwCon", "required");
 		ValidationUtils.rejectIfEmpty(errors, "oldPw", "required");
 		if(!memberPwCommand.getNewPw().isEmpty()) {
-			errors.rejectValue("newPw", "nomatch");
+			if(!memberPwCommand.isNewPwEqualsNewPwCon()) {
+				errors.rejectValue("newPw", "nomatch");
+			}
 		}
 	}
 	

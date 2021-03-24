@@ -16,10 +16,6 @@ public class MemberRepository {
 		statement = namespace + ".memberInsert";
 		return sqlSession.update(statement,dto);
 	}
-	public List<MemberDTO> memberSelect() {
-		statement = namespace + ".memberSelect";
-		return sqlSession.selectList(statement);
-	}
 	public MemberDTO memberDetail(String memId) {
 		statement = namespace + ".memberDetail";
 		return sqlSession.selectOne("statement", memId);
@@ -33,17 +29,22 @@ public class MemberRepository {
 		statement = namespace + ".memberModifyAction";
 		sqlSession.update(statement, dto);
 	}
-	public Integer MemberDelete(MemberDTO dto) {
-		statement= namespace + ".memberDelete";
-		return sqlSession.delete(statement, dto);
-	}
 	public Integer pwUpdate(MemberDTO dto) {
 		statement= namespace + ".updateMemberPw";
 		return sqlSession.update(statement, dto);
 	}
-	public MemberDTO memberSelect(MemberDTO dto) {
+	public Integer updateMember(MemberDTO dto) {
+		statement = namespace + ".updateMember";
+		return sqlSession.update(statement, dto);	
+	}
+	public MemberDTO selectByMember(MemberDTO dto) {
 		statement = namespace + ".selectMember";
 		return sqlSession.selectOne(statement, dto);
+	}
+	public Integer deleteMember(MemberDTO dto) {
+		statement = namespace + ".deleteMember";
+		return sqlSession.update(statement, dto);
+		
 	}
 	
 	

@@ -13,6 +13,23 @@ public class MemberDTO {
 	String gender;
 	Timestamp memReg;
 	
+	StartEndPageDTO startEndPageDTO;
+	
+	public MemberDTO() {}
+	
+	public MemberDTO(String memId, String memPw, String memName, Timestamp memBirth, String memPh, String memAddr, String memEmail,
+			String gender, Timestamp memReg) {
+		super();
+		this.memId = memId;
+		this.memPw = memPw;
+		this.memName = memName;
+		this.memBirth = memBirth;
+		this.memPh = memPh;
+		this.memAddr = memAddr;
+		this.memEmail = memEmail;
+		this.gender = gender;
+		this.memReg = memReg;
+	}
 	public String getMemId() {
 		return memId;
 	}
@@ -66,6 +83,14 @@ public class MemberDTO {
 	}
 	public void setMemReg(Timestamp memReg) {
 		this.memReg = memReg;
+	}
+
+	public StartEndPageDTO getStartEndPageDTO() {
+		return startEndPageDTO;
+	}
+
+	public void setStartEndPageDTO(StartEndPageDTO startEndPageDTO) {
+		this.startEndPageDTO = startEndPageDTO;
 	}
 	
 	

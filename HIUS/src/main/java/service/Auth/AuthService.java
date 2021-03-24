@@ -20,18 +20,19 @@ public class AuthService {
 	public void authenticate(LoginCommand loginCommand, Errors errors, HttpSession session) {
 		MemberDTO dto = new MemberDTO();
 		dto.setMemId(loginCommand.getLoginId());
-		dto = memberRepository.memberSelect(dto);
+		dto = memberRepository.selectByMember(dto);
 		if(dto == null) {
 			errors.rejectValue("loginId", "notId");
 		}else {
-			if(bCryptPasswordEncoder.matches(loginCommand.getLoginPw(),
-					dto.getMemPw())) {
+			if(bCryptPasswordEncoder.matches(loginCommand.getLoginPw(), dto.getMemPw())) {
 				authInfo = new AuthInfo(dto.getMemId(), dto.getMemEmail(), dto.getMemName());
 				session.setAttribute("authInfo", authInfo);
+					
+				}else {
+					errors.rejectValue("loginPw", "wrong");
+				}
 				
-			}else {
-				errors.rejectValue("loginPw", "wrong");
 			}
 		}
 	}
-}
+

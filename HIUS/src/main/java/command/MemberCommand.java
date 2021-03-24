@@ -63,5 +63,4 @@ public class MemberCommand {
 		this.gender = gender;
 	}
 	
-	
 }

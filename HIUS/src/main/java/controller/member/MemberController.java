@@ -3,68 +3,36 @@ package controller.member;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 
+import Validator.MemberCommandValidator;
 import command.MemberCommand;
-import model.MemberDTO;
-import service.member.MemberDeleteService;
-import service.member.MemberDetailService;
 import service.member.MemberJoinService;
-import service.member.MemberListService;
 
 @Controller
-@RequestMapping("mem")
+@RequestMapping("register")
 public class MemberController {
 	@Autowired
 	MemberJoinService memberJoinService;
-	@Autowired
-	MemberListService memberListService;
-	@Autowired
-	MemberDetailService memberDetailService;
-	@Autowired
-	MemberDeleteService memberDeleteService;
 	
-	@RequestMapping("memberRegist")
-	public String memberRegist(Model model) {
-		model.addAttribute("memberCommand", new MemberCommand());
-		return "member/memberRegist";
+	@RequestMapping("agree")
+	public String agree() {
+		return"member/agree";
 	}
-	@RequestMapping(value="memberJoinAction")
-	public String memberJoinAction(MemberCommand memberCommand) {
+	@RequestMapping(value = "regist", method = RequestMethod.POST)
+	public String regist(Model model) {
+		model.addAttribute("memberCommand", new MemberCommand());
+		return "member/memberForm";
+	}
+	@RequestMapping(value = "memberJoin")
+	public String memberJoin(MemberCommand memberCommand, Errors errors, Model model){ 
+		new MemberCommandValidator().validate(memberCommand, errors);
+		if(errors.hasErrors()) {
+			return "member/memberForm";
+		}
 		memberJoinService.execute(memberCommand);
 		return "member/memberWelcome";
 	}
-	@RequestMapping("memberList")
-	public String memberList(Model model) {
-		memberListService.memberList(model);
-		return "member/memberList";
-	}
-	@RequestMapping("memberDetail")
-	public String memberDetail(
-			@RequestParam(value="mem_id") String memId, Model model) {
-	 System.out.println(memId);
-	 memberDetailService.memberDetail(memId, model);
-	 return "member/memberDetail";
-	}
-	@RequestMapping("memberModify")
-	public String memberModify(
-			@RequestParam(value="mem_id") String memId, Model model) {
-		memberDetailService.memberModify(memId,model);
-		return "member/memModify";
-	}
-	@RequestMapping("memberModifyAction")
-	public String MemberModifyAction(MemberCommand memberCommand, Model model) {
-		memberDetailService.memberModifyAction(memberCommand, model);
-		return " redirect:/mem/memberDetail?memId="+memberCommand.getMemId();
-	}
-	@RequestMapping("memberDelete")
-	public String memberDelete(
-			@RequestParam(value="memId") MemberDTO dto) {
-		memberDeleteService.memberDelete(dto);
-		return "redirect:/mem/memberList";
-	}
-	
-	
 }

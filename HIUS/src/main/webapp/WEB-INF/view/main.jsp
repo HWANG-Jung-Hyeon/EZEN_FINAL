@@ -6,6 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<%@ include file="include/include.jsp" %>
 </head>
 <body>
 <c:if test="${empty authInfo }">
@@ -17,8 +18,9 @@
 			<form:errors path="loginId"/>
 			</td>
 		<td rowspan="2">
-			<input type="button" id="submit" value="로그인"/>
-		</td>		
+			<input type="image" src="images/img1.jpg"  id="imgSubmit" 
+			width="50px" height="50px"/>
+		</td>	
 	</tr>
 	<tr><td>비밀번호</td>
 		<td><input type="password" name="loginPw" id = "loginPw"/>
@@ -28,11 +30,12 @@
 	<tr><td colspan="3">
 		아이디 찾기 / 
 		비밀번호 찾기 / 
-		<a href="mem/memberRegist">회원가입</a></td></tr>
+		<a href="register/agree">회원가입</a></td></tr>
 </table>
 </form:form>
 </c:if>
 <c:if test="${!empty authInfo }">
+<a href="mem/memberDetail">내정보</a>
 <a href="<c:url value='/login/logout'/>">로그 아웃</a>
 <a href="member/memberDetail">내 정보</a>
 <a href="member/memberList">회원 리스트</a><br/>

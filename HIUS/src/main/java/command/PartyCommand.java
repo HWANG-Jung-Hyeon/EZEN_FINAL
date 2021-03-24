@@ -5,6 +5,7 @@ import java.sql.Timestamp;
 import org.springframework.web.multipart.MultipartFile;
 
 public class PartyCommand {
+	String prNo;
 	String prPl;
 	MultipartFile [] prImg;
 	String prContent;
@@ -13,6 +14,14 @@ public class PartyCommand {
 	Timestamp prMintime;
 	String prOp;
 	String prPh;
+	
+	
+	public String getPrNo() {
+		return prNo;
+	}
+	public void setPrNo(String prNo) {
+		this.prNo = prNo;
+	}
 	public String getPrPl() {
 		return prPl;
 	}

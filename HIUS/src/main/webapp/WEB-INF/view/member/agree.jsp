@@ -7,9 +7,10 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form action="memberPwModify" method="post">
-	비밀번호 : <input type="password" name="memPw" />
-	<div>${err }</div><br />
-	<input type="submit" value="전송" />
+<form action ="regist" method="post">
+약관에 동의하시겠습니까?</br>
+	<input type="checkbox" name="agree" required="required">
+	<input type="submit" value="다음"/>
+</form>
 </body>
 </html>

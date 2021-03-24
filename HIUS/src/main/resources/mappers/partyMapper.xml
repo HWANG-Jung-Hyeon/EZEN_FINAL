@@ -29,10 +29,10 @@ update party
 set pr_content = #{prContent},
 	pr_price = #{prPrice},
 	pr_img = #{prImg}
-where pr_pl = #{prPl}	
+where pr_No = #{prNo}	
 </update>
 <delete id="partyDelete" parameterType="string">
 	delete from pr
-	where pr_pl = #{prPl}
+	where pr_No = #{prNo}
 </delete>
 </mapper>	

@@ -15,7 +15,7 @@
 파티룸 가격<br/>
 <c:forEach items="${list } var="dto" varStatus="cnt">
 	<td>
-		<a href="partyDetail/${dto.prPl }">
+		<a href="partyDetail/${dto.prNo }">
 		<c:forTokens items="${dto.prImg }"
 			delims="'" var="i" begin="0" end="0">
 			<img alt="" src="../partyRoom/upload/${i }" />	

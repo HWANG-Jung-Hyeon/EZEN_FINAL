@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form action="memberPwModify" method="post">
+<form action="memberUserDelPro" method="post" name="frm">
 	비밀번호 : <input type="password" name="memPw" />
 	<div>${err }</div><br />
 	<input type="submit" value="전송" />

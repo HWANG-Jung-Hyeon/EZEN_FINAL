@@ -1,4 +1,4 @@
-package controller.member;
+package controller.main;
 
 import javax.servlet.http.HttpSession;
 

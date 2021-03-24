@@ -35,6 +35,7 @@ function fileDelete(imgFile,btn){
 <body>
 <form action="goodsModifyPro" method="post" enctype="multiparty/form-data">
 <input type="hidden" name="prNo" value="${party.prNo }"/>
+파티룸 번호 : ${party.prNo }<br />
 파티룸 가격 : <input type="text" name="prPrice" value=${party.prPrice } /><br/>
 파티룸 설명 : <textarea rows="10" cols="50" name="prContent">${party.prContent }</textarea><br />
 <c:forTokens items="${party.prImg }" delims="'" var="img">
