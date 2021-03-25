@@ -9,4 +9,8 @@
 		<bean class="service.shopgoods.ShopgoodsJoinService"/>
 		<bean class="service.shopgoods.ShopgoodsListService"/>
 		<bean class="service.shopgoods.ShopgoodsDetailService"/>
+		<bean class="controller.shoppingmall.ShoppingmallController"/>
+		<bean class="service.shoppingmall.ShoppingmallService"/>
+		<bean class="repository.shoppingmall.ShoppingmallRepository"/>
+		<bean class="service.shoppingmall.ShoppingDetailService"/>
 </beans>
