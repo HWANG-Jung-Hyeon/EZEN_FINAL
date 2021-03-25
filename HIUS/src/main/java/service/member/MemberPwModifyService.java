@@ -20,7 +20,7 @@ public class MemberPwModifyService {
 			HttpSession session, Errors errors) {
 		MemberDTO dto = new MemberDTO();
 		AuthInfo authInfo = (AuthInfo)session.getAttribute("authInfo");
-		dto.setMemId(authInfo.getMemId());
+		dto.setMemId(authInfo.getUserId());
 		dto = memberRepository.selectByMember(dto);
 		if(!bCryptPasswordEncoder.matches(memberPwCommand.getOldPw(), dto.getMemPw())) {
 			errors.rejectValue("oldPw", "wrong");

@@ -18,7 +18,7 @@ public class MemberDeleteService {
 	public String execute(String memPw, HttpSession session, Model model) {
 		MemberDTO dto = new MemberDTO();
 		AuthInfo authInfo = (AuthInfo)session.getAttribute("authInfo");
-		dto.setMemId(authInfo.getMemId());
+		dto.setMemId(authInfo.getUserId());
 		dto = memberRepository.selectByMember(dto);
 		if(bCryptPasswordEncoder.matches(memPw, dto.getMemPw())) {
 			memberRepository.deleteMember(dto);

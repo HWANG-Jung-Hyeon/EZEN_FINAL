@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="HIUS.mappers.loginMapper">
+	<select id="loginSelect" parameterType="string" resultType="model.AuthInfo">
+		select mem_id userId , mem_email userEmail , mem_name userName, mem_pw userPw, 'mem' grade
+		from member
+		where mem_id = #{userId}
+		union
+		select emp_id, emp_email, emp_name, emp_pw ,'emp' 
+		from emp
+		where emp_id = #{userId}		
+	</select>
+</mapper>

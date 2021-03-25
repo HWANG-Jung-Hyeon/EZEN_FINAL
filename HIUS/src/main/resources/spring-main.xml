@@ -6,6 +6,7 @@
        		http://www.springframework.org/schema/beans/spring-beans.xsd">
        <bean class="controller.main.LoginController"/>	
 	   <bean class="controller.main.MainController"/>
+	    <bean class="repository.login.LoginRepository"/>
 </beans>       		
 
 

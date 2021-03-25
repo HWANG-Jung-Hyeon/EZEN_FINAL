@@ -8,31 +8,27 @@ import org.springframework.validation.Errors;
 
 import command.LoginCommand;
 import model.AuthInfo;
-import model.MemberDTO;
-import repository.member.MemberRepository;
+import repository.login.LoginRepository;
 
 public class AuthService {
 	@Autowired
-	MemberRepository memberRepository;
+	LoginRepository loginRepository;
 	@Autowired
 	BCryptPasswordEncoder bCryptPasswordEncoder;
-	private AuthInfo authInfo;
+	AuthInfo authInfo;
 	public void authenticate(LoginCommand loginCommand, Errors errors, HttpSession session) {
-		MemberDTO dto = new MemberDTO();
-		dto.setMemId(loginCommand.getLoginId());
-		dto = memberRepository.selectByMember(dto);
-		if(dto == null) {
+		System.out.println(loginCommand.getLoginId());
+		authInfo = loginRepository.loginSelect(loginCommand.getLoginId());
+		if(authInfo == null) {
 			errors.rejectValue("loginId", "notId");
 		}else {
-			if(bCryptPasswordEncoder.matches(loginCommand.getLoginPw(), dto.getMemPw())) {
-				authInfo = new AuthInfo(dto.getMemId(), dto.getMemEmail(), dto.getMemName());
+			if(bCryptPasswordEncoder.matches(loginCommand.getLoginPw(),
+					authInfo.getUserPw())) {
 				session.setAttribute("authInfo", authInfo);
-					
-				}else {
-					errors.rejectValue("loginPw", "wrong");
-				}
 				
+			}else {
+				errors.rejectValue("loginPw", "wrong");
 			}
 		}
 	}
-
+}

@@ -22,7 +22,7 @@ public class MemberInfoService {
 			Model model) {
 		MemberDTO dto = new MemberDTO();
 		AuthInfo authInfo = (AuthInfo)session.getAttribute("authInfo");
-		dto.setMemId(authInfo.getMemId());
+		dto.setMemId(authInfo.getUserId());
 		dto = memberRepository.selectByMember(dto);
 		if(bcryptPasswordEncoder.matches(memPw,dto.getMemPw())){
 			model.addAttribute("memberPwCommand", new MemberPwCommand());
@@ -55,7 +55,7 @@ public class MemberInfoService {
 		AuthInfo authInfo = 
 				(AuthInfo)session.getAttribute("authInfo");
 		MemberDTO dto = new MemberDTO();
-		dto.setMemId(authInfo.getMemId());
+		dto.setMemId(authInfo.getUserId());
 		dto = memberRepository.selectByMember(dto);
 		model.addAttribute("memberCommand",dto);
 	}
