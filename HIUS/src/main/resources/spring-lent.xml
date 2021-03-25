@@ -12,4 +12,9 @@
 	<bean class="service.lent.LentReviseService" />
 	<bean class="service.lent.LentReviceOKService" />
 	<bean class="service.lent.LentDeleteService" />	
+	<bean class="controller.rentmall.RentrmallController" />
+	<bean class="repository.rentmall.RentmallRepository" />
+	<bean class="service.rentmall.RentmallService" />
+	<bean class="service.rentmall.RentmallDetailService" />
+	
 </beans>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="HIUS.mappers.rentmallMapper">
+	<select  id="rentmallAllselect" resultType="model.RentDTO">
+	select RENT_GOODS_NO rentGoodsNo , RENT_GOODS_CLASS rentGoodsClass , RENT_GOODS_NAME rentGoodsName , RENT_GOODS_DETAIL rentGoodsDetail ,
+	 RENT_GOODS_IMG rentGoodsImg , RENT_GOODS_QTY rentGoodsQty , RENT_GOODS_PRICE rentGoodsPrice
+	from rent_goods
+	</select>
+	<select id="getSelectDetail" parameterType="string" resultType="model.RentDTO">
+	select rent_Goods_No rentGoodsNo , rent_Goods_Class rentGoodsClass , rent_Goods_Name rentGoodsName,
+		 rent_Goods_Detail rentGoodsDetail , rent_Goods_Img rentGoodsImg , rent_Goods_Qty rentGoodsQty , rent_Goods_Price rentGoodsPrice
+	from rent_goods
+	where rent_Goods_No= #{no}
+	</select>
+</mapper>
