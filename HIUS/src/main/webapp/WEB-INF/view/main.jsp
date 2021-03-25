@@ -36,8 +36,11 @@
 </c:if>
 <c:if test="${!empty authInfo }">
 	<c:if test="${authInfo.grade == 'mem' }">
+		
 		<a href="<c:url value='/login/logout'/>">로그 아웃</a>
 		<a href="member/memberDetail">내 정보</a>
+		<a href="shop/shoppingmall">쇼핑몰</a><br/>
+		<a href="rent/rentmall">제품 대여</a><br/>
 	</c:if>
 	<c:if test="${authInfo.grade == 'emp' }">
 		<a href="<c:url value='/login/logout'/>">로그 아웃</a><br />
