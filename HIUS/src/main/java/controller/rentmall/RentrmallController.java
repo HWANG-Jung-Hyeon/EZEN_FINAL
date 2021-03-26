@@ -28,6 +28,7 @@ public class RentrmallController {
 		rentmallDetailService.execute(no, model);
 		return "rent/rentDetail";
 	}
+
 }
 
 
