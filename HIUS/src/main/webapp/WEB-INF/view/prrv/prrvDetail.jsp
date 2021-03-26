@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
- ajax 해당 날짜 리스트
+ 
 </body>
 </html>

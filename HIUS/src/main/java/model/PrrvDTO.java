@@ -10,6 +10,9 @@ public class PrrvDTO {
 	String memPh;
 	Timestamp prrvDate;
 	Timestamp prrvTime;
+	String prImg;
+	String prPl;
+	
 	StartEndPageDTO startEndPageDTO;
 	
 	public PrrvDTO() {}
@@ -31,6 +34,22 @@ public class PrrvDTO {
 
 	public void setStartEndPageDTO(StartEndPageDTO startEndPageDTO) {
 		this.startEndPageDTO = startEndPageDTO;
+	}
+
+	public String getPrImg() {
+		return prImg;
+	}
+
+	public void setPrImg(String prImg) {
+		this.prImg = prImg;
+	}
+
+	public String getPrPl() {
+		return prPl;
+	}
+
+	public void setPrPl(String prPl) {
+		this.prPl = prPl;
 	}
 
 	public String getPrrvNo() {

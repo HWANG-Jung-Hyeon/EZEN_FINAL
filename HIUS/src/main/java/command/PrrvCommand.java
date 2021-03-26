@@ -1,9 +1,9 @@
 package command;
 
-import java.sql.Timestamp;
 import java.util.Date;
 
 import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.web.multipart.MultipartFile;
 
 public class PrrvCommand {
 	String prrvNo;
@@ -13,6 +13,21 @@ public class PrrvCommand {
 	String memPh;
 	@DateTimeFormat(pattern="yyyy-MM-dd")
 	Date prrvDate;
+	MultipartFile [] prImg;
+	String prPl;
+	
+	public MultipartFile[] getPrImg() {
+		return prImg;
+	}
+	public void setPrImg(MultipartFile[] prImg) {
+		this.prImg = prImg;
+	}
+	public String getPrPl() {
+		return prPl;
+	}
+	public void setPrPl(String prPl) {
+		this.prPl = prPl;
+	}
 	public String getPrrvNo() {
 		return prrvNo;
 	}
