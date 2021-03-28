@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace ="HIUS.mappers.memberAdminMapper">
+
+<select id="selectMember" resultType="mem">
+	SELECT mem_id memId, mem_pw memPw, mem_name memName, mem_birth memBirth, mem_ph memPh, mem_addr memAddr, mem_email memEmail, gender gender, mem_reg memReg
+		FROM member
+</select>
+<select id="selectCount" resultType="int">
+	select count(*) from member 
+</select>
+
+<delete id="deleteMember" parameterType="String">
+	delete from member
+	where mem_id = #{memId}
+</delete>
+
+</mapper>

@@ -37,6 +37,7 @@
 			classpath:spring-lent.xml		
 			classpath:spring-shop.xml
 			classpath:spring-main.xml
+			classpath:spring-admin-member.xml
   		</param-value>
   	</init-param>
   </servlet>

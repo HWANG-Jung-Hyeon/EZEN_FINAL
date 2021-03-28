@@ -7,7 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
- 가입을 환영합니다.<br/>
- <a href="../main">메인으로</a>
+탈퇴 ㄱㄱ
 </body>
 </html>

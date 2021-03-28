@@ -67,7 +67,7 @@
 	<tr>
  		<th >성별</th>
  		<td  >
- 			 남자 : <form:radiobutton path="gender"  id  = "gender" value="m" checked="checked"/>
+ 			 남자 : <form:radiobutton path="gender"  id="gender" value="m" checked="checked"/>
  			 여자 : <form:radiobutton path="gender"  id="gender" value="F" />
  		</td>
 	</tr>

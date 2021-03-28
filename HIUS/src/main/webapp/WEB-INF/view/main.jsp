@@ -30,7 +30,7 @@
 	<tr><td colspan="3">
 		아이디 찾기 / 
 		비밀번호 찾기 / 
-		<a href="register/agree">회원가입</a></td></tr>
+		<a href="member/agree">회원가입</a></td></tr>
 </table>
 </form:form>
 </c:if>
@@ -38,14 +38,15 @@
 	<c:if test="${authInfo.grade == 'mem' }">
 		
 		<a href="<c:url value='/login/logout'/>">로그 아웃</a>
-		<a href="member/memberDetail">내 정보</a>
+		<a href="member/memberInfo">내 정보</a>
 		<a href="shop/shoppingmall">쇼핑몰</a>
 		<a href="rent/rentmall">제품 대여</a>
 		<a href="prrv/prrvList">파티룸 예약</a>
+		
 	</c:if>
 	<c:if test="${authInfo.grade == 'emp' }">
 		<a href="<c:url value='/login/logout'/>">로그 아웃</a><br />
-		<a href="member/memberList">회원 리스트</a><br/>
+		<a href="admin/memberList">회원 리스트</a><br/>
 		<a href="employees/empRegist">직원 등록</a><br/>
 		<a href="employees/empList">직원 리스트 </a><br/>
 		<a href="shopgoods/shopgoodsRegist">상품 등록 </a><br/>

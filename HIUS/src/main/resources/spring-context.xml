@@ -19,8 +19,6 @@
 	</mvc:view-resolvers>
 	<mvc:resources location="/WEB-INF/view/" mapping="/**"
 	 cache-period="31556926"/>
-	<!-- interceptors  -->
-
 	<!-- 의존객체 자동 주입 -->
 	<context:annotation-config />
 	<bean id="bcryptPasswordEncoder"

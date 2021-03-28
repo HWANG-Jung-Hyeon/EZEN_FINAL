@@ -5,11 +5,11 @@
 			http://www.springframework.org/schema/beans 
 			http://www.springframework.org/schema/beans/spring-beans.xsd">
 		<bean class="controller.member.MemberController"/>
-		<bean class="controller.member.MemberInfoController"/>
 	    <bean id="memberRepository" class="repository.member.MemberRepository"/>
-	    <bean id="memberJoinService" class="service.member.MemberJoinService"/>
+	    <bean id="memberAdminRepository" class="repository.Member.MemberAdminRepository"/>
 	    <bean id="memberDeleteService" class="service.member.MemberDeleteService"/>
 	    <bean id="memberInfoService" class="service.member.MemberInfoService"/>
+	    <bean id="memberJoinService" class="service.member.MemberJoinService"/> 
 	    <bean id ="memberPwModifyService" class="service.member.MemberPwModifyService"/>
 	    <bean id="authService" class="service.Auth.AuthService"/>
 </beans>
