@@ -6,18 +6,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
-import model.GoodsDTO;
+import model.IntRevDTO;
 import repository.Interior.InteriorRepository;
 
 @Service
-public class GoodsDetailService {
+public class ReviewDetailService {
 	@Autowired
 	InteriorRepository interiorRepository;
-	public void goodsDetail(String goodsNo, Model model) {
-		GoodsDTO dto = new GoodsDTO();
-		dto.setGoodsNo(goodsNo);
-		List<GoodsDTO> list = interiorRepository.getIntList(dto);
-		model.addAttribute("goods", list.get(0));
+	public void reviewDetail(String reviewNo, Model model) {
+		IntRevDTO dto = new IntRevDTO();
+		dto.setReviewNo(reviewNo);
+		List<IntRevDTO> list = interiorRepository.getReviewList(dto);
+		model.addAttribute("intRevList", list);
 	}
-
+	
 }

@@ -6,7 +6,10 @@
 			http://www.springframework.org/schema/beans/spring-beans.xsd">
 	<bean class="controller.interior.InteriorController" />
 	<bean id="intAddService" class="service.interior.IntAddService" />
-	<bean id="goodsRepository" class="repository.goods.GoodsRepository" />
+	<bean id="interiorRepository" class="repository.Interior.InteriorRepository" />
 	<bean id="intListService" class="service.interior.IntListService" />
 	<bean id="goodsDetailService" class="service.interior.GoodsDetailService" />
+	<bean id="reviewAddService" class="service.interior.ReviewAddService" />
+	<bean id="reviewDetailService" class="service.interior.ReviewDetailService" />
+	<bean id="reviewListService" class="service.interior.ReviewListService" />
 </beans>

@@ -13,13 +13,13 @@ import org.springframework.web.multipart.MultipartFile;
 
 import command.GoodsCommand;
 import model.GoodsDTO;
-import repository.goods.GoodsRepository;
+import repository.Interior.InteriorRepository;
 
 @Service
 public class IntAddService {
 	@Autowired
-	GoodsRepository goodsRepository;
-	public void InteriorAdd(GoodsCommand goodsCommand, HttpServletRequest request) {
+	InteriorRepository interiorRepository;
+	public void interiorAdd(GoodsCommand goodsCommand, HttpServletRequest request) {
 		HttpSession session = request.getSession();
 		GoodsDTO dto = new GoodsDTO();
 		dto.setGoodsNo(goodsCommand.getGoodsNo());
@@ -48,6 +48,6 @@ public class IntAddService {
 			}
 		}
 		dto.setGoodsImg(goodsImage);
-		goodsRepository.goodsInsert(dto);
+		interiorRepository.goodsInsert(dto);
 	}
 }

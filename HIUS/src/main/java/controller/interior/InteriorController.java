@@ -11,9 +11,13 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import Validator.GoodsCommandValidate;
 import command.GoodsCommand;
+import command.IntRevCommand;
 import service.interior.GoodsDetailService;
 import service.interior.IntAddService;
 import service.interior.IntListService;
+import service.interior.ReviewAddService;
+import service.interior.ReviewDetailService;
+import service.interior.ReviewListService;
 
 @Controller
 @RequestMapping("interior")
@@ -24,6 +28,12 @@ public class InteriorController {
 	IntListService intListService;
 	@Autowired
 	GoodsDetailService goodsDetailService;
+	@Autowired
+	ReviewAddService reviewAddService;
+	@Autowired
+	ReviewDetailService reviewDetailService;
+	@Autowired
+	ReviewListService reviewListService;
 	
 	@RequestMapping("main")
 	public String main() {
@@ -39,8 +49,8 @@ public class InteriorController {
 		if(errors.hasErrors()) {
 			return "interior/goods/addInteriorForm";
 		}
-		intAddService.InteriorAdd(goodsCommand, request);
-		return "redirect:/interior/goods/interiorList";
+		intAddService.interiorAdd(goodsCommand, request);
+		return "redirect:/interior/interiorList";
 	}
 	
 	@RequestMapping("interiorList")
@@ -55,7 +65,8 @@ public class InteriorController {
 	}
 	
 	@RequestMapping("reviewList")
-	public String reviewList() {
+	public String reviewList(@RequestParam(value="page", defaultValue = "1")Integer page, Model model) {
+		reviewListService.getReviewList(page, model);
 		return "interior/review/reviewList";
 	}
 	
@@ -63,5 +74,25 @@ public class InteriorController {
 	public String writeReview(@RequestParam(value="goodsNo")String goodsNo, Model model) {
 		goodsDetailService.goodsDetail(goodsNo, model);
 		return "interior/review/reviewForm";
+	}
+	
+	@RequestMapping("intReviewWriteAction")
+	public String intReviewWriteAction(IntRevCommand revCommand, HttpServletRequest request) {
+		reviewAddService.reviewAdd(revCommand, request);
+		return "redirect:/interior/writeSuccess";
+	}
+	
+	@RequestMapping("writeSuccess")
+	public String writeSuccess() {
+		return "interior/review/writeEnd";
+	}
+	
+	@RequestMapping("reviewDetail")
+	public String reviewDetail(@RequestParam(value="reviewNo")String reviewNo, Model model, HttpServletRequest request) {
+		if(reviewNo == null) {
+			reviewNo = reviewAddService.reviewNo(model, request);
+		}
+		reviewDetailService.reviewDetail(reviewNo, model);
+		return "interior/review/reviewDetail";
 	}
 }
