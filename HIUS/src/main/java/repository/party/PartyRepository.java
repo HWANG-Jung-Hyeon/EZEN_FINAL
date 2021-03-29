@@ -4,35 +4,44 @@ import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
 
 import model.PartyDTO;
 
-@Repository
 public class PartyRepository {
 	@Autowired
 	private SqlSession sqlSession;
-	private final String namespace="PartyMapper";
-	
-	public void partyInsert(PartyDTO dto) {
-		String statement = namespace + ".partyInsert";
-		sqlSession.update(statement, dto);
-	}
+	private String namespace= "HIUS.mappers.partyAdminMapper";
+	String statement;	
 
 	public List<PartyDTO> getPartyList(PartyDTO dto) {
-		String statement = namespace + ".getPartyList";
+		statement = namespace + ".selectParty";
 		return sqlSession.selectList(statement, dto);
 	}
-	public Integer getPartyCount() {
-		String statement = namespace + ".getPartyCount";
-		return sqlSession.selectOne(statement);
+	public List<PartyDTO> getPartyCount(String prPl) {
+		statement = namespace + ".selectCount";
+		return sqlSession.selectOne(statement, prPl);
 	}
-	public void partyUpdate(PartyDTO dto) {
+///////////////////////////////////////////////////////////////////////////////////	
+	public Integer partyInsert(PartyDTO dto) {
+		String statement = namespace +".partyInsert";
+		return sqlSession.update(statement, dto);	
+	}
+	public Integer deleteParty(String prPl) {
+		statement = namespace +".deleteParty";
+		return sqlSession.update(statement, prPl);	
+	}
+	public Integer updateParty(PartyDTO dto) {
+		statement = namespace = ".updateParty";
+		return sqlSession.update(statement, dto);
+	}
+	
+	public Integer partyUpdate(PartyDTO dto) {
 		String statement = namespace + ".partyUpdate";
-		sqlSession.update(statement, dto);
+		return sqlSession.update(statement, dto);
 	}
-	public void partyDelete(String prNo) {
-		String statement = namespace + ".partyDelete";
-		sqlSession.update(statement,prNo);
+	public int getPartyCount() {
+		// TODO Auto-generated method stub
+		return 0;
 	}
+
 }

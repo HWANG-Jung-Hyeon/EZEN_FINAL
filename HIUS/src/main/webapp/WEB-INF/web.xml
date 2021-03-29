@@ -38,6 +38,7 @@
 			classpath:spring-shop.xml
 			classpath:spring-main.xml
 			classpath:spring-admin-member.xml
+			classpath:spring-party-admin.xml
   		</param-value>
   	</init-param>
   </servlet>

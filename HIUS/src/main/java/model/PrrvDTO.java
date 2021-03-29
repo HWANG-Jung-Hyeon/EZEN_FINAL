@@ -9,7 +9,8 @@ public class PrrvDTO {
 	String memName;
 	String memPh;
 	Timestamp prrvDate;
-	Timestamp prrvTime;
+	String prrvStartTime;
+	String prrvEndTime;
 	String prImg;
 	String prPl;
 	
@@ -18,14 +19,17 @@ public class PrrvDTO {
 	public PrrvDTO() {}
 	
 	public PrrvDTO(String prrvNo, String memId, String memName, String memPh, 
-			Timestamp prrvDate, Timestamp prrvTime) {
+			Timestamp prrvDate, String prrvStartTime, String prrvEndTime, String prImg, String prPl) {
 		super();
 		this.prrvNo = prrvNo;
 		this.memId = memId;
 		this.memName = memName;
 		this.memPh = memPh;
 		this.prrvDate = prrvDate;
-		this.prrvTime = prrvTime;
+		this.prrvEndTime = prrvEndTime;
+		this.prrvStartTime = prrvStartTime;
+		this.prImg = prImg;
+		this.prPl = prPl;
 	}
 	
 	public StartEndPageDTO getStartEndPageDTO() {
@@ -88,13 +92,22 @@ public class PrrvDTO {
 	public void setPrrvDate(Timestamp prrvDate) {
 		this.prrvDate = prrvDate;
 	}
-	public Timestamp getPrrvTime() {
-		return prrvTime;
+
+	public String getPrrvStartTime() {
+		return prrvStartTime;
 	}
-	public void setPrrvTime(Timestamp prrvTime) {
-		this.prrvTime = prrvTime;
+
+	public void setPrrvStartTime(String prrvStartTime) {
+		this.prrvStartTime = prrvStartTime;
 	}
-	
+
+	public String getPrrvEndTime() {
+		return prrvEndTime;
+	}
+
+	public void setPrrvEndTime(String prrvEndTime) {
+		this.prrvEndTime = prrvEndTime;
+	}
 	
 	
 }

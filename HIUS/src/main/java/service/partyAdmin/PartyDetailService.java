@@ -1,4 +1,4 @@
-package service.party;
+package service.partyAdmin;
 
 import java.util.List;
 
@@ -11,11 +11,13 @@ import repository.party.PartyRepository;
 public class PartyDetailService {
 	@Autowired
 	PartyRepository partyRepository;
-	public void partyDetail(String prNo, Model model) {
-		PartyDTO dto = new PartyDTO();
-		dto.setPrNo(prNo);
-		List<PartyDTO> list = partyRepository.getPartyList(dto);
-		model.addAttribute("party", list.get(0));
+	public void execute(String prPl, Model model) {
+		PartyDTO dto = new PartyDTO(); 
+		dto.setPrPl(prPl);
+		List<PartyDTO> list = 
+				partyRepository.getPartyCount(prPl);
+		model.addAttribute("partyCommand", list.get(0));
+		
 	}
 	
 }

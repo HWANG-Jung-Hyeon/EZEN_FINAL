@@ -27,8 +27,6 @@ public class PartyDTO {
 		this.prMintime = prMintime;
 		this.prOp = prOp;
 		this.prPh = prPh;
-		
-	
 	
 }
 	

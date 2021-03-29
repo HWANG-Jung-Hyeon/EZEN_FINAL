@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" isELIgnored="false"%>
 <%@ include file="../include/include.jsp" %>    
 <!DOCTYPE html>
 <html>
@@ -19,9 +19,7 @@
 옵션 : ${partyCommand.prOp }<br/>
 파티룸 연락처 : ${partyCommand.prPh }<br/>
 <p>
-<a href="partyList">파티룸 목록</a>
-<a href="goodsDelete?prNo=${party.prNo }">파티룸 삭제</a>
-<a href="goodsModify?prNo=${party.prNo }">파티룸 수정</a>
+<a href="partyInfo">파티룸 목록</a>
 </p>
 </body>
 </html>
