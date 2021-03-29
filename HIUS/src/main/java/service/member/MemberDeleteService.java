@@ -26,7 +26,7 @@ public class MemberDeleteService {
 			return "redirect:/";
 		}else {
 			model.addAttribute("err","비밀번호가 틀렸습니다.");
-			return " member/memberDelForm";
+			return "member/memberDelForm";
 		}
 	}
 

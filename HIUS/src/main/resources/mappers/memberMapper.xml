@@ -1,50 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace ="HIUS.mappers.memberMapper">
-<insert id="memberInsert" parameterType="model.MemberDTO">
+
+<insert id="memberInsert" parameterType="mem">
 	insert into member (mem_id, mem_pw, mem_name, mem_birth, mem_ph, mem_addr, mem_email, gender, mem_reg)
 	values (#{memId}, #{memPw}, #{memName}, #{memBirth}, #{memPh}, #{memAddr}, #{memEmail}, #{gender}, SYSDATE)
 </insert>
-<select id ="selectMember" resultType="model.MemberDTO">
-	select mem_id, mem_pw, mem_name, mem_birth, mem_ph, mem_addr, mem_email, gender, mem_reg from member
+
+<select id ="selectByMember" resultType="mem">
+	select mem_id, mem_pw, mem_name, mem_birth, mem_ph, mem_addr, mem_email, gender, mem_reg
+		from member
 	<trim prefix="where" prefixOverrides= "AND/OR">
 		<if test="memId != null">
-			mem_id=#{memId}
-		</if>	
+			mem_id = #{memId}
+		</if>
+		order by mem_reg DESC))	
 	</trim>
+<trim prefix="where" prefixOverrides="AND | OR">
+	<if test="memId != null">
+		mem_id = #{memId}
+	</if>
+</trim>	
 </select>
 
-<select id="memberDetail" parameterType="String" resultType="model.MemberDTO">
-	select mem_id, mem_no, mem_pw, mem_name, mem_birth, mem_ph, mem_addr, mem_email, gender, mem_reg from member
-	where mem_id=#{memId}
-</select>
-<select id="memberModify" parameterType="String" resultType="model.MemberDTO" >
-	select mem_id, mem_pw, mem_name, mem_birth, mem_ph, mem_addr, mem_email, gender, mem_reg from member
-	where mem_id=#{memId}
-</select>
-<update id="memberModifyAction" parameterType="model.MemberDTO">
-	update member
-	set mem_email = #{memEmail}, mem_addr= #{memAddr}, mem_ph=#{memPh}
-	where mem_id =${memId} and Mem_pw = ${memPw}
-</update>
-<delete id="memberDelete" parameterType="String">
-	delete from member
-	where mem_id=#{memId}
-</delete>
-<update id="updateMemberPw" parameterType="model.MemberDTO">
-	update member
-	set mem_pw =#{memId}
-</update>
 <update id="updateMember" parameterType="mem">
 	update member
 	<trim prefix="set" suffixOverrides=",">
 		mem_addr = #{memAddr},
-	    mem_Ph = #{memPh},
-	    <if test="memPh != null">
-	    	mem_ph = #{memPh}
-	    </if>
+	    mem_Ph = #{memPh}
 	</trim>
 	where mem_id = #{memId}
 </update>
 
+<update id="updateMemberPw" parameterType="mem">
+	update member
+	set mem_pw = #{memPw}
+	set mem_pw =#{memId}
+</update>
+
+<delete id="deleteMember" parameterType="mem">
+	delete from member
+	where mem_id=#{memId}
+</delete>
 </mapper>

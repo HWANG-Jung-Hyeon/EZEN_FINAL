@@ -6,5 +6,5 @@
 		<typeAlias type="model.MemberDTO" alias="mem"/>
 		<typeAlias type="model.PartyDTO" alias="pr"/>
 		<typeAlias type="model.GoodsDTO" alias="gd"/>
-	</typeAliases>
+	</typeAliases>	
 </configuration>

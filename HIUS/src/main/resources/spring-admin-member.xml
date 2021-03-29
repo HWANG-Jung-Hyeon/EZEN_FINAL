@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+       		http://www.springframework.org/schema/beans 
+       		http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<bean class="controller.admin.MemberAdminController"/>
+	<bean id="memberListService" 
+		class="service.admin.MemberListService" />
+	<bean id="memberAdminRepository" 
+		class="repository.member.MemberAdminRepository"/>
+	<bean id="memberDetailService" 
+		class="service.admin.MemberDetailService" />
+	<bean id = "memberModifyService"
+		class="service.admin.MemberModifyService" />
+	<bean id="memberDeleteProService"
+		class="service.admin.MemberDeleteProService" />
+</beans>
