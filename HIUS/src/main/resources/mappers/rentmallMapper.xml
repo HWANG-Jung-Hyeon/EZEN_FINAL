@@ -14,4 +14,39 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	from rent_goods
 	where rent_Goods_No= #{no}
 	</select>
+	<select id="getSelecNo" resultType="string">
+		select RENT_ORDER_NO from rent_order where RENT_ORDER_NO not in (select RENT_ORDER_NO from rent_pay) and mem_id = #{memId}
+	</select>
+	<select id="getSelecOrderNo" resultType="string">
+		select ex_seq.nextval from dual
+	</select>
+	<select id="sumPrice" resultType="int">
+		select nvl(sum(RENTGOODSPRICE),0)    
+		from rent_list l, rent_order o     
+		where l.ORDERNO = o.RENT_ORDER_NO    
+		and o.RENT_ORDER_NO not in (select RENT_ORDER_NO from rent_pay)
+		and o.mem_id = #{memId}
+	</select>
+	<insert id="getrent_order" parameterType="model.RentOrderListDTO">
+		insert into rent_list (corderLiNo, orderNo, rentGoodsNo , rentstartd , 
+							   rentstarth,rentstartt, rentstartq, rentGoodsPrice ) 
+		values (ex_seq.nextval, #{orderNo}, #{rentGoodsNo}, #{rentstartd},
+					#{rentstarth}, #{rentstartt}, #{rentstartq},#{rentGoodsPrice})
+	</insert>
+	<insert id="rentOrderInsert" parameterType="model.RentOrderDTO">
+		insert into rent_order (RENT_ORDER_NO, RENT_PAY, RENT_DATE, mem_Id, RENT_RCV_NAME , RENT_ADDR)
+		values (#{rentOrderNo}, #{rentOrderNo}, sysdate, #{memId} ,1111,1111)
+	</insert>
+	<select id="rentCartList" parameterType="string" resultType="model.RentCartListDTO">
+		select g.RENT_GOODS_NAME rentGoodsName , replace(g.RENT_GOODS_IMG,'`','') rentGoodsImg, g.RENT_GOODS_PRICE rentGoodsPrice, o.RENT_PAY rentPay, 
+        l.RENTSTARTD, l.RENTSTARTH, l.RENTSTARTT, l.RENTSTARTQ, l.RENTGOODSPRICE
+from rent_goods g, rent_list l, rent_order o
+where g.RENT_GOODS_NO = l.rentgoodsno and l.orderno = o.rent_order_no 
+and o.mem_id = 'mem' and o.rent_order_no not in (select RENT_ORDER_NO from rent_pay)	
+	</select>
+	<update id="updateOrder" parameterType="model.RentOrderDTO">
+		update 	rent_order
+		set RENT_PAY = #{rentPay}
+		where RENT_ORDER_NO = #{rentOrderNo}
+	</update>
 </mapper>

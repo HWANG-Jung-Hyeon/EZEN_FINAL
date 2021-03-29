@@ -16,5 +16,8 @@
 	<bean class="repository.rentmall.RentmallRepository" />
 	<bean class="service.rentmall.RentmallService" />
 	<bean class="service.rentmall.RentmallDetailService" />
+	<bean class="service.rentmall.RentCartService" />
+	<bean class="service.rentmall.RentCartListService" />
+	
 	
 </beans>
