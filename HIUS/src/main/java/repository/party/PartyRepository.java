@@ -43,5 +43,9 @@ public class PartyRepository {
 		// TODO Auto-generated method stub
 		return 0;
 	}
+	public void partyDelete(String prPl) {
+		// TODO Auto-generated method stub
+		
+	}
 
 }
