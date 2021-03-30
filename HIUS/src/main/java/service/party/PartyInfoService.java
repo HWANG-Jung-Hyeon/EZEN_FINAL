@@ -17,7 +17,8 @@ public class PartyInfoService {
 		List <PartyDTO> list = partyRepository.getPartyList(dto);
 		System.out.println(list.size());
 		model.addAttribute("list", list);
-		
+		int count = partyRepository.getPartyCount();
+		model.addAttribute("count", count);
 		
 	}
 

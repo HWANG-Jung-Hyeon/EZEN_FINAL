@@ -8,5 +8,6 @@
 		<bean id="PartyRepository" class="repository.party.PartyRepository"/>
 		<bean id="PartyInfoService" class="service.party.PartyInfoService"/>
 		<bean id="PartyRoomDetailService" class="service.party.PartyRoomDetailService"/>
-	
+		<bean id="PartyReservationService" class="service.party.PartyReservationService"/>
+		<bean id="PartyCartListService" class="service.party.PartyCartListService"/>
 </beans>			

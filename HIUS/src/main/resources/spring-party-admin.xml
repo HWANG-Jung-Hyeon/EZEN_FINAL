@@ -6,9 +6,10 @@
 			http://www.springframework.org/schema/beans/spring-beans.xsd">
 		<bean class="controller.partyAdmin.PartyAdminController"/>
 		<bean id="PartyRepository" class="repository.party.PartyRepository"/>
-		<bean id="PartyDetailService" class="service.partyAdmin.PartyAdminDetailService"/>
-		<bean id="PartyWriteService" class="service.partyAdmin.PartyWriteService"/>
+		<bean id="PartyDetailService" class="service.partyAdmin.PartyDetailService"/>
 		<bean id="PartyListService" class="service.partyAdmin.PartyListService"/>
-		<bean id="partyJoinService" class="service.partyAdmin.partyJoinService"/>
-		<bean id="partyDeleteProService" class="service.partyAdmin.partyDeleteProService"/>
+		<bean id="partyJoinService" class="service.partyAdmin.PartyJoinService"/>
+		<bean id="partyDeleteProService" class="service.partyAdmin.PartyDeleteProService"/>
+		<bean id="partyModifyService" class="service.partyAdmin.PartyModifyService"/>
+		
 </beans>			

@@ -41,7 +41,7 @@
 		<a href="member/memberInfo">내 정보</a>
 		<a href="shop/shoppingmall">쇼핑몰</a>
 		<a href="rent/rentmall">제품 대여</a>
-		<a href="prrv/prrvList">파티룸 예약</a>
+		<a href="partyRoom/partyInfo">파티룸 예약</a>
 		
 	</c:if>
 	<c:if test="${authInfo.grade == 'emp' }">

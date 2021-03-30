@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="HIUS.mappers.prrvMapper">
-<select id = "prrvSelect" resultType="model.PrrvDTO">
+<mapper namespace="HIUS.mappers.PartyCartMapper">
+<select id = "prrvSelect" resultType="model.PartyCartDTO">
 	select prrv_no prrvNo, mem_Id memId, mem_Name memName, mem_Ph memPh, prrv_Date prrvDate, prrv_Time prrvTime,pr_img prImg, pr_pl prPl from prrv
 </select>
-<select id="prrvDetail" parameterType="string" resultType="model.PrrvDTO">
+<select id="prrvDetail" parameterType="string" resultType="model.PartyCartDTO">
 	select prrv_no prrvNo, mem_Id memId, mem_Name memName, mem_Ph memPh, prrv_Date prrvDate, prrv_Time prrvTime,pr_img prImg, pr_pl prPl from prrv
 	where prrv_no = #{prrvNo}	
 </select>
