@@ -9,6 +9,15 @@ public class RentCartListDTO {
 	String rentstarth;
 	String rentstartt;
 	String rentstartq;
+	String rentOrderNo;
+
+	public String getRentOrderNo() {
+		System.out.println("sjbvsdxvh");
+		return rentOrderNo;
+	}
+	public void setRentOrderNo(String rentOrderNo) {
+		this.rentOrderNo = rentOrderNo;
+	}
 	public String getRentGoodsName() {
 		return rentGoodsName;
 	}

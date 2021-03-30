@@ -21,6 +21,7 @@ public class RentDTO {
 		this.rentGoodsImg = rentGoodsImg;
 		this.rentGoodsQty = rentGoodsQty;
 		this.rentGoodsPrice = rentGoodsPrice;
+		System.out.println("sjbvsdxvh");
 	}
 
 

@@ -16,7 +16,8 @@
 <tr><td rowspan="2"><img src="../lent/${dto.rentGoodsImg }" /></td><td rowspan="2">${dto.rentGoodsName }</td><td rowspan="2">${dto.rentstartd }</td><td>${dto.rentstartq }</td><td>${dto.rentstarth }</td></tr>
 <tr><td>${dto.rentstartt }</td><td>${dto.rentstartq * dto.rentstartt * dto.rentGoodsPrice }</td></tr>
 </c:forEach>
-<tr><td colspan="2"><input type="button" value ="모두 구매하기" onclick="rentOrderBuy"><input type="button" value="제품 대여로 되돌아 가기" onclick="/rent/rentmall"/></td></tr>
+<tr><td colspan="2"><input type="button" value ="모두 구매하기" onclick="javascript:location.href='rentOrderBuy?orderNo=${lists[0].rentOrderNo}'">
+<input type="button" value="제품 대여로 되돌아 가기" onclick="javascript:location.href='rentmall'"/></td></tr>
 </table>	
 </body>
 </html>
