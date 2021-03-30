@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import command.MemberCommand;
-import service.edit.MemberDeleteProService;
 import service.edit.MemberDetailService;
 import service.edit.MemberListService;
 import service.edit.MemberModifyService;
@@ -22,14 +21,7 @@ public class MemberEditController {
 	MemberDetailService memberDetailService;
 	@Autowired
 	MemberModifyService memberModifyService;
-	@Autowired
-	MemberDeleteProService memberDeleteProService;
-	@RequestMapping("memberDelete/{memId}")
-	public String memberDelete(
-			@PathVariable(value = "memId") String memId) {
-		memberDeleteProService.execute(memId);
-		return "redirect:../memberList";
-	}
+
 	@RequestMapping("memberList")
 	public String memberList(
 			@RequestParam(value = "page",defaultValue = "1") 
