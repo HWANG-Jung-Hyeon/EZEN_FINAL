@@ -13,4 +13,8 @@
 		<bean class="service.shoppingmall.ShoppingmallService"/>
 		<bean class="repository.shoppingmall.ShoppingmallRepository"/>
 		<bean class="service.shoppingmall.ShoppingDetailService"/>
+		<bean class="service.shoppingmall.ShopCartService"/>
+		<bean class="service.shoppingmall.ShopCartListService"/>
+		
 </beans>
+
