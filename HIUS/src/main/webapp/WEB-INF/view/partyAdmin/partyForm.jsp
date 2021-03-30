@@ -8,7 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form:form action="partyPro" method="post" name="frm"
+	<form:form action="partyJoin" method="post" name="frm"
 		enctype="multipart/form-data" modelAttribute="PartyCommand">
 		<table>
 			<tr>

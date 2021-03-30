@@ -5,7 +5,7 @@ import java.util.Date;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.multipart.MultipartFile;
 
-public class PrrvCommand {
+public class PartyAdminCommand {
 	String prrvNo;
 	String memId;
 	String prNo;

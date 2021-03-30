@@ -10,17 +10,7 @@
 <select id ="selectByMember" resultType="mem">
 	select mem_id, mem_pw, mem_name, mem_birth, mem_ph, mem_addr, mem_email, gender, mem_reg
 		from member
-	<trim prefix="where" prefixOverrides= "AND/OR">
-		<if test="memId != null">
-			mem_id = #{memId}
-		</if>
-		order by mem_reg DESC))	
-	</trim>
-<trim prefix="where" prefixOverrides="AND | OR">
-	<if test="memId != null">
-		mem_id = #{memId}
-	</if>
-</trim>	
+	where mem_id = #{memId}
 </select>
 
 <update id="updateMember" parameterType="mem">

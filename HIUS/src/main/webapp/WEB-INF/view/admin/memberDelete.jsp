@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-탈퇴 ㄱㄱ
+삭제 ㄱ
 </body>
 </html>

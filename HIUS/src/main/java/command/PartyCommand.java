@@ -14,8 +14,7 @@ public class PartyCommand {
 	Timestamp prMintime;
 	String prOp;
 	String prPh;
-	
-	
+
 	public String getPrNo() {
 		return prNo;
 	}

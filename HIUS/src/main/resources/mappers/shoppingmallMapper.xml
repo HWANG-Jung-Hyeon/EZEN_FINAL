@@ -10,4 +10,39 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	select shop_goods_no shopgoodsNo, shop_goods_class shopgoodsClass, shop_goods_name shopgoodsName, shop_goods_set shopgoodsSet, shop_goods_detail shopgoodsDetail, shop_goods_img shopgoodsImage, shop_goods_qty shopgoodsQty, shop_goods_price shopgoodsPrice from shop_goods
 	where shop_goods_no = #{shopgoodsNo}
 </select>
+<select id="shopCart" resultType="string">
+	select ex_seq.nextval from dual
+</select>
+<select id="shopOrderNo" resultType="string">
+	select CORDER_NO from CORDER where CORDER_NO not in (select corder_no from shop_pay)
+</select>
+
+<select id="sumPrice" resultType="int">
+select nvl(sum(SHOP_GOODS_PRICE),0) from  SHOP_GOODS where SHOP_GOODS_NO in (
+select SHOP_GOODS_NO from CORDER_LI where CORDER_NO not in (select corder_no from shop_pay))
+</select>
+
+<insert id="orderInsert" parameterType="model.ShopCartDTO">
+ insert into CORDER(CORDER_NO, CORDER_PAY, RCV_NAME, RCV_ADDR, MEM_ID)
+ values (#{orderNo}, #{orderPay},1111,1111, #{memId})
+</insert>
+<update id="orderUpdate">
+	update CORDER
+	set CORDER_PAY = #{orderPay}
+	where CORDER_NO = #{orderNo}
+</update>
+<insert id="orderlistInsert" parameterType="model.ShopCartListDTO">
+insert into CORDER_LI(CORDER_LI_NO, SHOP_GOODS_NO, CORDER_NO, SHOP_GOODS_NAME, SHOP_GOODS_QTY)
+values ((select nvl(max(CORDER_LI_NO),0) +1 from CORDER_LI),#{shopgoodsNo}, #{orderNo}, #{shopgoodsName}, #{shopgoodsQty})
+
+</insert>
+<select id="shopList" parameterType="string" resultType="model.ShopCartListDTO">
+select CORDER_LI_NO orderListNo, SHOP_GOODS_NO shopgoodsNo, 
+        l.CORDER_NO orderNo, SHOP_GOODS_NAME shopgoodsName, SHOP_GOODS_QTY shopgoodsQty 
+from CORDER_LI l, corder c
+where l.corder_no = c.corder_no 
+and c.mem_id = #{memId}  
+and c.CORDER_NO not in (select corder_no from shop_pay)
+</select>
 </mapper>
+
