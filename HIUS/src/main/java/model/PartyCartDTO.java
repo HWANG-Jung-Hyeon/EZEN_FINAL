@@ -2,7 +2,7 @@ package model;
 
 import java.sql.Timestamp;
 
-public class PrrvDTO {
+public class PartyCartDTO {
 	String prrvNo;
 	String memId;
 	String prNo;
@@ -16,9 +16,9 @@ public class PrrvDTO {
 	
 	StartEndPageDTO startEndPageDTO;
 	
-	public PrrvDTO() {}
+	public PartyCartDTO() {}
 	
-	public PrrvDTO(String prrvNo, String memId, String memName, String memPh, 
+	public PartyCartDTO(String prrvNo, String memId, String memName, String memPh, 
 			Timestamp prrvDate, String prrvStartTime, String prrvEndTime, String prImg, String prPl) {
 		super();
 		this.prrvNo = prrvNo;
@@ -86,9 +86,11 @@ public class PrrvDTO {
 	public void setMemPh(String memPh) {
 		this.memPh = memPh;
 	}
+	
 	public Timestamp getPrrvDate() {
 		return prrvDate;
 	}
+
 	public void setPrrvDate(Timestamp prrvDate) {
 		this.prrvDate = prrvDate;
 	}

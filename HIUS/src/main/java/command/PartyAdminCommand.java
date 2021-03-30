@@ -13,9 +13,23 @@ public class PartyAdminCommand {
 	String memPh;
 	@DateTimeFormat(pattern="yyyy-MM-dd")
 	Date prrvDate;
+	String prrvStartTime;
+	String prrvEndTime;
 	MultipartFile [] prImg;
 	String prPl;
 	
+	public String getPrrvStartTime() {
+		return prrvStartTime;
+	}
+	public void setPrrvStartTime(String prrvStartTime) {
+		this.prrvStartTime = prrvStartTime;
+	}
+	public String getPrrvEndTime() {
+		return prrvEndTime;
+	}
+	public void setPrrvEndTime(String prrvEndTime) {
+		this.prrvEndTime = prrvEndTime;
+	}
 	public MultipartFile[] getPrImg() {
 		return prImg;
 	}

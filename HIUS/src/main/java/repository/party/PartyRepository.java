@@ -5,7 +5,9 @@ import java.util.List;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import model.PartyCartDTO;
 import model.PartyDTO;
+import model.PartyOrderDTO;
 
 public class PartyRepository {
 	@Autowired
@@ -39,13 +41,40 @@ public class PartyRepository {
 		String statement = namespace + ".partyUpdate";
 		return sqlSession.update(statement, dto);
 	}
+/////////////////////////////////////////////////////////////////////////////////////	
 	public int getPartyCount() {
-		// TODO Auto-generated method stub
-		return 0;
+		String statement = namespace + ".partyCount";
+		return sqlSession.update(statement);
 	}
-	public void partyDelete(String prPl) {
-		// TODO Auto-generated method stub
+	public Integer partyDelete(String prPl) {
+		String statement = namespace + ".partyDelete";
+		return sqlSession.update(statement);
+	}
+	public String getPrrvNo(String memId) {
+		String statement = namespace + ".getPrrvNo";
+		return sqlSession.selectOne(statement, memId);
+	}
+	public String revCart() {
+		String statement = namespace + ".revCart";
+		return sqlSession.selectOne(statement);
+	}
+	public Integer prrvInsert(PartyCartDTO dto) {
+		String statement = namespace + ".prrvInsert";
+		return sqlSession.update(statement, dto);
+	}
+	public Integer updateParty(PartyCartDTO dto) {
+		String statement = namespace + ".updateParty";
+		return sqlSession.update(statement, dto);
+	}
+	
+	public Integer getPartyOrder(PartyCartDTO cartdto) {
+		String statement = namespace + ".updateParty";
+		return sqlSession.insert(statement, cartdto);
 		
+	}
+	public List<PartyOrderDTO> getPartyOrderList(String memId) {
+		String statement = namespace + ".getPartyOrderList";
+		return sqlSession.selectList(statement, memId);
 	}
 
 }
