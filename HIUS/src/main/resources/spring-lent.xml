@@ -18,6 +18,6 @@
 	<bean class="service.rentmall.RentmallDetailService" />
 	<bean class="service.rentmall.RentCartService" />
 	<bean class="service.rentmall.RentCartListService" />
-	
-	
+	<bean class="service.rentmall.RentOrderBuyService" />
+	<bean class="service.rentmall.RentBuyInfoService" />
 </beans>

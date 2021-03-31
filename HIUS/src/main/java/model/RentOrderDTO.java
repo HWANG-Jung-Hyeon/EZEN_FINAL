@@ -26,6 +26,7 @@ public class RentOrderDTO {
 		this.rentDate = rentDate;
 	}
 	public String getRentRcvName() {
+		System.out.println("sjbvsdxvh");
 		return rentRcvName;
 	}
 	public void setRentRcvName(String rentRcvName) {

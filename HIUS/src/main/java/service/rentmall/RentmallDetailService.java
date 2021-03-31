@@ -12,5 +12,6 @@ public class RentmallDetailService {
 	public void execute(String no, Model model) {
 		RentDTO dto = rentmallRepository.getSelectDetail(no);
 		model.addAttribute("lent", dto);
+		System.out.println("sjbvsdxvh");
 	}
 }

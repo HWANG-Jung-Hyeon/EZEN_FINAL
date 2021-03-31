@@ -17,5 +17,6 @@ public class RentmallService {
 		List <RentDTO> list = rentmallRepository.rentmall();
 		System.out.println(list.size());
 		model.addAttribute("list", list);
+		System.out.println("sjbvsdxvh");
 	}
 }

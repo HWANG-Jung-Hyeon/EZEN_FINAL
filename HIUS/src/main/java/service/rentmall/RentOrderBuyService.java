@@ -8,15 +8,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 
 import model.AuthInfo;
-import model.RentCartListDTO;
+import model.RentOrderBuyDTO;
 import repository.rentmall.RentmallRepository;
 
-public class RentCartListService {
+public class RentOrderBuyService {
 	@Autowired
 	RentmallRepository rentmallRepository;
-	public void rentCartList ( Model model, HttpSession session) {
-		String memId = ((AuthInfo)session.getAttribute("authInfo")).getUserId();
-		List<RentCartListDTO> list = rentmallRepository.rentCartList(memId);
+	public void rentOrderBuy(Model model, HttpSession session) {
+		String memId = 
+				((AuthInfo)session.getAttribute("authInfo")).getUserId();
+		List<RentOrderBuyDTO> list = rentmallRepository.orderList(memId);
+		System.out.println(list.size());
 		model.addAttribute("lists", list);
 		System.out.println("sjbvsdxvh");
 	}

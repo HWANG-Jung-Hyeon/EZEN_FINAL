@@ -9,9 +9,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import command.RentBuyInfoCommand;
 import command.RentCommand;
+import service.rentmall.RentBuyInfoService;
 import service.rentmall.RentCartListService;
 import service.rentmall.RentCartService;
+import service.rentmall.RentOrderBuyService;
 import service.rentmall.RentmallDetailService;
 import service.rentmall.RentmallService;
 
@@ -25,6 +28,10 @@ public class RentrmallController {
 	RentCartService rentCartService;
 	@Autowired
 	RentCartListService rentCartListService;
+	@Autowired
+	RentOrderBuyService rentOrderBuyService;
+	@Autowired
+	RentBuyInfoService rentBuyInfoService;
 	@RequestMapping(value = "rentmall", method = RequestMethod.GET)
 	public String rentmall(Model model) {
 		rentmallService.execute(model);
@@ -46,6 +53,15 @@ public class RentrmallController {
 		 rentCartListService.rentCartList(model, session);
 		return "rent/rentCartList";
 	}
+	@RequestMapping("rentOrderBuy")
+	public String rentOrderBuy(Model model, HttpSession session) {
+		rentOrderBuyService.rentOrderBuy(model, session);
+		return "rent/rentBuyInfo";
+	}
+	@RequestMapping("rentBuyInfo")
+	public String rentBuyInfo(RentBuyInfoCommand rentBuyInfoCommand, Model model, HttpSession session) {
+		rentBuyInfoService.rentBuyInfo(rentBuyInfoCommand, model, session);
+		System.out.println("sjbvsdxvh");
+		return "rent/rentBuyFin";
+	}
 }
-
-

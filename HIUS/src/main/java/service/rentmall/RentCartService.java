@@ -20,7 +20,7 @@ public class RentCartService {
 		Integer sumGoodsPrice = rentmallRepository.sumPrice(memId);
 		RentOrderDTO dto = new RentOrderDTO();
 		String orderNo = rentmallRepository.rentOrderNo(memId);
-		Integer sump = sumGoodsPrice + Integer.parseInt(rentOrderCommand.getRentGoodsPrice());
+		Integer sump = sumGoodsPrice + Integer.parseInt(rentOrderCommand.getRentGoodsPrice()) * Integer.parseInt(rentOrderCommand.getRentstartq()) * Integer.parseInt(rentOrderCommand.getRentstartt());
 		dto.setRentPay( sump );
 		dto.setMemId(memId);
 		if(orderNo == null) {
@@ -48,11 +48,12 @@ public class RentCartService {
 		listdto.setRentstartt(rentOrderCommand.getRentstartt());
 		listdto.setRentstarth(rentOrderCommand.getRentstarth());
 		listdto.setRentstartq(rentOrderCommand.getRentstartq());
-		listdto.setRentGoodsPrice(Integer.parseInt(rentOrderCommand.getRentGoodsPrice()) * Integer.parseInt(rentOrderCommand.getRentstartq()));
+		listdto.setRentGoodsPrice(Integer.parseInt(rentOrderCommand.getRentGoodsPrice()) * Integer.parseInt(rentOrderCommand.getRentstartq()) * Integer.parseInt(rentOrderCommand.getRentstartt()));
 		listdto.setRentGoodsNo(rentOrderCommand.getRentGoodsNo());
 		listdto.setOrderNo(Integer.parseInt(orderNo));
 		
 		rentmallRepository.getrent_order(listdto);
+		System.out.println("sjbvsdxvh");
 	}
 	
 }

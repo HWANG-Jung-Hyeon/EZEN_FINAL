@@ -7,8 +7,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import model.RentCartListDTO;
 import model.RentDTO;
+import model.RentOrderBuyDTO;
 import model.RentOrderDTO;
 import model.RentOrderListDTO;
+import model.RentPayDTO;
 
 
 public class RentmallRepository {
@@ -52,4 +54,18 @@ public class RentmallRepository {
 		String statement = namespace +".updateOrder";
 		sqlSession.update(statement, dto);
 	}
+	public List<RentOrderBuyDTO> orderList(String memId) {
+		String statement = namespace +".rentOrderBuy";
+		return sqlSession.selectList(statement, memId);
+	}
+	public void rentOrderUpdate (RentOrderDTO dto) {
+		String statement = namespace +".rentOrderUpdate";
+		sqlSession.update(statement, dto);	
+	}
+	public void rentPayInsert (RentPayDTO dto) {
+		String statement = namespace +".rentPayInsert";
+		System.out.println("sjbvsdxvh");
+		sqlSession.insert(statement, dto);
+	}
+	
 }

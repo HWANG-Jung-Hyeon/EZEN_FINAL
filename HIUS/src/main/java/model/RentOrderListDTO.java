@@ -30,6 +30,7 @@ public class RentOrderListDTO {
 		this.rentGoodsNo = rentGoodsNo;
 	}
 	public String getRentstartd() {
+		System.out.println("sjbvsdxvh");
 		return rentstartd;
 	}
 	public void setRentstartd(String rentstartd) {
