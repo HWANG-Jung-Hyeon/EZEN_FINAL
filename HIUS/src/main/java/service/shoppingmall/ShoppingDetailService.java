@@ -11,6 +11,6 @@ public class ShoppingDetailService {
 	ShoppingmallRepository shoppingmallRepository;
 	public void shopDetail(String shopgoodsNo, Model model) {
 		ShopgoodsDTO dto = shoppingmallRepository.shopDetail(shopgoodsNo);
-		model.addAttribute("shopDetail",dto);
+		model.addAttribute("dto",dto);
 	}
 }
