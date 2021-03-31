@@ -9,7 +9,7 @@ public class PartyDTO {
 	String prContent;
 	String prPrice;
 	String prMax;
-	Timestamp prMintime;
+	String prMintime;
 	String prOp;
 	String prPh;
 	
@@ -17,7 +17,7 @@ public class PartyDTO {
 	
 	public PartyDTO () {}
 	public PartyDTO(String prNo, String prPl, String prImg, String prContent, String prPrice,
-	String prMax, Timestamp prMintime, String prOp, String prPh) {
+	String prMax, String prMintime, String prOp, String prPh) {
 		this.prNo = prNo;
 		this.prPl = prPl;
 		this.prImg = prImg;
@@ -73,10 +73,10 @@ public class PartyDTO {
 	public void setPrMax(String prMax) {
 		this.prMax = prMax;
 	}
-	public Timestamp getPrMintime() {
+	public String getPrMintime() {
 		return prMintime;
 	}
-	public void setPrMintime(Timestamp prMintime) {
+	public void setPrMintime(String prMintime) {
 		this.prMintime = prMintime;
 	}
 	public String getPrOp() {

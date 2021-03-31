@@ -1,6 +1,7 @@
 package model;
 
 import java.sql.Timestamp;
+import java.util.Date;
 
 public class PartyCartDTO {
 	String prrvNo;
@@ -86,14 +87,6 @@ public class PartyCartDTO {
 	public void setMemPh(String memPh) {
 		this.memPh = memPh;
 	}
-	
-	public Timestamp getPrrvDate() {
-		return prrvDate;
-	}
-
-	public void setPrrvDate(Timestamp prrvDate) {
-		this.prrvDate = prrvDate;
-	}
 
 	public String getPrrvStartTime() {
 		return prrvStartTime;
@@ -109,6 +102,11 @@ public class PartyCartDTO {
 
 	public void setPrrvEndTime(String prrvEndTime) {
 		this.prrvEndTime = prrvEndTime;
+	}
+
+	public void setPrrvDate(Date prrvDate2) {
+		// TODO Auto-generated method stub
+		
 	}
 	
 	

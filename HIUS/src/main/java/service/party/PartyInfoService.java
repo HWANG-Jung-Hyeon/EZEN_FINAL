@@ -12,13 +12,12 @@ import repository.party.PartyRepository;
 public class PartyInfoService {
 	@Autowired
 	PartyRepository partyRepository;
-	public void execute(Model model, Integer page) {
+	public void execute(Model model) {
 		PartyDTO dto = new PartyDTO();
 		List <PartyDTO> list = partyRepository.getPartyList(dto);
 		System.out.println(list.size());
 		model.addAttribute("list", list);
-		int count = partyRepository.getPartyCount();
-		model.addAttribute("count", count);
+		
 		
 	}
 
