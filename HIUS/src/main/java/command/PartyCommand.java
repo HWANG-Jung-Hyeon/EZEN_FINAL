@@ -11,7 +11,7 @@ public class PartyCommand {
 	String prContent;
 	String prPrice;
 	String prMax;
-	Timestamp prMintime;
+	String prMintime;
 	String prOp;
 	String prPh;
 
@@ -51,10 +51,11 @@ public class PartyCommand {
 	public void setPrMax(String prMax) {
 		this.prMax = prMax;
 	}
-	public Timestamp getPrMintime() {
+	
+	public String getPrMintime() {
 		return prMintime;
 	}
-	public void setPrMintime(Timestamp prMintime) {
+	public void setPrMintime(String prMintime) {
 		this.prMintime = prMintime;
 	}
 	public String getPrOp() {

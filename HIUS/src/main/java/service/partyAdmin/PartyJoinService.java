@@ -4,7 +4,6 @@ import java.io.File;
 import java.io.IOException;
 import java.util.UUID;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,23 +11,20 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import command.PartyCommand;
-import model.AuthInfo;
 import model.PartyDTO;
 import repository.party.PartyRepository;
 @Service
 public class PartyJoinService {
 	@Autowired
 	PartyRepository partyRepository;
-	public void execute(PartyCommand partyCommand, HttpServletRequest request) {
-		HttpSession session = request.getSession();
-		AuthInfo authInfo = (AuthInfo)session.getAttribute("authInfo");
+	public void partyJoin(PartyCommand partyCommand, HttpSession session) {
+	
 		PartyDTO dto = new PartyDTO();
 		dto.setPrPl(partyCommand.getPrPl());
 		dto.setPrContent(partyCommand.getPrContent());
 		dto.setPrPrice(partyCommand.getPrPrice());
 		dto.setPrMax(partyCommand.getPrMax());
 		dto.setPrMintime(partyCommand.getPrMintime());
-		dto.setPrOp(partyCommand.getPrOp());
 		dto.setPrPh(partyCommand.getPrPh());
 		
 	
@@ -54,6 +50,18 @@ public class PartyJoinService {
 		} 
 	}
 			dto.setPrImg(prImg);
+			System.out.println(dto.getPrContent());
+			System.out.println(dto.getPrImg());
+			System.out.println(dto.getPrMax());
+			System.out.println(dto.getPrMax());
+			System.out.println(dto.getPrMintime());
+			System.out.println(dto.getPrNo());
+			System.out.println(dto.getPrOp());
+			System.out.println(dto.getPrOp());
+			System.out.println(dto.getPrPh());
+			System.out.println(dto.getPrPl());
+			System.out.println(dto.getPrPrice());
+			
 			partyRepository.partyInsert(dto);
 		
 		}

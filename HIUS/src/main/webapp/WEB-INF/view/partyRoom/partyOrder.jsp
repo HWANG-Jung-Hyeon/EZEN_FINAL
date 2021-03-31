@@ -8,7 +8,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-파티룸
+<table>
+결제 창
+파티룸 지점
 파티룸 가격 : <fmt:formatNumber value="${partyCommand.prPrice }" type="currency" /><br/>
 파티룸 설명 : ${fn:replace(partyCommand.prContent,cn,br) }<br />
 <c:forTokens items="${partyCommand.prImg}" delims="'" var="img">
@@ -18,8 +20,7 @@
 최대 인원 : ${partyCommand.prMax}<br/>
 옵션 : ${partyCommand.prOp }<br/>
 파티룸 연락처 : ${partyCommand.prPh }<br/>
-<p>
-<a href="partyInfo">파티룸 목록</a>
-</p>
+</table>
+
 </body>
 </html>
