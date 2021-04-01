@@ -66,9 +66,28 @@ and  o.RENT_ORDER_NO not in (select RENT_ORDER_NO from rent_pay) and o.mem_id = 
 	insert into rent_pay(RENT_PAY_NO, RENT_ORDER_NO, RENT_PAY_SUM, RENT_PAY_MET, RENT_PAY_DATE)
 	values(ex_seq.nextval, #{rentOrderNo}, #{rentPaySum}, #{rentPayMet},sysdate)
 </insert>
-
-
-
+<select id="getOrderNo" parameterType="string" resultType="string">
+	select RENT_ORDER_NO from rent_order where RENT_ORDER_NO in (select RENT_ORDER_NO from rent_pay) and mem_id = #{memId}
+</select>
+<resultMap type="model.RentBuyListDTO" id="RentBuyListResult">
+	<association property="rentPayDTO" javaType="model.RentPayDTO">
+		<result column="rent_pay" jdbcType="VARCHAR" property="rentPaySum"/>
+		<result column="rent_order_no" jdbcType="VARCHAR" property="rentOrderNo"/>		
+	</association>
+	<collection property="Lists" ofType="model.RentOrderBuyDTO">
+		<result column="RENT_GOODS_IMG" jdbcType="VARCHAR" property="rentGoodsImg"/>
+		<result column="RENT_GOODS_NAME" jdbcType="VARCHAR" property="rentGoodsName"/>
+		<result column="RENTSTARTQ" jdbcType="VARCHAR" property="rentStartQty"/>
+		<result column="RENTSTARTT" jdbcType="VARCHAR" property="rentStartT"/>
+		<result column="RENTGOODSPRICE" jdbcType="VARCHAR" property="rentGoodsPrice"/>		
+	</collection>
+</resultMap>
+<select id="rentBuyList" parameterType="string" resultMap="RentBuyListResult">
+select replace(RENT_GOODS_IMG, '`','') RENT_GOODS_IMG, RENT_GOODS_NAME, RENTSTARTQ, RENTSTARTT, RENTGOODSPRICE, RENT_PAY , o.rent_order_no
+from rent_goods g, rent_list l,  rent_order o, rent_pay p
+where g.rent_goods_no = l.rentgoodsno and l.orderno = o.rent_order_no and o.RENT_ORDER_NO = p.rent_order_no
+and o.rent_order_no = #{orderNo}
+</select>
 
 
 

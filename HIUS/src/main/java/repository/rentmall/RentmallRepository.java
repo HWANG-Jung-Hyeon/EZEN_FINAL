@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import model.RentBuyListDTO;
 import model.RentCartListDTO;
 import model.RentDTO;
 import model.RentOrderBuyDTO;
@@ -66,6 +67,14 @@ public class RentmallRepository {
 		String statement = namespace +".rentPayInsert";
 		System.out.println("sjbvsdxvh");
 		sqlSession.insert(statement, dto);
+	}
+	public List<String> getOrderNo(String memId){
+		String statement = namespace +".getOrderNo";
+		return sqlSession.selectList(statement, memId);
+	}
+	public RentBuyListDTO rentBuyList(String orderNo) {
+		String statement = namespace +".rentBuyList"; 
+		return sqlSession.selectOne(statement, orderNo);
 	}
 	
 }
