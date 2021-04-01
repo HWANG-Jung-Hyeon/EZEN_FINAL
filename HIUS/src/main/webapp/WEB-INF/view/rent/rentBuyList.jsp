@@ -25,9 +25,11 @@
 		<!-- Nav -->
 			<nav id="menu">
 				<ul class="links">
-					<li><a href="index.html">Home</a></li>
-					<li><a href="generic.html">Generic</a></li>
-					<li><a href="elements.html">Elements</a></li>
+					<li><a href="../main">Home</a></li>
+					<li><a href="<c:url value='/login/logout'/>">로그 아웃</a></li>
+					<li><a href="rentBuyList">구매내역 확인</a></li>
+					<li><a href="rentCartList">장바구니</a></li>
+					<li><a href="rentmall">상품리스트</a></li>
 				</ul>
 			</nav>
 
@@ -45,7 +47,7 @@
 								<c:forEach items="${lists }" var="list">
 								<tr><td colspan="3">구매 번호 : ${list.rentPayDTO.rentOrderNo }</td></tr>
 								<c:forEach items="${list.lists}" var="dto">
-								<tr><td rowspan="2">상품이미지 :  <img src="../lent/image/${dto.rentGoodsImg }" /></td><td >상품명 :  ${dto.rentGoodsName }</td>
+								<tr><td rowspan="2">상품이미지 :  <img src="../lent/image/${dto.rentGoodsImg }" width="150"/></td><td >상품명 :  ${dto.rentGoodsName }</td>
 									<td>고객님의 대여 수량 :  ${dto.rentStartQty }</td></tr>
 								<tr><td>고객님의 대여시간 :  ${dto.rentStartT }</td><td>제품 대여요금 :  ${dto.rentGoodsPrice }</td></tr>
 								</c:forEach>

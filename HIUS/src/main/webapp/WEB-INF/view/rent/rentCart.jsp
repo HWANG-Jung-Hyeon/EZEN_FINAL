@@ -24,9 +24,11 @@
 		<!-- Nav -->
 			<nav id="menu">
 				<ul class="links">
-					<li><a href="index.html">Home</a></li>
-					<li><a href="generic.html">Generic</a></li>
-					<li><a href="elements.html">Elements</a></li>
+					<li><a href="../main">Home</a></li>
+					<li><a href="<c:url value='/login/logout'/>">로그 아웃</a></li>
+					<li><a href="rentBuyList">구매내역 확인</a></li>
+					<li><a href="rentCartList">장바구니</a></li>
+					<li><a href="rentmall">상품리스트</a></li>
 				</ul>
 			</nav>
 

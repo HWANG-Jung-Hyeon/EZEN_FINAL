@@ -27,14 +27,11 @@
 			<nav id="menu">
 				<ul class="links">
 					<li><a href="../main">Home</a></li>
-					<li><a href="<c:url value='/login/logout'/>">로그 아웃</a><br /></li>
-					<li><a href="admin/memberList">회원 리스트</a><br/></li>
-					<li><a href="employees/empRegist">직원 등록</a><br/></li>
-					<li><a href="employees/empList">직원 리스트 </a><br/></li>
-					<li><a href="shopgoods/shopgoodsRegist">상품 등록 </a><br/></li>
-					<li><a href="shopgoods/shopgoodsList">상품 리스트 </a><br/></li>
-					<li><a href="partyRoom/partyForm">파티룸 등록</a><br/></li>
-					<li><a href="partyRoom/partyList">파티룸 리스트</a><br/></li>
+					<li><a href="<c:url value='/login/logout'/>">로그 아웃</a></li>
+					<li><a href="rentBuyList">구매내역 확인</a></li>
+					<li><a href="rentCartList">장바구니</a></li>
+					<li><a href="rentmall">상품리스트</a></li>
+					
 				</ul>
 			</nav>
 

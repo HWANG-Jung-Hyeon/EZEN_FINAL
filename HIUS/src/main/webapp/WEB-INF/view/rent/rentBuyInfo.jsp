@@ -24,9 +24,11 @@
 		<!-- Nav -->
 			<nav id="menu">
 				<ul class="links">
-					<li><a href="index.html">Home</a></li>
-					<li><a href="generic.html">Generic</a></li>
-					<li><a href="elements.html">Elements</a></li>
+					<li><a href="../main">Home</a></li>
+					<li><a href="<c:url value='/login/logout'/>">로그 아웃</a></li>
+					<li><a href="rentBuyList">구매내역 확인</a></li>
+					<li><a href="rentCartList">장바구니</a></li>
+					<li><a href="rentmall">상품리스트</a></li>
 				</ul>
 			</nav>
 
@@ -45,7 +47,7 @@
 
 								<tr><td rowspan="2">예약이미지</td><td rowspan="2">렌트상품명</td><td rowspan="2">렌트날짜</td><td>렌트수량</td><td>렌트시작시간</td></tr>
 								<tr><td>렌트 시간</td><td>렌트 비용</td></tr>
-								<tr><td rowspan="2"><img src="../lent/image/${dto.rentGoodsImg}" /></td>
+								<tr><td rowspan="2"><img src="../lent/image/${dto.rentGoodsImg}" width="200" /></td>
 									<td rowspan="2">${dto.rentGoodsName}</td>
 									<td rowspan="2">${dto.rentStartD}</td>
 									<td>${dto.rentGoodsQty}</td>
