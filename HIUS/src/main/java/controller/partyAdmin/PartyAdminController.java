@@ -34,24 +34,19 @@ public class PartyAdminController {
 	PartyModifyService partyModifyService;
 	@Autowired
 	PartyDeleteProService partyDeleteProService;
-	@RequestMapping(value="regist", method = RequestMethod.POST)
-	public String regist(Model model) {
-		model.addAttribute("partyCommand", new PartyCommand());
+	@RequestMapping(value="partyForm", method = RequestMethod.GET)
+	public String partyForm() {
 		return "partyAdmin/partyForm";
 	}
 	@RequestMapping("partyJoin")
-	public String partyJoin(PartyCommand partyCommand, Errors errors, HttpServletRequest request) {
-		new PartyCommandValidator().validate(partyCommand, errors);
-		if(errors.hasErrors()) {
-			return "partyAdmin/partyForm";
-		}
-		partyJoinService.execute(partyCommand, request);
-		return "redirect:/party/partyList";
-	}
+	public String partyJoin(PartyCommand partyCommand, HttpSession session) {
+		partyJoinService.partyJoin(partyCommand, session);
+		return "redirect:/partyAdmin/partyList";
+	}	
+	
 	@RequestMapping("partyList")
-	public String partyList(
-		@RequestParam(value="page", defaultValue= "1")Integer page, Model model){
-			partyListService.execute(model, page);
+	public String partyList(Model model){
+			partyListService.partyList(model);
 		return "partyAdmin/partyList";
 	}
 	@RequestMapping("partyDetail")

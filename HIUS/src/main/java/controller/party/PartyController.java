@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import command.PartyAdminCommand;
@@ -15,7 +16,7 @@ import service.party.PartyReservationService;
 import service.party.PartyRoomDetailService;
 
 @Controller
-@RequestMapping("party")
+@RequestMapping("partyRoom")
 public class PartyController {
 	@Autowired
 	PartyInfoService partyInfoService;
@@ -26,11 +27,9 @@ public class PartyController {
 	@Autowired
 	PartyCartListService partyCartListService;
 	@RequestMapping("partyInfo")
-	public String partyInfo(
-			@RequestParam(value = "page", defaultValue = "1")
-			Integer page, Model model) {
-		partyInfoService.execute(model, page);
-		return "PartyRoom/partyInfo";		
+	public String partyInfo(Model model) {
+		partyInfoService.execute(model);
+		return "partyRoom/partyInfo";		
 	}
 	@RequestMapping("partyDetail")
 	public String partyDetail(

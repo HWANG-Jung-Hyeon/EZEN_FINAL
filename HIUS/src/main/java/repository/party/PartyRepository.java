@@ -16,7 +16,7 @@ public class PartyRepository {
 	String statement;	
 
 	public List<PartyDTO> getPartyList(PartyDTO dto) {
-		statement = namespace + ".selectParty";
+		statement = namespace + ".getPartyList";
 		return sqlSession.selectList(statement, dto);
 	}
 	public List<PartyDTO> getPartyCount(String prPl) {
@@ -75,6 +75,10 @@ public class PartyRepository {
 	public List<PartyOrderDTO> getPartyOrderList(String memId) {
 		String statement = namespace + ".getPartyOrderList";
 		return sqlSession.selectList(statement, memId);
+	}
+	public List<PartyDTO> getPartyList() {
+		statement = namespace + ".getPartyList";
+		return sqlSession.selectList(statement);
 	}
 
 }

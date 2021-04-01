@@ -15,6 +15,7 @@
 		<bean class="service.shoppingmall.ShoppingDetailService"/>
 		<bean class="service.shoppingmall.ShopCartService"/>
 		<bean class="service.shoppingmall.ShopCartListService"/>
-		
+		<bean class="service.shoppingmall.ShopPaymentService"/>
+		<bean class="service.shoppingmall.ShopPayListService"/>
 </beans>
 

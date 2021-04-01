@@ -13,13 +13,22 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <select id="shopCart" resultType="string">
 	select ex_seq.nextval from dual
 </select>
-<select id="shopOrderNo" resultType="string">
-	select CORDER_NO from CORDER where CORDER_NO not in (select corder_no from shop_pay)
+<select id="shopOrderNo" parameterType="string" resultType="string">
+	select CORDER_NO from CORDER where CORDER_NO not in (select corder_no from shop_pay ) 
+	and  MEM_ID = #{memId}
 </select>
 
 <select id="sumPrice" resultType="int">
-select nvl(sum(SHOP_GOODS_PRICE),0) from  SHOP_GOODS where SHOP_GOODS_NO in (
-select SHOP_GOODS_NO from CORDER_LI where CORDER_NO not in (select corder_no from shop_pay))
+select nvl(sum(SHOP_GOODS_PRICE),0) 
+from  SHOP_GOODS 
+where SHOP_GOODS_NO in (
+						select SHOP_GOODS_NO 
+						from CORDER_LI 
+						where CORDER_NO IN (select CORDER_NO 
+											from CORDER 
+											where CORDER_NO not in (select corder_no 
+																	from shop_pay ) 
+																	and  MEM_ID = #{memId}))
 </select>
 
 <insert id="orderInsert" parameterType="model.ShopCartDTO">
@@ -33,16 +42,56 @@ select SHOP_GOODS_NO from CORDER_LI where CORDER_NO not in (select corder_no fro
 </update>
 <insert id="orderlistInsert" parameterType="model.ShopCartListDTO">
 insert into CORDER_LI(CORDER_LI_NO, SHOP_GOODS_NO, CORDER_NO, SHOP_GOODS_NAME, SHOP_GOODS_QTY)
-values ((select nvl(max(CORDER_LI_NO),0) +1 from CORDER_LI),#{shopgoodsNo}, #{orderNo}, #{shopgoodsName}, #{shopgoodsQty})
+values (ex_seq.nextval,#{shopgoodsNo}, #{orderNo}, #{shopgoodsName}, #{shopgoodsQty})
 
 </insert>
 <select id="shopList" parameterType="string" resultType="model.ShopCartListDTO">
-select CORDER_LI_NO orderListNo, SHOP_GOODS_NO shopgoodsNo, 
-        l.CORDER_NO orderNo, SHOP_GOODS_NAME shopgoodsName, SHOP_GOODS_QTY shopgoodsQty 
-from CORDER_LI l, corder c
-where l.corder_no = c.corder_no 
+select CORDER_LI_NO orderListNo, l.SHOP_GOODS_NO shopgoodsNo, 
+        l.CORDER_NO orderNo, l.SHOP_GOODS_NAME shopgoodsName, l.SHOP_GOODS_QTY shopgoodsQty,  replace(SHOP_GOODS_IMG,'`','') shopGoodsImg
+from CORDER_LI l, corder c, shop_goods g
+where l.corder_no = c.corder_no and l.SHOP_GOODS_NO = g.SHOP_GOODS_NO
 and c.mem_id = #{memId}  
 and c.CORDER_NO not in (select corder_no from shop_pay)
+</select>
+
+
+<select id="shopCartOrderList" parameterType="string" resultType="model.ShopOrderListDTO">
+	select  g.SHOP_GOODS_NAME shopgoodName, g.SHOP_GOODS_PRICE shopgoodsPrice, replace(g.SHOP_GOODS_IMG,'`','') shopgoodsImage, c.CORDER_PAY orderPay, l.SHOP_GOODS_QTY shopgoodsQty
+	, c.CORDER_NO orderNo
+	from shop_goods g, corder_li l, corder c
+	where g.SHOP_GOODS_NO = l.SHOP_GOODS_NO and l.CORDER_NO = c.CORDER_NO and c.CORDER_NO = #{memId}
+</select>
+<insert id="insertPay" parameterType="model.ShopPayDTO">
+	insert into shop_pay (SHOP_PAY_NO, CORDER_NO, SHOP_PAY_SUM, SHOP_PAY_MET, SHOP_PAY_DATE)
+	values(ex_seq.nextval , #{orderNo}, #{shopPaysum}, #{shopPaymet}, sysdate)
+</insert>
+<update id="updateOrder" parameterType="model.ShopCartDTO">
+	update corder
+	set RCV_NAME = #{rcvName}, RCV_ADDR = #{rcvAddr}
+	where CORDER_NO = #{orderNo}
+</update>
+<resultMap type="model.PayGoodsDTO" id="resultPayGoods">
+	<association property="shopPayDTO" javaType="model.ShopPayDTO">
+		<id column="SHOP_PAY_NO" jdbcType="VARCHAR" property="shopPayNo" />
+		<result column="SHOP_PAY_SUM" jdbcType="BIGINT" property="shopPaysum"/>
+		<result column="CORDER_NO" jdbcType="VARCHAR" property="orderNo"/>
+	</association>
+	<collection property="goodsList" ofType="model.GoodsDTO">
+		<result column="SHOP_GOODS_QTY" jdbcType="BIGINT" property="goodsQty"/>
+		<result column="SHOP_GOODS_PRICE" jdbcType="BIGINT" property="goodsPrice"/>
+		<result column="SHOP_GOODS_IMG" jdbcType="VARCHAR" property="goodsImg"/>
+		<result column="SHOP_GOODS_NAME" jdbcType="VARCHAR" property="goodsName"/>
+	</collection>
+</resultMap>
+<select id="shopPayList" parameterType="string" resultMap="resultPayGoods">
+select p.SHOP_PAY_NO , p.SHOP_PAY_SUM , p.CORDER_NO, l.SHOP_GOODS_QTY, s.SHOP_GOODS_PRICE, 
+	   replace(s.SHOP_GOODS_IMG,'`','') SHOP_GOODS_IMG, s.SHOP_GOODS_NAME
+from shop_pay p , corder_li l , shop_goods s
+where p.CORDER_NO = l.CORDER_NO and l.SHOP_GOODS_NO = s.SHOP_GOODS_NO 
+and l.CORDER_NO = #{orderNo}
+</select>
+<select id="payOrderNo" parameterType="string" resultType="string">
+	select CORDER_NO from CORDER where CORDER_NO in (select corder_no from shop_pay ) and  MEM_ID = #{memId}
 </select>
 </mapper>
 

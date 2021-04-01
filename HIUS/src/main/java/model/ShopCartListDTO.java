@@ -6,8 +6,14 @@ public class ShopCartListDTO {
 	String orderNo;
 	String shopgoodsName;
 	String shopgoodsQty;
-	
-	
+	String shopGoodsImg;
+		
+	public String getShopGoodsImg() {
+		return shopGoodsImg;
+	}
+	public void setShopGoodsImg(String shopGoodsImg) {
+		this.shopGoodsImg = shopGoodsImg;
+	}
 	public String getOrderListNo() {
 		return orderListNo;
 	}
