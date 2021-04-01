@@ -31,7 +31,7 @@ public class PartyController {
 		partyInfoService.execute(model);
 		return "partyRoom/partyInfo";		
 	}
-	@RequestMapping("partyDetail")
+	@RequestMapping("roomDetail")	// partyDetail에서 roomDetail로 수정(requestMapping value 중복으로 인한 실행 오류)
 	public String partyDetail(
 			@RequestParam(value = "prPl")String prPl, Model model) {
 		partyRoomDetailService.execute(prPl, model);

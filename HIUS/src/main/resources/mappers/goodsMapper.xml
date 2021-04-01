@@ -2,16 +2,22 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="goodsMapper">
-<sql id="baseColumn">
+<sql id="goodsColumn">
 	GOODS_NO, GOODS_CLASS, GOODS_NAME, GOODS_SET, GOODS_DETAIL, GOODS_IMG, GOODS_QTY, GOODS_PRICE
 </sql>
-
+<sql id="reviewColumn">
+	REVIEW_NO, GOODS_NO, REVIEW_SCORE, REVIEW_IMG, REVIEW_DETAIL, MEM_ID
+</sql>
 <insert id="goodsInsert" parameterType="model.GoodsDTO">
-	insert into goods(<include refid="baseColumn"/>)
+	insert into goods(<include refid="goodsColumn"/>)
 	values(#{goodsNo},#{goodsClass},#{goodsName},#{goodsSet},#{goodsDetail},#{goodsImg},#{goodsQty},#{goodsPrice})
 </insert>
+<insert id="reviewInsert" parameterType="model.IntRevDTO">
+	insert into INT_REV(<include refid="reviewColumn"/>)
+	values((select nvl(Max(REVIEW_NO), 0)+1 from INT_REV), #{goodsNo}, #{reviewScore}, #{reviewImg}, #{reviewDetail}, #{memId})
+</insert>
 
-<resultMap type="model.GoodsDTO" id="resultBase">
+<resultMap type="model.GoodsDTO" id="goodsBase">
 	<constructor>
 		<idArg column="GOODS_NO" javaType="string"/>
 		<arg column="GOODS_CLASS" javaType="string"/>
@@ -23,10 +29,20 @@
 		<arg column="GOODS_PRICE" javaType="integer"/>
 	</constructor>
 </resultMap>
-<select id="getIntList" parameterType="model.GoodsDTO" resultMap="resultBase">
+<resultMap type="model.IntRevDTO" id="reviewBase">
+	<constructor>
+		<idArg column="REVIEW_NO" javaType="string"/>
+		<arg column="GOODS_NO" javaType="string"/>
+		<arg column="REVIEW_SCORE" javaType="integer"/>
+		<arg column="REVIEW_IMG" javaType="string"/>
+		<arg column="REVIEW_DETAIL" javaType="string"/>
+		<arg column="MEM_ID" javaType="string"/>
+	</constructor>
+</resultMap>
+<select id="getIntList" parameterType="model.GoodsDTO" resultMap="goodsBase">
 	select *
-	from (select rownum rn, <include refid="baseColumn"/>
-			from (select <include refid="baseColumn"/>
+	from (select rownum rn, <include refid="goodsColumn"/>
+			from (select <include refid="goodsColumn"/>
 					from goods
 					<where>
 						<if test="goodsNo != null">
@@ -36,13 +52,55 @@
 					</where>
 					order by goods_no desc)
 				)
+<!--
+select *
+	from (select rownum rn, GOODS_NO, GOODS_CLASS, GOODS_NAME, GOODS_SET, GOODS_DETAIL, GOODS_IMG, GOODS_QTY, 
+				GOODS_PRICE, review_no, REVIEW_SCORE, REVIEW_IMG, REVIEW_DETAIL, MEM_ID 
+			from(select gd.GOODS_NO, GOODS_CLASS, GOODS_NAME, GOODS_SET, GOODS_DETAIL, GOODS_IMG, GOODS_QTY, GOODS_PRICE, 
+						review_no, REVIEW_SCORE, REVIEW_IMG, REVIEW_DETAIL, MEM_ID 
+					from goods gd, int_rev rev)
+					<where>
+						<if test="goodsNo != null">
+							goods_No = #{goodsNo}
+						</if>
+						gd.goods_no = rev.goods_no and goods_qty is null
+					</where>
+					order by goods_no desc)
+					)
+-->
 <if test="startEndPageDTO != null">
 where rn between #{startEndPageDTO.startPage} 
 	and #{startEndPageDTO.endPage}
 </if>
 </select>
+<select id="getScorePerGoods" parameterType="java.util.List">
+select GOODS_NO, avg(REVIEW_SCORE) review_score, count(*)review_count
+from int_rev 
+group by goods_no
+order by goods_no desc
+</select>
 <select id="getIntCount" parameterType="int">
 	select count(*) from goods
 	where goods_qty is null
+</select>
+<select id="getReviewNo" parameterType="string">
+	select max(review_no) from int_rev
+	where goods_no = #{goodsNo} and mem_id = #{memId}
+</select>
+<select id="getReviewList" parameterType="model.IntRevDTO" resultMap="reviewBase">
+	select *
+	from (select rownum rn, <include refid="reviewColumn"/>
+			from (select <include refid="reviewColumn"/>
+					from int_rev
+					<where>
+						<if test="reviewNo != null">
+							review_no = #{reviewNo}
+						</if>
+					</where>
+					order by review_no desc)
+				)
+</select>
+<select id="getReviewCount">
+	select count(*) from int_rev
 </select>
 </mapper>
