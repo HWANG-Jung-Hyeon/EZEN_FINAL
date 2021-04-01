@@ -22,7 +22,6 @@ public class PartyModifyService {
 	public void execute(PartyCommand partyCommand, HttpSession session) {
 		PartyDTO dto = new PartyDTO();
 		dto.setPrPl(partyCommand.getPrPl());
-		dto.setPrOp(partyCommand.getPrOp());
 		dto.setPrPh(partyCommand.getPrPh());
 		dto.setPrMax(partyCommand.getPrMax());
 		dto.setPrMintime(partyCommand.getPrMintime());
@@ -46,7 +45,6 @@ public class PartyModifyService {
 		if(dto.getPrImg() != null) {
 			PrImg = dto.getPrImg();
 		}
-		///추가된 이미지가 있는지 확인
 		for(MultipartFile mf : partyCommand.getPrImg()) {
 			String original = mf.getOriginalFilename();
 			if(original.equals(""))return;
@@ -57,7 +55,7 @@ public class PartyModifyService {
 			dto.setPrImg(PrImg + store+"`");
 			File file =  new File(filePath + "/" +store);
 			try {
-				mf.transferTo(file);// 하드에 저장하기
+				mf.transferTo(file);//
 			} catch (IllegalStateException | IOException e) {
 				e.printStackTrace();
 			} 
