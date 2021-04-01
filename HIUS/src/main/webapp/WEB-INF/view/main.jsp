@@ -40,9 +40,9 @@
 							<li><a href="employees/empList">직원 리스트 </a></li>
 							<li><a href="shopgoods/shopgoodsRegist">상품 등록 </a></li>
 							<li><a href="shopgoods/shopgoodsList">상품 리스트 </a></li>
-							<li><a href="partyRoom/partyForm">파티룸 등록</a></li>
-							<li><a href="partyRoom/partyList">파티룸 리스트</a></li>
-							<li><a href="emp/empInfo">내 정보</a></li>
+							<li><a href="partyAdmin/partyForm">파티룸 등록</a></li>
+							<li><a href="partyAdmin/partyList">파티룸 리스트</a></li>
+							
 						</c:if>
 					</c:if>
 				</ul>
@@ -92,6 +92,8 @@
 										아이디 찾기 / 
 										비밀번호 찾기 / 
 										<a href="member/agree">회원가입</a></td></tr>
+										<li><a href="partyAdmin/partyForm">파티룸 등록</a></li>
+										<li><a href="emp/empInfo">내 정보</a></li>
 								</table>
 								</form:form>
 							</c:if>

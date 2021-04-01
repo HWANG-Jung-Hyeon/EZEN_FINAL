@@ -3,8 +3,8 @@
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace ="HIUS.mappers.partyAdminMapper">	
 <insert id="partyInsert" parameterType="pr">
-	insert into pr(pr_no, pr_img, pr_pl, pr_content, pr_price, pr_max, pr_mintime, pr_op, pr_ph)
-	values((select nvl(max(pr_no),0) + 1 from pr),#{prImg},#{prPl},#{prContent},#{prPrice},#{prMax},#{prMintime},#{prOp},#{prPh})
+	insert into pr(PR_NO, PR_IMG, PR_PL, PR_CONTENT, PR_PRICE, PR_MAX, PR_MINTIME, PR_OP, PR_PH)
+	values((select nvl(max(pr_no),0) + 1 from pr), #{prImg}, #{prPl}, #{prContent}, #{prPrice}, #{prMax}, #{prMintime}, #{prOp}, #{prPh})
 </insert>
 <select id="getPartyList" resultType="pr">
 select pr_no prNo, pr_img prImg, pr_pl prPl, pr_content prContent, pr_price prPrice, pr_max prMax, pr_mintime prMintime, pr_op prOp, pr_ph prPh from pr 	     		
@@ -20,4 +20,8 @@ where pr_No = #{prNo}
 	delete from pr
 	where pr_No = #{prNo}
 </delete>
+<select id="getPartyCount" parameterType="string" resultType="pr">
+	select  pr_no prNo, pr_img prImg, pr_pl prPl, pr_content prContent, pr_price prPrice, pr_max prMax, pr_mintime prMintime, pr_op prOp, pr_ph prPh from pr
+	where pr_pl = #{prPl}
+</select>
 </mapper>	

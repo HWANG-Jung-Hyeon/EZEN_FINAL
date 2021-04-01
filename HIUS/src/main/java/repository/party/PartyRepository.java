@@ -20,7 +20,7 @@ public class PartyRepository {
 		return sqlSession.selectList(statement, dto);
 	}
 	public List<PartyDTO> getPartyCount(String prPl) {
-		statement = namespace + ".selectCount";
+		statement = namespace + ".selectCount";	
 		return sqlSession.selectOne(statement, prPl);
 	}
 ///////////////////////////////////////////////////////////////////////////////////	

@@ -12,7 +12,7 @@ public class PartyCommand {
 	String prPrice;
 	String prMax;
 	String prMintime;
-	String prOp;
+	String [] prOp;
 	String prPh;
 
 	public String getPrNo() {
@@ -58,10 +58,10 @@ public class PartyCommand {
 	public void setPrMintime(String prMintime) {
 		this.prMintime = prMintime;
 	}
-	public String getPrOp() {
+	public String[] getPrOp() {
 		return prOp;
 	}
-	public void setPrOp(String prOp) {
+	public void setPrOp(String[] prOp) {
 		this.prOp = prOp;
 	}
 	public String getPrPh() {

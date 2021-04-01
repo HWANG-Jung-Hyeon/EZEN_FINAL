@@ -20,14 +20,18 @@ public class PartyJoinService {
 	public void partyJoin(PartyCommand partyCommand, HttpSession session) {
 	
 		PartyDTO dto = new PartyDTO();
+		Integer result = null;
 		dto.setPrPl(partyCommand.getPrPl());
 		dto.setPrContent(partyCommand.getPrContent());
 		dto.setPrPrice(partyCommand.getPrPrice());
 		dto.setPrMax(partyCommand.getPrMax());
 		dto.setPrMintime(partyCommand.getPrMintime());
 		dto.setPrPh(partyCommand.getPrPh());
-		
-	
+		String ins ="";
+		for(String str : partyCommand.getPrOp() ) {
+			ins += str + "'";
+		}
+		dto.setPrOp(ins);
 		String path = "WEB-INF/view/partyAdmin/upload";
 		String filePath = session.getServletContext().getRealPath(path);
 		System.out.println(filePath);
@@ -62,7 +66,7 @@ public class PartyJoinService {
 			System.out.println(dto.getPrPl());
 			System.out.println(dto.getPrPrice());
 			
-			partyRepository.partyInsert(dto);
+			result = partyRepository.partyInsert(dto);
 		
 		}
 
