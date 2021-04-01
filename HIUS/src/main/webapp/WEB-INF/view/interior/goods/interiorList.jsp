@@ -8,28 +8,33 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<table>
-		<tr>
-			<td><a href="../addInterior">새 상품 등록</a></td>
-		</tr>
-		<tr>
-			<th>번호</th>
-			<th>분류</th>
-			<th>이름</th>
-			<th>이미지</th>
-			<th>구성</th>
-			<th>상세정보</th>
-		</tr>
-		<c:forEach items="${list}" var="dto" varStatus="cnt">
-			<tr>
-				<td>${dto.goodsNo }</td>
-				<td>${dto.goodsClass }</td>
-				<td>${dto.goodsName }</td>
-				<td>-</td>
-				<td>${dto.goodsSet }</td>
-				<td>${dto.goodsDetail }</td>
-			</tr>
+	<a href="../addInterior">새 상품 등록</a>
+	<hr />
+	<c:forEach items="${list}" var="dto" varStatus="cnt">
+		<c:forEach items="${revScore }" var="revScore" varStatus="cnt">
+			<div
+				onclick="location.href='<c:url value="../interior/goodsDetail?goodsNo=${dto.goodsNo }"/>'"
+				style="cursor: pointer;">
+				<c:forTokens items="${dto.goodsImg }" delims=":" var="i" begin="0"
+					end="0">
+					<img alt="" src="../goods/upload/${i }" width="30px">
+				</c:forTokens>
+				<br /> ${dto.goodsName }<br />
+				<c:if test="${revScore.reviewScore } == null">
+				0
+				</c:if>
+				<c:if test="${revScore.reviewScore } != null">
+				${revScore.reviewScore }
+				</c:if>
+				&nbsp;&nbsp;&nbsp;
+				<c:if test="${revScore.reviewCount } == null">
+				0
+				</c:if>
+				<c:if test="${revScore.reviewCount } != null">
+				${revScore.reviewCount }
+				</c:if>
+			</div>
 		</c:forEach>
-	</table>
+	</c:forEach>
 </body>
 </html>

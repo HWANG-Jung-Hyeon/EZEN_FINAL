@@ -1,6 +1,8 @@
 package repository.Interior;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -49,6 +51,11 @@ public class InteriorRepository {
 	public int getReviewCount() {
 		statement = namespace + ".getReviewCount";
 		return sqlSession.selectOne(statement);
+	}
+
+	public Map<Object, Object> getIntScore() {
+		statement = namespace + ".getScorePerGoods";
+		return sqlSession.selectMap(namespace+statement, "goods_no");
 	}
 
 }

@@ -10,7 +10,7 @@
 <body>
 후기가 성공적으로 등록되었습니다. <br />
 <button value="메인으로 이동" onclick="<c:url value='/'/>"></button>&nbsp;
-<button value="입력한 후기 보기" onclick="<c:url value='/interior/review/reviewDetail?reviewNo=${reviewNo}'/>"></button>
+<button value="입력한 후기 보기" onclick="<c:url value='/interior/reviewDetail?reviewNo=${reviewNo}'/>"></button>
 
 </body>
 </html>

@@ -52,10 +52,32 @@
 					</where>
 					order by goods_no desc)
 				)
+<!--
+select *
+	from (select rownum rn, GOODS_NO, GOODS_CLASS, GOODS_NAME, GOODS_SET, GOODS_DETAIL, GOODS_IMG, GOODS_QTY, 
+				GOODS_PRICE, review_no, REVIEW_SCORE, REVIEW_IMG, REVIEW_DETAIL, MEM_ID 
+			from(select gd.GOODS_NO, GOODS_CLASS, GOODS_NAME, GOODS_SET, GOODS_DETAIL, GOODS_IMG, GOODS_QTY, GOODS_PRICE, 
+						review_no, REVIEW_SCORE, REVIEW_IMG, REVIEW_DETAIL, MEM_ID 
+					from goods gd, int_rev rev)
+					<where>
+						<if test="goodsNo != null">
+							goods_No = #{goodsNo}
+						</if>
+						gd.goods_no = rev.goods_no and goods_qty is null
+					</where>
+					order by goods_no desc)
+					)
+-->
 <if test="startEndPageDTO != null">
 where rn between #{startEndPageDTO.startPage} 
 	and #{startEndPageDTO.endPage}
 </if>
+</select>
+<select id="getScorePerGoods" parameterType="java.util.List">
+select GOODS_NO, avg(REVIEW_SCORE) review_score, count(*)review_count
+from int_rev 
+group by goods_no
+order by goods_no desc
 </select>
 <select id="getIntCount" parameterType="int">
 	select count(*) from goods

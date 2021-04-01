@@ -1,6 +1,8 @@
 package service.interior;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -8,6 +10,7 @@ import org.springframework.ui.Model;
 
 import controller.PageAction;
 import model.GoodsDTO;
+import model.IntRevDTO;
 import model.StartEndPageDTO;
 import repository.Interior.InteriorRepository;
 
@@ -27,6 +30,8 @@ public class IntListService {
 		int count = interiorRepository.getIntCount();
 		model.addAttribute("list", list);
 		model.addAttribute("count", count);
+		Map<Object, Object> revScore = interiorRepository.getIntScore();
+		model.addAttribute("revScore", revScore);
 
 		PageAction pageAction = new PageAction();
 		pageAction.page(model, count, limit, limitPage, page, "IntList?");
