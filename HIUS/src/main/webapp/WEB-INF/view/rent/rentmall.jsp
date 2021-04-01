@@ -14,7 +14,7 @@
 <table border="1">
 	<c:forEach items="${list }" var="dto">
 	<tr><td>렌트상품번호 :${dto.rentGoodsNo } </td>
-	    <td> 상품명: <a href="rentmallDetail?no=${dto.rentGoodsName }">${dto.rentGoodsName }</a></td>
+	    <td> 상품명: <a href="rentmallDetail?no=${dto.rentGoodsNo }">${dto.rentGoodsName }</a></td>
 	    <td rowspan="2">상품이미지: <img src="../lent/image/${fn:replace(dto.rentGoodsImg , '`', '' )}" /></td></tr>
 	<tr><td>대여가능상품수량 :${dto.rentGoodsQty } </td><td>상품가격: ${dto.rentGoodsPrice }</td></tr>
 	</c:forEach>

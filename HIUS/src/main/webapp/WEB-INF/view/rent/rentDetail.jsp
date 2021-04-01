@@ -29,7 +29,6 @@ function rentOrderAdd() {
 			if(result.trim()=="1"){
 				if(confirm("예약목록으로 가시려면 '예'를 누르세요")){
 					location.href="rentCartList";
-					}
 				}else{
 					alert("예약목록에 담기지 않았습니다.\n다시 시도하세요.");
 				}
@@ -70,7 +69,7 @@ function rentOrderAdd() {
 						</c:forEach>	
 				</select>
 			</td></tr>
-	<tr><td>대여수량선택 : <select name="rentstartq">
+	<tr><td>대여수량선택 :<select name="rentstartq">
 						<c:forEach begin="1" end="${lent.rentGoodsQty }" var="i">
 						<option>${i }</option>
 						</c:forEach>	

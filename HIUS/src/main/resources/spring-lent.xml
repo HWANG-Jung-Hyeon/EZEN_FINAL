@@ -20,4 +20,5 @@
 	<bean class="service.rentmall.RentCartListService" />
 	<bean class="service.rentmall.RentOrderBuyService" />
 	<bean class="service.rentmall.RentBuyInfoService" />
+	<bean class="service.rentmall.RentBuyListService" />
 </beans>

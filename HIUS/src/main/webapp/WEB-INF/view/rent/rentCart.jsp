@@ -7,9 +7,16 @@
 <title>Insert title here</title>
 </head>
 <body>
+<table border="1"></table>
 	<tr><td colspan="3">예약내역 확인</td></tr>
-	<tr><td>렌트상품번호 : ${dto.rentGoodsNo}</td><td><a href="lentDetail?no=${dto.rentGoodsNo}">상품명: ${dto.rentGoodsName}</a></td><td rowspan="2">상품이미지: ${dto.rentGoodsImg}</td></tr>
-	<tr><td>고객님의 대여 수량 : </td><td>고객님의 대여시간 : </td><td>제품 대여요금 : </td></tr>
+<tr><td rowspan="2">예약이미지</td><td rowspan="2">렌트상품명</td><td rowspan="2">렌트날짜</td><td>렌트수량</td><td>렌트시작시간</td></tr>
+<tr><td>렌트 시간</td><td>렌트 비용</td></tr>
+</table>
+<table>
+<tr><td rowspan="2">예약이미지</td><td rowspan="2">렌트상품명</td><td rowspan="2">렌트날짜</td><td>렌트수량</td><td>렌트시작시간</td></tr>
+<tr><td>렌트 시간</td><td>렌트 비용</td></tr>
+
+</table>
 	
 	<tr><td colspan="3">총 대여요금 :</td></tr>
 </body>
