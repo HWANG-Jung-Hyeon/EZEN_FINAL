@@ -31,6 +31,7 @@
 							<li><a href="shop/shoppingmall">쇼핑몰</a></li>
 							<li><a href="rent/rentmall">제품 대여</a></li>
 							<li><a href="partyRoom/partyInfo">파티룸 예약</a></li>
+							<li><a href="interior/main">인테리어 시공</a></li>
 							
 						</c:if>
 						<c:if test="${authInfo.grade == 'emp' }">
